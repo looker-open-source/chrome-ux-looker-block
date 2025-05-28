@@ -1,15 +1,16 @@
 view: country_summary {
-  sql_table_name: `chrome-ux-report.materialized.country_summary` ;;
 
-  dimension: _2_gdensity {
+  fields_hidden_by_default: yes
+
+  dimension: 2GDensity {
     type: number
     sql: ${TABLE}._2GDensity ;;
   }
-  dimension: _3_gdensity {
+  dimension: 3GDdensity {
     type: number
     sql: ${TABLE}._3GDensity ;;
   }
-  dimension: _4_gdensity {
+  dimension: 4GDdensity {
     type: number
     sql: ${TABLE}._4GDensity ;;
   }

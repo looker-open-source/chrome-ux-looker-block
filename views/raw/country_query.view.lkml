@@ -1,4 +1,6 @@
 view: country_query {
+
+  fields_hidden_by_default: yes
   sql_table_name: `chrome-ux-report.materialized.country_query` ;;
 
   dimension: _2_gdensity {

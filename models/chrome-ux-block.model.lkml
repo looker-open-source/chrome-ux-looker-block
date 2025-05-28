@@ -10,19 +10,30 @@ datagroup: chrome_ux_block_default_datagroup {
 
 persist_with: chrome_ux_block_default_datagroup
 
-explore: metrics_query {}
+explore: metrics_query {
+  hidden: yes
+}
 
-explore: device_query {}
+explore: device_query {
+  hidden: yes
+}
 
-explore: metrics_summary {}
+explore: metrics_summary {
+  hidden: yes
+}
 
-explore: country_query {}
+explore: country_query {
+  hidden: yes
+}
 
-explore: device_summary {}
+explore: device_summary {
+  hidden: yes
+}
 
 explore: origin_summary {}
 
 explore: country_summary {}
 
-explore: origin_query {}
-
+explore: origin_query {
+  hidden: yes
+}

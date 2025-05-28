@@ -1,4 +1,6 @@
 view: device_query {
+
+  fields_hidden_by_default: yes
   sql_table_name: `chrome-ux-report.materialized.device_query` ;;
 
   dimension: _2_gdensity {
