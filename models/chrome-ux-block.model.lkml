@@ -32,7 +32,14 @@ explore: device_summary {
 
 explore: origin_summary {}
 
-explore: country_summary {}
+explore: country_summary {
+  always_filter: {
+    filters: [country_summary.origin: "-EMPTY"]
+  }
+  sql_always_where: ${device} IS NOT NULL  AND
+                    ${origin} IS NOT NULL  AND
+                    ${origin} LIKE 'https://%';;
+}
 
 explore: origin_query {
   hidden: yes

@@ -9,11 +9,209 @@ view: +country_summary {
         FROM `chrome-ux-report.materialized.country_summary` ;;
   }
 
+  dimension: crux_vis_tool {
+    type: string
+    html:  <p style="font-size: 16px;">👉 Try <a href="https://cruxvis.withgoogle.com/#/?view=cwvsummary&url={{ country_summary.origin._value | url_encode }}" target="_blank" style="text-decoration: none;">CrUX Vis</a> to visualize the Core Web Vitals from CrUX as time series!</p> ;;
+    hidden: yes
+    sql: " ";;
+  }
+  #  https://cruxvis.withgoogle.com/#/?view=cwvsummary&url=https://cloud.google.com
+  ### PARAMETERS ###
+
+  parameter: dynamic_metric {
+    hidden: no
+    label: "Core Web Vitals Metric"
+    type: unquoted
+    default_value: "lcp"
+    allowed_value: {
+      value: "lcp"
+      label: "Largest Contentful Paint (LCP)"
+    }
+    allowed_value: {
+      value: "inp"
+      label: "Interaction to Next Paint (INP)"
+    }
+    allowed_value: {
+      value: "cls"
+      label: "Cumulative Layout Shift (CLS)"
+    }
+    allowed_value: {
+      value: "dcl"
+      label: "DOM Content Loaded (DCL)"
+    }
+    allowed_value: {
+      value: "fcp"
+      label: "First Contentful Paint (FCP)"
+    }
+    allowed_value: {
+      value: "fid"
+      label: "First Input Delay (FID)"
+    }
+    allowed_value: {
+      value: "fp"
+      label: "First Paint (FP)"
+    }
+    allowed_value: {
+      value: "ol"
+      label: "Onload (OL)"
+    }
+    allowed_value: {
+      value: "ttfb"
+      label: "Time to First Byte (TTFB)"
+    }
+  }
+
+  measure: dynamic_good_pct_metric{
+    # label_from_parameter: dynamic_metric
+    type: number
+    value_format_name: percent_2
+
+    group_label: "Dynamic Core Metrics"
+
+    description: "Displays the 'Good' performance percentage for the Core Web Vitals metric selected by the user."
+
+    label: "{% if dynamic_metric._parameter_value == 'lcp' %} Good LCP %
+    {% elsif dynamic_metric._parameter_value == 'inp' %} Good INP %
+    {% elsif dynamic_metric._parameter_value == 'cls' %} Good CLS %
+    {% elsif dynamic_metric._parameter_value == 'dcl' %} Good DCL %
+    {% elsif dynamic_metric._parameter_value == 'fcp' %} Good FCP %
+    {% elsif dynamic_metric._parameter_value == 'fid' %} Good FID %
+    {% elsif dynamic_metric._parameter_value == 'fp' %} Good FP %
+    {% elsif dynamic_metric._parameter_value == 'ol' %} Good Onload %
+    {% elsif dynamic_metric._parameter_value == 'ttfb' %} Good TTFB %
+    {% else %} Good %
+    {% endif %}"
+
+    sql:
+      {% if dynamic_metric._parameter_value == "lcp" %} ${avg_good_lcp_pct}
+        {% elsif dynamic_metric._parameter_value == "inp" %} ${avg_good_inp_pct}
+        {% elsif dynamic_metric._parameter_value == "cls" %} ${avg_good_cls_pct}
+        {% elsif dynamic_metric._parameter_value == "dcl" %} ${avg_good_dcl_pct}
+        {% elsif dynamic_metric._parameter_value == "fcp" %} ${avg_good_fcp_pct}
+        {% elsif dynamic_metric._parameter_value == "fid" %} ${avg_good_fid_pct}
+        {% elsif dynamic_metric._parameter_value == "fp" %} ${avg_good_fp_pct}
+        {% elsif dynamic_metric._parameter_value == "ol" %} ${avg_good_ol_pct}
+        {% elsif dynamic_metric._parameter_value == "ttfb" %} ${avg_good_ttfb_pct}
+        {% else %} ${avg_good_lcp_pct}
+      {% endif %};;
+      hidden: no
+  }
+
+  measure: dynamic_ni_pct_metric {
+    type: number
+    value_format_name: percent_2
+    hidden: no
+
+    group_label: "Dynamic Core Metrics"
+
+    description: "Displays the 'Needs Improvement' performance percentage for the Core Web Vitals metric selected by the user."
+
+    # Dynamic label for "Needs Improvement"
+    label: "{% if dynamic_metric._parameter_value == 'lcp' %} NIP LCP %
+    {% elsif dynamic_metric._parameter_value == 'inp' %} NIP INP %
+    {% elsif dynamic_metric._parameter_value == 'cls' %} NIP CLS %
+    {% elsif dynamic_metric._parameter_value == 'dcl' %} NIP DCL %
+    {% elsif dynamic_metric._parameter_value == 'fcp' %} NIP FCP %
+    {% elsif dynamic_metric._parameter_value == 'fid' %} NIP FID %
+    {% elsif dynamic_metric._parameter_value == 'fp' %} NIP FP %
+    {% elsif dynamic_metric._parameter_value == 'ol' %} NIP Onload %
+    {% elsif dynamic_metric._parameter_value == 'ttfb' %} NIP TTFB %
+    {% else %} Needs Improvement %
+    {% endif %}"
+
+    sql:
+      {% if dynamic_metric._parameter_value == "lcp" %} ${avg_ni_lcp_pct}
+      {% elsif dynamic_metric._parameter_value == "inp" %} ${avg_ni_inp_pct}
+      {% elsif dynamic_metric._parameter_value == "cls" %} ${avg_ni_cls_pct}
+      {% elsif dynamic_metric._parameter_value == "dcl" %} ${avg_ni_dcl_pct}
+      {% elsif dynamic_metric._parameter_value == "fcp" %} ${avg_ni_fcp_pct}
+      {% elsif dynamic_metric._parameter_value == "fid" %} ${avg_ni_fid_pct}
+      {% elsif dynamic_metric._parameter_value == "fp" %} ${avg_ni_fp_pct}
+      {% elsif dynamic_metric._parameter_value == "ol" %} ${avg_ni_ol_pct}
+      {% elsif dynamic_metric._parameter_value == "ttfb" %} ${avg_ni_ttfb_pct}
+      {% else %} ${avg_ni_lcp_pct}
+      {% endif %};;
+  }
+
+  measure: dynamic_poor_pct_metric {
+    type: number
+    value_format_name: percent_2
+    hidden: no
+
+    group_label: "Dynamic Core Metrics"
+
+    description: "Displays the 'Poor' performance percentage for the Core Web Vitals metric selected by the user."
+
+    # Dynamic label for "Poor"
+    label: "{% if dynamic_metric._parameter_value == 'lcp' %} Poor LCP %
+    {% elsif dynamic_metric._parameter_value == 'inp' %} Poor INP %
+    {% elsif dynamic_metric._parameter_value == 'cls' %} Poor CLS %
+    {% elsif dynamic_metric._parameter_value == 'dcl' %} Poor DCL %
+    {% elsif dynamic_metric._parameter_value == 'fcp' %} Poor FCP %
+    {% elsif dynamic_metric._parameter_value == 'fid' %} Poor FID %
+    {% elsif dynamic_metric._parameter_value == 'fp' %} Poor FP %
+    {% elsif dynamic_metric._parameter_value == 'ol' %} Poor Onload %
+    {% elsif dynamic_metric._parameter_value == 'ttfb' %} Poor TTFB %
+    {% else %} Poor %
+    {% endif %}"
+
+    sql:
+      {% if dynamic_metric._parameter_value == "lcp" %} ${avg_poor_lcp_pct}
+      {% elsif dynamic_metric._parameter_value == "inp" %} ${avg_poor_inp_pct}
+      {% elsif dynamic_metric._parameter_value == "cls" %} ${avg_poor_cls_pct}
+      {% elsif dynamic_metric._parameter_value == "dcl" %} ${avg_poor_dcl_pct}
+      {% elsif dynamic_metric._parameter_value == "fcp" %} ${avg_poor_fcp_pct}
+      {% elsif dynamic_metric._parameter_value == "fid" %} ${avg_poor_fid_pct}
+      {% elsif dynamic_metric._parameter_value == "fp" %} ${avg_poor_fp_pct}
+      {% elsif dynamic_metric._parameter_value == "ol" %} ${avg_poor_ol_pct}
+      {% elsif dynamic_metric._parameter_value == "ttfb" %} ${avg_poor_ttfb_pct}
+      {% else %} ${avg_poor_lcp_pct}
+      {% endif %};;
+  }
+
+  measure: dynamic_p75_metric {
+    type: number
+
+    value_format_name: decimal_2
+    hidden: no
+
+    group_label: "Dynamic Core Metrics"
+
+    description: "Displays the 75th percentile value for the Core Web Vitals metric selected by the user."
+
+    # Dynamic label for P75 measures
+    label: "{% if dynamic_metric._parameter_value == 'lcp' %} P75 LCP
+    {% elsif dynamic_metric._parameter_value == 'inp' %} P75 INP
+    {% elsif dynamic_metric._parameter_value == 'cls' %} P75 CLS
+    {% elsif dynamic_metric._parameter_value == 'dcl' %} P75 DCL
+    {% elsif dynamic_metric._parameter_value == 'fcp' %} P75 FCP
+    {% elsif dynamic_metric._parameter_value == 'fid' %} P75 FID
+    {% elsif dynamic_metric._parameter_value == 'fp' %} P75 FP
+    {% elsif dynamic_metric._parameter_value == 'ol' %} P75 Onload
+    {% elsif dynamic_metric._parameter_value == 'ttfb' %} P75 TTFB
+    {% elsif dynamic_metric._parameter_value == 'rtt' %} P75 RTT
+    {% else %} P75 Value
+    {% endif %}"
+
+    sql:
+      {% if dynamic_metric._parameter_value == "lcp" %} ${avg_p75_lcp}
+      {% elsif dynamic_metric._parameter_value == "inp" %} ${avg_p75_inp}
+      {% elsif dynamic_metric._parameter_value == "cls" %} ${avg_p75_cls}
+      {% elsif dynamic_metric._parameter_value == "dcl" %} ${avg_p75_dcl}
+      {% elsif dynamic_metric._parameter_value == "fcp" %} ${avg_p75_fcp}
+      {% elsif dynamic_metric._parameter_value == "fid" %} ${avg_p75_fid}
+      {% elsif dynamic_metric._parameter_value == "fp" %} ${avg_p75_fp}
+      {% elsif dynamic_metric._parameter_value == "ol" %} ${avg_p75_ol}
+      {% elsif dynamic_metric._parameter_value == "ttfb" %} ${avg_p75_ttfb}
+      {% elsif dynamic_metric._parameter_value == "rtt" %} ${avg_p75_rtt}
+      {% else %} ${avg_p75_lcp}
+      {% endif %};;
+  }
+
   dimension: pk {
     sql: ${TABLE}.primary_key ;;
     primary_key: yes
     description: "Unique identifier for each row in the dataset."
-    hidden: no
   }
 
   dimension_group: date {
@@ -108,6 +306,7 @@ view: +country_summary {
     group_label: "Traffic Segments"
     hidden: no
     description: "The URL of the site origin being measured."
+    html:  <p style="font-size: 16px;"><a href="{{ country_summary.origin._value }}" target="_blank" style="text-decoration: none;">{{ country_summary.origin._value}}</a></p> ;;
   }
 
   dimension: p75_dcl {
