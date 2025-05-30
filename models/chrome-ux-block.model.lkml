@@ -19,7 +19,11 @@ explore: device_query {
 }
 
 explore: metrics_summary {
-  hidden: yes
+  always_filter: {
+    filters: [metrics_summary.origin: "-EMPTY"]
+  }
+  sql_always_where: ${origin} IS NOT NULL  AND
+                    ${origin} LIKE 'https://%';;
 }
 
 explore: country_query {
@@ -27,7 +31,11 @@ explore: country_query {
 }
 
 explore: device_summary {
-  hidden: yes
+  always_filter: {
+    filters: [device_summary.origin: "-EMPTY"]
+  }
+  sql_always_where: ${origin} IS NOT NULL  AND
+    ${origin} LIKE 'https://%';;
 }
 
 explore: origin_summary {}

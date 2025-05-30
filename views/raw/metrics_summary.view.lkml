@@ -1,17 +1,16 @@
 view: metrics_summary {
 
   fields_hidden_by_default: yes
-  sql_table_name: `chrome-ux-report.materialized.metrics_summary` ;;
 
-  dimension: _2_gdensity {
+  dimension: 2GDensity {
     type: number
     sql: ${TABLE}._2GDensity ;;
   }
-  dimension: _3_gdensity {
+  dimension: 3GDensity {
     type: number
     sql: ${TABLE}._3GDensity ;;
   }
-  dimension: _4_gdensity {
+  dimension: 4GDensity {
     type: number
     sql: ${TABLE}._4GDensity ;;
   }
