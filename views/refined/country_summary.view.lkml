@@ -613,102 +613,102 @@ view: +country_summary {
   }
 
   measure: avg_p75_lcp {
-    type: average
+    type: median
     sql: ${p75_lcp} ;;
     value_format_name: decimal_1
-    label: "Average P75 LCP"
-    description: "The average 75th percentile value for Largest Contentful Paint across selected segments (in milliseconds)."
-    group_label: "Average Percentile Values"
+    label: "Median P75 LCP"
+    description: "The Median 75th percentile value for Largest Contentful Paint across selected segments (in milliseconds)."
+    group_label: "Median Percentile Values"
     hidden: no
   }
 
   measure: avg_p75_inp {
-    type: average
+    type: median
     sql: ${p75_inp} ;;
     value_format_name: decimal_1
-    label: "Average P75 INP"
-    description: "The average 75th percentile value for Interaction to Next Paint across selected segments (in milliseconds)."
-    group_label: "Average Percentile Values"
+    label: "Median P75 INP"
+    description: "The Median 75th percentile value for Interaction to Next Paint across selected segments (in milliseconds)."
+    group_label: "Median Percentile Values"
     hidden: no
   }
 
   measure: avg_p75_cls {
-    type: average
+    type: median
     sql: ${p75_cls} ;;
     value_format_name: decimal_2
-    label: "Average P75 CLS"
-    description: "The average 75th percentile value for Cumulative Layout Shift across selected segments."
-    group_label: "Average Percentile Values"
+    label: "Median P75 CLS"
+    description: "The Median 75th percentile value for Cumulative Layout Shift across selected segments."
+    group_label: "Median Percentile Values"
     hidden: no
   }
 
   measure: avg_p75_fcp {
-    type: average
+    type: median
     sql: ${p75_fcp} ;;
     value_format_name: decimal_1
-    label: "Average P75 FCP"
-    description: "The average 75th percentile value for First Contentful Paint across selected segments (in milliseconds)."
-    group_label: "Average Percentile Values"
+    label: "Median P75 FCP"
+    description: "The Median 75th percentile value for First Contentful Paint across selected segments (in milliseconds)."
+    group_label: "Median Percentile Values"
     hidden: no
   }
 
   measure: avg_p75_fid {
-    type: average
+    type: median
     sql: ${p75_fid} ;;
     value_format_name: decimal_1
-    label: "Average P75 FID"
-    description: "The average 75th percentile value for First Input Delay across selected segments (in milliseconds)."
-    group_label: "Average Percentile Values"
+    label: "Median P75 FID"
+    description: "The Median 75th percentile value for First Input Delay across selected segments (in milliseconds)."
+    group_label: "Median Percentile Values"
     hidden: no
   }
 
   measure: avg_p75_fp {
-    type: average
+    type: median
     sql: ${p75_fp} ;;
     value_format_name: decimal_1
-    label: "Average P75 FP"
-    description: "The average 75th percentile value for First Paint across selected segments (in milliseconds)."
-    group_label: "Average Percentile Values"
+    label: "Median P75 FP"
+    description: "The Median 75th percentile value for First Paint across selected segments (in milliseconds)."
+    group_label: "Median Percentile Values"
     hidden: no
   }
 
   measure: avg_p75_ttfb {
-    type: average
+    type: median
     sql: ${p75_ttfb} ;;
     value_format_name: decimal_1
-    label: "Average P75 TTFB"
-    description: "The average 75th percentile value for Time to First Byte across selected segments (in milliseconds)."
-    group_label: "Average Percentile Values"
+    label: "Median P75 TTFB"
+    description: "The Median 75th percentile value for Time to First Byte across selected segments (in milliseconds)."
+    group_label: "Median Percentile Values"
     hidden: no
   }
 
   measure: avg_p75_dcl {
-    type: average
+    type: median
     sql: ${p75_dcl} ;;
     value_format_name: decimal_1
-    label: "Average P75 DCL"
-    description: "The average 75th percentile value for DOM Content Loaded across selected segments (in milliseconds)."
-    group_label: "Average Percentile Values"
+    label: "Median P75 DCL"
+    description: "The Median 75th percentile value for DOM Content Loaded across selected segments (in milliseconds)."
+    group_label: "Median Percentile Values"
     hidden: no
   }
 
   measure: avg_p75_ol {
-    type: average
+    type: median
     sql: ${p75_ol} ;;
     value_format_name: decimal_1
-    label: "Average P75 Onload"
-    description: "The average 75th percentile value for Onload across selected segments (in milliseconds)."
-    group_label: "Average Percentile Values"
+    label: "Median P75 Onload"
+    description: "The Median 75th percentile value for Onload across selected segments (in milliseconds)."
+    group_label: "Median Percentile Values"
     hidden: no
   }
 
   measure: avg_p75_rtt {
-    type: average
+    type: median
     sql: ${p75_rtt} ;;
     value_format_name: decimal_1
-    label: "Average P75 RTT"
-    description: "The average 75th percentile value for Round-Trip Time across selected segments (in milliseconds)."
-    group_label: "Average Percentile Values"
+    label: "Median P75 RTT"
+    description: "The Median 75th percentile value for Round-Trip Time across selected segments (in milliseconds)."
+    group_label: "Median Percentile Values"
     hidden: no
   }
 

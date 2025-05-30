@@ -328,7 +328,6 @@
     explore: device_summary
     type: marketplace_viz_multiple_value::multiple_value-marketplace
     fields: [device_summary.crux_vis_tool]
-    filters: {}
     sorts: [device_summary.crux_vis_tool]
     limit: 1
     column_limit: 50
