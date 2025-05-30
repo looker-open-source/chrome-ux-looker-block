@@ -1,7 +1,7 @@
 connection: "bq-looker-marketplace"
 
 # include all the views
-include: "/views/**/*.view.lkml"
+include: "/views/refined/**/*.view.lkml"
 include: "/dashboards/*.dashboard"
 
 datagroup: chrome_ux_block_default_datagroup {

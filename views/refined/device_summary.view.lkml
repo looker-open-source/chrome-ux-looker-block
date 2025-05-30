@@ -12,7 +12,7 @@ view: +device_summary {
   dimension: crux_vis_tool {
     type: string
     html:  <p style="font-size: 16px;">👉 Try <a href="https://cruxvis.withgoogle.com/#/?view=cwvsummary&url={{ country_summary.origin._value | url_encode }}" target="_blank" style="text-decoration: none;">CrUX Vis</a> to visualize the Core Web Vitals from CrUX as time series!</p> ;;
-    hidden: yes
+    hidden: no
     sql: " ";;
   }
   #  https://cruxvis.withgoogle.com/#/?view=cwvsummary&url=https://cloud.google.com
@@ -302,6 +302,13 @@ view: +device_summary {
     hidden: no
     description: "The URL of the site origin being measured."
     html:  <p style="font-size: 16px;"><a href="{{ country_summary.origin._value }}" target="_blank" style="text-decoration: none;">{{ country_summary.origin._value}}</a></p> ;;
+  }
+
+  dimension: device {
+    label: "Device Type"
+    group_label: "Traffic Segments"
+    hidden: no
+    description: "The form factor of user devices (e.g., phone, desktop, tablet)."
   }
 
   dimension: p75_dcl {
