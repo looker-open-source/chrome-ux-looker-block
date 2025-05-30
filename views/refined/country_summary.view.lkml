@@ -713,7 +713,7 @@ view: +country_summary {
   }
 
   measure: avg_good_lcp_pct {
-    type: average
+    type: sum
     sql: ${fast_lcp} ;;
     value_format_name: percent_2
     label: "Avg Good LCP %"
@@ -723,7 +723,7 @@ view: +country_summary {
   }
 
   measure: avg_ni_lcp_pct {
-    type: average
+    type: sum
     sql: ${avg_lcp} ;;
     value_format_name: percent_2
     label: "Avg Needs Improvement LCP %"
@@ -733,7 +733,7 @@ view: +country_summary {
   }
 
   measure: avg_poor_lcp_pct {
-    type: average
+    type: sum
     sql: ${slow_lcp} ;;
     value_format_name: percent_2
     label: "Avg Poor LCP %"
@@ -743,7 +743,7 @@ view: +country_summary {
   }
 
   measure: avg_good_inp_pct {
-    type: average
+    type: sum
     sql: ${fast_inp} ;;
     value_format_name: percent_2
     label: "Avg Good INP %"
@@ -753,7 +753,7 @@ view: +country_summary {
   }
 
   measure: avg_ni_inp_pct {
-    type: average
+    type: sum
     sql: ${avg_inp} ;;
     value_format_name: percent_2
     label: "Avg Needs Improvement INP %"
@@ -763,7 +763,7 @@ view: +country_summary {
   }
 
   measure: avg_poor_inp_pct {
-    type: average
+    type: sum
     sql: ${slow_inp} ;;
     value_format_name: percent_2
     label: "Avg Poor INP %"
@@ -773,7 +773,7 @@ view: +country_summary {
   }
 
   measure: avg_good_cls_pct {
-    type: average
+    type: sum
     sql: ${small_cls} ;;
     value_format_name: percent_2
     label: "Avg Good CLS %"
@@ -783,7 +783,7 @@ view: +country_summary {
   }
 
   measure: avg_ni_cls_pct {
-    type: average
+    type: sum
     sql: ${medium_cls} ;;
     value_format_name: percent_2
     label: "Avg Needs Improvement CLS %"
@@ -793,7 +793,7 @@ view: +country_summary {
   }
 
   measure: avg_poor_cls_pct {
-    type: average
+    type: sum
     sql: ${large_cls} ;;
     value_format_name: percent_2
     label: "Avg Poor CLS %"
@@ -803,7 +803,7 @@ view: +country_summary {
   }
 
   measure: avg_good_fcp_pct {
-    type: average
+    type: sum
     sql: ${fast_fcp} ;;
     value_format_name: percent_2
     label: "Avg Good FCP %"
@@ -812,7 +812,7 @@ view: +country_summary {
     hidden: no
   }
   measure: avg_ni_fcp_pct {
-    type: average
+    type: sum
     sql: ${avg_fcp} ;;
     value_format_name: percent_2
     label: "Avg Needs Improvement FCP %"
@@ -821,7 +821,7 @@ view: +country_summary {
     hidden: no
   }
   measure: avg_poor_fcp_pct {
-    type: average
+    type: sum
     sql: ${slow_fcp} ;;
     value_format_name: percent_2
     label: "Avg Poor FCP %"
@@ -831,7 +831,7 @@ view: +country_summary {
   }
 
   measure: avg_good_fp_pct {
-    type: average
+    type: sum
     sql: ${fast_fp} ;;
     value_format_name: percent_2
     label: "Avg Good FP %"
@@ -840,7 +840,7 @@ view: +country_summary {
     hidden: no
   }
   measure: avg_ni_fp_pct {
-    type: average
+    type: sum
     sql: ${avg_fp} ;;
     value_format_name: percent_2
     label: "Avg Needs Improvement FP %"
@@ -849,7 +849,7 @@ view: +country_summary {
     hidden: no
   }
   measure: avg_poor_fp_pct {
-    type: average
+    type: sum
     sql: ${slow_fp} ;;
     value_format_name: percent_2
     label: "Avg Poor FP %"
@@ -859,7 +859,7 @@ view: +country_summary {
   }
 
   measure: avg_good_fid_pct {
-    type: average
+    type: sum
     sql: ${fast_fid} ;;
     value_format_name: percent_2
     label: "Avg Good FID %"
@@ -868,7 +868,7 @@ view: +country_summary {
     hidden: no
   }
   measure: avg_ni_fid_pct {
-    type: average
+    type: sum
     sql: ${avg_fid} ;;
     value_format_name: percent_2
     label: "Avg Needs Improvement FID %"
@@ -877,7 +877,7 @@ view: +country_summary {
     hidden: no
   }
   measure: avg_poor_fid_pct {
-    type: average
+    type: sum
     sql: ${slow_fid} ;;
     value_format_name: percent_2
     label: "Avg Poor FID %"
@@ -887,7 +887,7 @@ view: +country_summary {
   }
 
   measure: avg_good_dcl_pct {
-    type: average
+    type: sum
     sql: ${fast_dcl} ;;
     value_format_name: percent_2
     label: "Avg Good DCL %"
@@ -896,7 +896,7 @@ view: +country_summary {
     hidden: no
   }
   measure: avg_ni_dcl_pct {
-    type: average
+    type: sum
     sql: ${avg_dcl} ;;
     value_format_name: percent_2
     label: "Avg Needs Improvement DCL %"
@@ -905,7 +905,7 @@ view: +country_summary {
     hidden: no
   }
   measure: avg_poor_dcl_pct {
-    type: average
+    type: sum
     sql: ${slow_dcl} ;;
     value_format_name: percent_2
     label: "Avg Poor DCL %"
@@ -915,7 +915,7 @@ view: +country_summary {
   }
 
   measure: avg_good_ol_pct {
-    type: average
+    type: sum
     sql: ${fast_ol} ;;
     value_format_name: percent_2
     label: "Avg Good Onload %"
@@ -924,7 +924,7 @@ view: +country_summary {
     hidden: no
   }
   measure: avg_ni_ol_pct {
-    type: average
+    type: sum
     sql: ${avg_ol} ;;
     value_format_name: percent_2
     label: "Avg Needs Improvement Onload %"
@@ -933,7 +933,7 @@ view: +country_summary {
     hidden: no
   }
   measure: avg_poor_ol_pct {
-    type: average
+    type: sum
     sql: ${slow_ol} ;;
     value_format_name: percent_2
     label: "Avg Poor Onload %"
@@ -943,7 +943,7 @@ view: +country_summary {
   }
 
   measure: avg_good_ttfb_pct {
-    type: average
+    type: sum
     sql: ${fast_ttfb} ;;
     value_format_name: percent_2
     label: "Avg Good TTFB %"
@@ -952,7 +952,7 @@ view: +country_summary {
     hidden: no
   }
   measure: avg_ni_ttfb_pct {
-    type: average
+    type: sum
     sql: (1 - ${fast_ttfb} - ${slow_ttfb}) ;;
     value_format_name: percent_2
     label: "Avg Needs Improvement TTFB %"
@@ -961,7 +961,7 @@ view: +country_summary {
     hidden: no
   }
   measure: avg_poor_ttfb_pct {
-    type: average
+    type: sum
     sql: ${slow_ttfb} ;;
     value_format_name: percent_2
     label: "Avg Poor TTFB %"

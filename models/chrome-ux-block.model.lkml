@@ -1,4 +1,4 @@
-connection: "bq"
+connection: "bq-looker-marketplace"
 
 # include all the views
 include: "/views/**/*.view.lkml"
