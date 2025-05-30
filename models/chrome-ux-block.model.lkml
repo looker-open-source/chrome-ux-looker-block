@@ -2,6 +2,7 @@ connection: "bq-looker-marketplace"
 
 # include all the views
 include: "/views/**/*.view.lkml"
+include: "/dashboards/*.dashboard"
 
 datagroup: chrome_ux_block_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
