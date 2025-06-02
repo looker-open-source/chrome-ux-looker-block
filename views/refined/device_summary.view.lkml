@@ -224,7 +224,7 @@ view: +device_summary {
   dimension_group: date {
     type: time
     timeframes: [raw, date, week, month, quarter, year, month_name]
-    convert_tz: no
+    # convert_tz: no
     datatype: date
     sql: ${TABLE}.date ;;
     hidden: no
@@ -613,7 +613,6 @@ view: +device_summary {
     group_label: "Basic Counts"
     hidden: no
   }
-
   measure: avg_p75_lcp {
     type: median
     sql: ${p75_lcp} ;;
@@ -814,16 +813,15 @@ view: +device_summary {
     hidden: no
   }
 
-  # measure: avg_good_fcp_pct_last_month {
-  #   group_label: "Period Over Period Measures"
-  #   type: period_over_period
-  #   kind: previous
-  #   based_on: avg_good_fcp_pct
-  #   based_on_time: date_month
-  #   period: month
-  #   value_format_name: decimal_0
-  #   hidden: no
-  # }
+  measure: avg_good_fcp_pct_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_good_fcp_pct
+    based_on_time: date_month
+    period: month
+    hidden: no
+  }
 
   measure: avg_ni_fcp_pct {
     type: sum
