@@ -6,3 +6,5 @@ project_name: "chrome-ux-block"
 # local_dependency: {
 #   project: "name_of_other_project"
 # }
+
+new_lookml_runtime: yes

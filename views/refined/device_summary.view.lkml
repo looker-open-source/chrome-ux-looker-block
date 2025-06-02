@@ -813,6 +813,18 @@ view: +device_summary {
     group_label: "Average Performance Categories"
     hidden: no
   }
+
+  # measure: avg_good_fcp_pct_last_month {
+  #   group_label: "Period Over Period Measures"
+  #   type: period_over_period
+  #   kind: previous
+  #   based_on: avg_good_fcp_pct
+  #   based_on_time: date_month
+  #   period: month
+  #   value_format_name: decimal_0
+  #   hidden: no
+  # }
+
   measure: avg_ni_fcp_pct {
     type: sum
     sql: ${avg_fcp} ;;
@@ -857,7 +869,6 @@ view: +device_summary {
     label: "Avg Poor FP %"
     description: "The average proportion of user experiences with a Poor First Paint (>= 3s) across selected segments."
     group_label: "Average Performance Categories"
-    hidden: no
   }
 
   measure: avg_good_fid_pct {
