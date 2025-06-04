@@ -12,7 +12,6 @@ view: +device_summary {
   dimension: crux_vis_tool {
     type: string
     html:  <p style="font-size: 16px;">👉 Try <a href="https://cruxvis.withgoogle.com/#/?view=cwvsummary&url={{ device_summary.origin._value | url_encode }}" target="_blank" style="text-decoration: none;">CrUX Vis</a> to visualize the Core Web Vitals from CrUX as time series!</p> ;;
-    hidden: no
     sql: " ";;
   }
   #  https://cruxvis.withgoogle.com/#/?view=cwvsummary&url=https://cloud.google.com
@@ -95,6 +94,41 @@ view: +device_summary {
         {% else %} ${avg_good_lcp_pct}
       {% endif %};;
     hidden: no
+  }
+
+  measure: dynamic_good_pct_metric_last_month{
+    # label_from_parameter: dynamic_metric
+    type: number
+    value_format_name: percent_2
+
+    group_label: "Dynamic Core Metrics POP"
+
+    description: "Displays the 'Good' performance percentage for the Core Web Vitals metric selected by the user."
+
+    label: "{% if dynamic_metric._parameter_value == 'lcp' %} Good LCP % Last Month
+    {% elsif dynamic_metric._parameter_value == 'inp' %} Good INP % Last Month
+    {% elsif dynamic_metric._parameter_value == 'cls' %} Good CLS % Last Month
+    {% elsif dynamic_metric._parameter_value == 'dcl' %} Good DCL % Last Month
+    {% elsif dynamic_metric._parameter_value == 'fcp' %} Good FCP % Last Month
+    {% elsif dynamic_metric._parameter_value == 'fid' %} Good FID % Last Month
+    {% elsif dynamic_metric._parameter_value == 'fp' %} Good FP % Last Month
+    {% elsif dynamic_metric._parameter_value == 'ol' %} Good Onload % Last Month
+    {% elsif dynamic_metric._parameter_value == 'ttfb' %} Good TTFB % Last Month
+    {% else %} Good % Last Month
+    {% endif %}"
+
+    sql:
+      {% if dynamic_metric._parameter_value == "lcp" %} ${avg_good_lcp_last_month}
+        {% elsif dynamic_metric._parameter_value == "inp" %} ${avg_good_inp_last_month}
+        {% elsif dynamic_metric._parameter_value == "cls" %} ${avg_good_cls_last_month}
+        {% elsif dynamic_metric._parameter_value == "dcl" %} ${avg_good_dcl_last_month}
+        {% elsif dynamic_metric._parameter_value == "fcp" %} ${avg_good_fcp_last_month}
+        {% elsif dynamic_metric._parameter_value == "fid" %} ${avg_good_fid_last_month}
+        {% elsif dynamic_metric._parameter_value == "fp" %} ${avg_good_fp_last_month}
+        {% elsif dynamic_metric._parameter_value == "ol" %} ${avg_good_ol_last_month}
+        {% elsif dynamic_metric._parameter_value == "ttfb" %} ${avg_good_ttfb_last_month}
+        {% else %} ${avg_good_lcp_last_month}
+      {% endif %};;
   }
 
   measure: dynamic_ni_pct_metric {
@@ -214,13 +248,7 @@ view: +device_summary {
     description: "Unique identifier for each row in the dataset."
   }
 
-  # dimension_group: date {
-  #   type: time
-  #   timeframes: [date, month, month_name, month_num, year, quarter]
-  #   sql: ${TABLE}.date ;;
-  #   hidden: no
-  #   description: "The first day of the month for the data collection period."
-  # }
+
   dimension_group: date {
     type: time
     timeframes: [raw, date, week, month, quarter, year, month_name]
@@ -617,6 +645,10 @@ view: +device_summary {
 ########################################################
 ########################################################
 
+  ###########################################
+  ###### Needs Inprovement POP Measures #####
+  ###########################################
+
   dimension_group: date_pop {
     type: time
     timeframes: [date, month]
@@ -723,6 +755,317 @@ view: +device_summary {
     value_format_name: percent_2
   }
 
+  ###########################################
+  ###### Needs Inprovement POP Measures #####
+  ###########################################
+
+  measure: avg_ni_cls_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_ni_cls_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: avg_ni_dcl_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_ni_dcl_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: avg_ni_fcp_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_ni_fcp_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: avg_ni_fid_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_ni_fid_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: avg_ni_fp_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_ni_fp_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: avg_ni_inp_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_ni_inp_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: avg_ni_lcp_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_ni_lcp_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: avg_ni_ol_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_ni_ol_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: avg_ni_ttfb_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_ni_ttfb_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  ###########################################
+  ###### Poor POP Measures #####
+  ###########################################
+
+  measure: avg_poor_cls_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_poor_cls_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: avg_poor_dcl_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_poor_dcl_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: avg_poor_fcp_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_poor_fcp_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: avg_poor_fid_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_poor_fid_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: avg_poor_fp_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_poor_fp_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: avg_poor_inp_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_poor_inp_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: avg_poor_lcp_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_poor_lcp_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: avg_poor_ol_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_poor_ol_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: avg_poor_ttfb_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_poor_ttfb_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  ###########################################
+  ########### P75 POP Measures #############
+  ###########################################
+
+  measure: avg_p75_cls_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_p75_cls
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: decimal_3
+  }
+
+  measure: avg_p75_dcl_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_p75_dcl
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: decimal_0
+  }
+
+  measure: avg_p75_fcp_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_p75_fcp
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: decimal_0
+  }
+
+  measure: avg_p75_fid_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_p75_fid
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: decimal_0
+  }
+
+  measure: avg_p75_fp_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_p75_fp
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: decimal_0
+  }
+
+  measure: avg_p75_inp_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_p75_inp
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: decimal_0
+  }
+
+  measure: avg_p75_lcp_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_p75_lcp
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: decimal_0
+  }
+
+  measure: avg_p75_ol_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_p75_ol
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: decimal_0
+  }
+
+  measure: avg_p75_ttfb_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_p75_ttfb
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: decimal_0
+  }
+
+  #######################
+
   measure: count {
     type: count
     label: "Record Count"
@@ -731,102 +1074,102 @@ view: +device_summary {
     hidden: no
   }
   measure: avg_p75_lcp {
-    type: median
+    type: average
     sql: ${p75_lcp} ;;
     value_format_name: decimal_0
-    label: "Median P75 LCP"
-    description: "The Median 75th percentile value for Largest Contentful Paint across selected segments (in milliseconds)."
-    group_label: "Median Percentile Values"
+    label: "Average P75 LCP"
+    description: "The Average 75th percentile value for Largest Contentful Paint across selected segments (in milliseconds)."
+    group_label: "Average Percentile Values"
     hidden: no
   }
 
   measure: avg_p75_inp {
-    type: median
+    type: average
     sql: ${p75_inp} ;;
     value_format_name: decimal_1
-    label: "Median P75 INP"
-    description: "The Median 75th percentile value for Interaction to Next Paint across selected segments (in milliseconds)."
-    group_label: "Median Percentile Values"
+    label: "Average P75 INP"
+    description: "The Average 75th percentile value for Interaction to Next Paint across selected segments (in milliseconds)."
+    group_label: "Average Percentile Values"
     hidden: no
   }
 
   measure: avg_p75_cls {
-    type: median
+    type: average
     sql: ${p75_cls} ;;
-    value_format_name: decimal_2
-    label: "Median P75 CLS"
-    description: "The Median 75th percentile value for Cumulative Layout Shift across selected segments."
-    group_label: "Median Percentile Values"
+    value_format_name: decimal_3
+    label: "Average P75 CLS"
+    description: "The Average 75th percentile value for Cumulative Layout Shift across selected segments."
+    group_label: "Average Percentile Values"
     hidden: no
   }
 
   measure: avg_p75_fcp {
-    type: median
+    type: average
     sql: ${p75_fcp} ;;
     value_format_name: decimal_1
-    label: "Median P75 FCP"
-    description: "The Median 75th percentile value for First Contentful Paint across selected segments (in milliseconds)."
-    group_label: "Median Percentile Values"
+    label: "Average P75 FCP"
+    description: "The Average 75th percentile value for First Contentful Paint across selected segments (in milliseconds)."
+    group_label: "Average Percentile Values"
     hidden: no
   }
 
   measure: avg_p75_fid {
-    type: median
+    type: average
     sql: ${p75_fid} ;;
     value_format_name: decimal_1
-    label: "Median P75 FID"
-    description: "The Median 75th percentile value for First Input Delay across selected segments (in milliseconds)."
-    group_label: "Median Percentile Values"
+    label: "Average P75 FID"
+    description: "The Average 75th percentile value for First Input Delay across selected segments (in milliseconds)."
+    group_label: "Average Percentile Values"
     hidden: no
   }
 
   measure: avg_p75_fp {
-    type: median
+    type: average
     sql: ${p75_fp} ;;
     value_format_name: decimal_1
-    label: "Median P75 FP"
-    description: "The Median 75th percentile value for First Paint across selected segments (in milliseconds)."
-    group_label: "Median Percentile Values"
+    label: "Average P75 FP"
+    description: "The Average 75th percentile value for First Paint across selected segments (in milliseconds)."
+    group_label: "Average Percentile Values"
     hidden: no
   }
 
   measure: avg_p75_ttfb {
-    type: median
+    type: average
     sql: ${p75_ttfb} ;;
     value_format_name: decimal_1
-    label: "Median P75 TTFB"
-    description: "The Median 75th percentile value for Time to First Byte across selected segments (in milliseconds)."
-    group_label: "Median Percentile Values"
+    label: "Average P75 TTFB"
+    description: "The Average 75th percentile value for Time to First Byte across selected segments (in milliseconds)."
+    group_label: "Average Percentile Values"
     hidden: no
   }
 
   measure: avg_p75_dcl {
-    type: median
+    type: average
     sql: ${p75_dcl} ;;
     value_format_name: decimal_1
-    label: "Median P75 DCL"
-    description: "The Median 75th percentile value for DOM Content Loaded across selected segments (in milliseconds)."
-    group_label: "Median Percentile Values"
+    label: "Average P75 DCL"
+    description: "The Average 75th percentile value for DOM Content Loaded across selected segments (in milliseconds)."
+    group_label: "Average Percentile Values"
     hidden: no
   }
 
   measure: avg_p75_ol {
-    type: median
+    type: average
     sql: ${p75_ol} ;;
     value_format_name: decimal_1
-    label: "Median P75 Onload"
-    description: "The Median 75th percentile value for Onload across selected segments (in milliseconds)."
-    group_label: "Median Percentile Values"
+    label: "Average P75 Onload"
+    description: "The Average 75th percentile value for Onload across selected segments (in milliseconds)."
+    group_label: "Average Percentile Values"
     hidden: no
   }
 
   measure: avg_p75_rtt {
-    type: median
+    type: average
     sql: ${p75_rtt} ;;
     value_format_name: decimal_1
-    label: "Median P75 RTT"
-    description: "The Median 75th percentile value for Round-Trip Time across selected segments (in milliseconds)."
-    group_label: "Median Percentile Values"
+    label: "Average P75 RTT"
+    description: "The Average 75th percentile value for Round-Trip Time across selected segments (in milliseconds)."
+    group_label: "Average Percentile Values"
     hidden: no
   }
 
@@ -1001,6 +1344,16 @@ view: +device_summary {
     value_format_name: percent_2
     label: "Avg Poor FID %"
     description: "The average proportion of user experiences with a Poor First Input Delay (>= 300ms) across selected segments."
+    group_label: "Average Performance Categories"
+    hidden: no
+  }
+
+  measure: avg_poor_fp_pct {
+    type: sum
+    sql: ${slow_fp} ;;
+    value_format_name: percent_2
+    label: "Avg Poor FP %"
+    description: "The average proportion of user experiences with a Poor First Paint (>= 3s) across selected segments."
     group_label: "Average Performance Categories"
     hidden: no
   }
