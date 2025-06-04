@@ -4,7 +4,7 @@ view: +device_summary {
   derived_table: {
     sql:SELECT
           *,
-          GENERATE_UUID() as primary_key,
+          GENERATE_UUID() AS primary_key,
           --PARSE_TIMESTAMP('%Y%m%d', CAST(yyyymm AS STRING) || '01') AS date
         FROM `chrome-ux-report.materialized.device_summary` ;;
   }
@@ -604,7 +604,124 @@ view: +device_summary {
     description: "The proportion of experiences on tablet devices."
   }
 
-  #### MEASURES ####
+
+########################################################
+##################### MEASURES #########################
+########################################################
+
+
+
+########################################################
+########################################################
+########### PERIOD OVER PERIOD MEASURES ################
+########################################################
+########################################################
+
+  dimension_group: date_pop {
+    type: time
+    timeframes: [date, month]
+    sql: TIMESTAMP(${TABLE}.date) ;;
+    hidden: no
+  }
+
+  measure: avg_good_cls_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_good_cls_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: avg_good_dcl_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_good_dcl_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: avg_good_fcp_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_good_fcp_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: avg_good_fid_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_good_fid_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: avg_good_fp_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_good_fp_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: avg_good_inp_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_good_inp_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: avg_good_lcp_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_good_lcp_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: avg_good_ol_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_good_ol_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: avg_good_ttfb_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: avg_good_ttfb_pct
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
 
   measure: count {
     type: count
@@ -811,16 +928,7 @@ view: +device_summary {
     description: "The average proportion of user experiences with a Good First Contentful Paint (< 1.8s) across selected segments."
     group_label: "Average Performance Categories"
     hidden: no
-  }
 
-  measure: avg_good_fcp_pct_last_month {
-    group_label: "Period Over Period Measures"
-    type: period_over_period
-    kind: previous
-    based_on: avg_good_fcp_pct
-    based_on_time: date_month
-    period: month
-    hidden: no
   }
 
   measure: avg_ni_fcp_pct {
