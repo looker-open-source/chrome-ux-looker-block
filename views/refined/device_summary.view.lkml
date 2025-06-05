@@ -14,6 +14,73 @@ view: +device_summary {
     html:  <p style="font-size: 16px;">👉 Try <a href="https://cruxvis.withgoogle.com/#/?view=cwvsummary&url={{ device_summary.origin._value | url_encode }}" target="_blank" style="text-decoration: none;">CrUX Vis</a> to visualize the Core Web Vitals from CrUX as time series!</p> ;;
     sql: " ";;
   }
+
+  # href="/dashboards/pacing_block::campaign_manager?Ad+Source={{ _filters["ad_source"] | url_encode }}&Campaign+Name={{ _filters["campaign_name"] | url_encode }}&Date={{_filters["partition_date_date"] | url_encode}}"
+
+  dimension: core_web_vitals_nav_bar {
+    type: string
+    group_label: "Navigation Bar Fields"
+    html:  <p style="font-size: 14px;"><a href="/dashboards/chrome-ux-block::device_core_web_vitals" style="text-decoration: none;">Core Web Vitals 🌐</a></p> ;;
+    sql: " ";;
+  }
+
+  dimension: lcp_nav_bar {
+    type: string
+    group_label: "Navigation Bar Fields"
+    html:  <p style="font-size: 14px;"><a href="/dashboards/chrome-ux-block::largest_contentful_paint_lcp" style="text-decoration: none;">Largest Contentful Paint ⭐</a></p> ;;
+    sql: " ";;
+  }
+
+  dimension: inp_nav_bar {
+    type: string
+    group_label: "Navigation Bar Fields"
+    html:  <p style="font-size: 14px;"><a href="/dashboards/chrome-ux-block::interaction_to_next_paint_inp" style="text-decoration: none;">Interaction to Next Paint ⭐</a></p> ;;
+    sql: " ";;
+  }
+
+  dimension: cls_nav_bar_2 {
+    type: string
+    group_label: "Navigation Bar Fields"
+    html:  <p style="font-size: 14px;"><a href="/dashboards/chrome-ux-block::cumulative_layout_shift_cls" style="text-decoration: none;">Cumulative Layout Shift ⭐</a></p> ;;
+    sql: " ";;
+  }
+
+  dimension: fcp_nav_bar {
+    type: string
+    group_label: "Navigation Bar Fields"
+    html:  <p style="font-size: 12px;"><a href="/dashboards/chrome-ux-block::first_contentful_paint_fcp" style="text-decoration: none;">First Contentful Paint ⭐</a></p> ;;
+    sql: " ";;
+  }
+
+  dimension: ttfb_nav_bar {
+    type: string
+    group_label: "Navigation Bar Fields"
+    html:  <p style="font-size: 12px;"><a href="/dashboards/chrome-ux-block::time_to_first_byte_ttfb" style="text-decoration: none;">Time to First Byte ⭐</a></p> ;;
+    sql: " ";;
+  }
+
+  dimension: fp_nav_bar {
+    type: string
+    group_label: "Navigation Bar Fields"
+    html:  <p style="font-size: 12px;"><a href="/dashboards/chrome-ux-block::first_paint_fp" style="text-decoration: none;">First Paint ⭐</a></p> ;;
+    sql: " ";;
+  }
+
+  dimension: dcl_nav_bar {
+    type: string
+    group_label: "Navigation Bar Fields"
+    html:  <p style="font-size: 12px;"><a href="/dashboards/chrome-ux-block::dom_content_loaded_dcl" style="text-decoration: none;">DOM Content Loaded ⭐</a></p> ;;
+    sql: " ";;
+  }
+
+  dimension: ol_nav_bar {
+    type: string
+    group_label: "Navigation Bar Fields"
+    html:  <p style="font-size: 12px;"><a href="/dashboards/chrome-ux-block::onload_ol" style="text-decoration: none;">Onload ⭐</a></p> ;;
+    sql: " ";;
+  }
+
+
   #  https://cruxvis.withgoogle.com/#/?view=cwvsummary&url=https://cloud.google.com
   ### PARAMETERS ###
 
