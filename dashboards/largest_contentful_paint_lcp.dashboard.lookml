@@ -414,8 +414,8 @@
     title: Origin
     type: field_filter
     default_value: https://cloud.google.com
-    allow_multiple_values: true
-    required: false
+    allow_multiple_values: false
+    required: true
     ui_config:
       type: dropdown_menu
       display: popover
