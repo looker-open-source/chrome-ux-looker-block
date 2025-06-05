@@ -5,5 +5,6 @@ explore: device_summary {
     filters: [device_summary.origin: "-EMPTY"]
   }
   sql_always_where: ${origin} IS NOT NULL  AND
-    ${origin} LIKE 'https://%';;
+    ${origin} LIKE 'https://%' AND
+    ${date_date} >= '2024-01-01';;
 }
