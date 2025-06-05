@@ -1,10 +1,10 @@
 ---
-- dashboard: interaction_to_next_paint_inp
-  title: Interaction to Next Paint (INP)
+- dashboard: first_paint_fp
+  title: First Paint (FP)
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: 669Ov1iX3nG8g86W9NJTZt
+  preferred_slug: x4k0gZO2eYZGorfrjxRwy2
   elements:
   - title: By Month
     name: By Month
@@ -17,7 +17,7 @@
     filters:
       device_summary.origin: https://cloud.google.com
       device_summary.date_date: after 10 months ago
-      device_summary.dynamic_metric: inp
+      device_summary.dynamic_metric: fp
     sorts: [device_summary.date_month desc]
     limit: 500
     column_limit: 50
@@ -225,20 +225,19 @@
     col: 11
     width: 13
     height: 2
-  - title: Socrecardss
-    name: Socrecardss
+  - title: Scorecardss
+    name: Scorecardss
     model: chrome-ux-block
     explore: device_summary
     type: marketplace_viz_multiple_value::multiple_value-marketplace
-    fields: [device_summary.date_pop_month, device_summary.avg_good_inp_pct, device_summary.avg_good_inp_last_month,
-      device_summary.avg_p75_inp, device_summary.avg_p75_inp_last_month, device_summary.avg_poor_inp_pct,
-      device_summary.avg_poor_inp_last_month]
+    fields: [device_summary.date_pop_month, device_summary.avg_good_fp_pct, device_summary.avg_good_fp_last_month,
+      device_summary.avg_p75_fp, device_summary.avg_p75_fp_last_month, device_summary.avg_poor_fp_pct,
+      device_summary.avg_poor_fp_last_month]
     fill_fields: [device_summary.date_pop_month]
     filters:
       device_summary.origin: https://cloud.google.com
-      device_summary.dynamic_metric: lcp
     sorts: [device_summary.date_pop_month desc]
-    limit: 1
+    limit: 5
     column_limit: 50
     hidden_fields: [device_summary.date_pop_month]
     hidden_points_if_no: []
@@ -247,31 +246,117 @@
     font_size_main: '12'
     orientation: horizontal
     dividers: false
-    style_device_summary.avg_good_inp_pct: "#3A4245"
-    show_title_device_summary.avg_good_inp_pct: true
-    title_override_device_summary.avg_good_inp_pct: Good INP
+    style_device_summary.avg_good_fp_pct: "#3A4245"
+    show_title_device_summary.avg_good_fp_pct: true
+    title_override_device_summary.avg_good_fp_pct: Good FP
+    title_placement_device_summary.avg_good_fp_pct: above
+    value_format_device_summary.avg_good_fp_pct: ''
+    show_comparison_device_summary.avg_good_fp_last_month: true
+    comparison_style_device_summary.avg_good_fp_last_month: percentage_change
+    comparison_show_label_device_summary.avg_good_fp_last_month: false
+    pos_is_bad_device_summary.avg_good_fp_last_month: false
+    style_device_summary.avg_p75_fp: "#08B248"
+    show_title_device_summary.avg_p75_fp: true
+    title_override_device_summary.avg_p75_fp: P75 FP (All Devices)
+    title_placement_device_summary.avg_p75_fp: above
+    value_format_device_summary.avg_p75_fp: ''
+    show_comparison_device_summary.avg_p75_fp: false
+    show_comparison_device_summary.avg_p75_fp_last_month: true
+    comparison_style_device_summary.avg_p75_fp_last_month: percentage_change
+    comparison_show_label_device_summary.avg_p75_fp_last_month: false
+    pos_is_bad_device_summary.avg_p75_fp_last_month: true
+    title_override_device_summary.avg_poor_fp_pct: Poor FP
+    title_placement_device_summary.avg_poor_fp_pct: above
+    show_comparison_device_summary.avg_poor_fp_last_month: true
+    comparison_style_device_summary.avg_poor_fp_last_month: percentage_change
+    comparison_show_label_device_summary.avg_poor_fp_last_month: false
+    pos_is_bad_device_summary.avg_poor_fp_last_month: true
+    comparison_label_placement_device_summary.avg_poor_fp_last_month: below
+    comp_value_format_device_summary.avg_poor_fp_last_month: ''
+    style_device_summary.avg_poor_fp_last_month: "#3A4245"
+    show_title_device_summary.avg_poor_fp_last_month: true
+    title_placement_device_summary.avg_poor_fp_last_month: above
+    value_format_device_summary.avg_poor_fp_last_month: ''
+    comparison_label_placement_device_summary.avg_p75_fp_last_month: below
+    comp_value_format_device_summary.avg_p75_fp_last_month: ''
+    style_device_summary.avg_p75_fp_last_month: "#3A4245"
+    show_title_device_summary.avg_p75_fp_last_month: true
+    title_placement_device_summary.avg_p75_fp_last_month: above
+    value_format_device_summary.avg_p75_fp_last_month: ''
+    comparison_label_placement_device_summary.avg_good_fp_last_month: below
+    comp_value_format_device_summary.avg_good_fp_last_month: ''
+    style_device_summary.avg_good_fp_last_month: "#3A4245"
+    show_title_device_summary.avg_good_fp_last_month: true
+    title_placement_device_summary.avg_good_fp_last_month: above
+    value_format_device_summary.avg_good_fp_last_month: ''
+    title_override_device_summary.avg_good_ttfb_pct: Good TTFB
+    title_placement_device_summary.avg_good_ttfb_pct: above
+    show_comparison_device_summary.avg_good_ttfb_last_month: true
+    comparison_style_device_summary.avg_good_ttfb_last_month: percentage_change
+    comparison_show_label_device_summary.avg_good_ttfb_last_month: false
+    pos_is_bad_device_summary.avg_good_ttfb_last_month: false
+    style_device_summary.avg_p75_ttfb: "#08B248"
+    title_override_device_summary.avg_p75_ttfb: P75 TTFB (All Devices)
+    title_placement_device_summary.avg_p75_ttfb: above
+    show_comparison_device_summary.avg_p75_ttfb_last_month: true
+    comparison_style_device_summary.avg_p75_ttfb_last_month: percentage_change
+    comparison_show_label_device_summary.avg_p75_ttfb_last_month: false
+    pos_is_bad_device_summary.avg_p75_ttfb_last_month: true
+    title_override_device_summary.avg_poor_ttfb_pct: Poor TTFB
+    title_placement_device_summary.avg_poor_ttfb_pct: above
+    value_format_device_summary.avg_poor_ttfb_pct: ''
+    show_comparison_device_summary.avg_poor_ttfb_last_month: true
+    comparison_style_device_summary.avg_poor_ttfb_last_month: percentage_change
+    comparison_show_label_device_summary.avg_poor_ttfb_last_month: false
+    pos_is_bad_device_summary.avg_poor_ttfb_last_month: true
+    comparison_label_placement_device_summary.avg_poor_ttfb_last_month: below
+    comp_value_format_device_summary.avg_poor_ttfb_last_month: ''
+    comparison_label_placement_device_summary.avg_p75_ttfb_last_month: below
+    comp_value_format_device_summary.avg_p75_ttfb_last_month: ''
+    comparison_label_placement_device_summary.avg_good_ttfb_last_month: below
+    comp_value_format_device_summary.avg_good_ttfb_last_month: ''
+    title_override_device_summary.avg_good_fcp_pct: Good FCP
+    title_placement_device_summary.avg_good_fcp_pct: above
+    show_comparison_device_summary.avg_good_fcp_last_month: true
+    comparison_style_device_summary.avg_good_fcp_last_month: percentage_change
+    comparison_show_label_device_summary.avg_good_fcp_last_month: false
+    pos_is_bad_device_summary.avg_good_fcp_last_month: false
+    style_device_summary.avg_p75_fcp: "#FC9200"
+    title_override_device_summary.avg_p75_fcp: P75 FCP (All Devices)
+    title_placement_device_summary.avg_p75_fcp: above
+    show_comparison_device_summary.avg_p75_fcp_last_month: true
+    comparison_style_device_summary.avg_p75_fcp_last_month: percentage_change
+    comparison_show_label_device_summary.avg_p75_fcp_last_month: false
+    pos_is_bad_device_summary.avg_p75_fcp_last_month: true
+    style_device_summary.avg_poor_fcp_pct: "#3A4245"
+    show_title_device_summary.avg_poor_fcp_pct: true
+    title_override_device_summary.avg_poor_fcp_pct: Poor FCP
+    title_placement_device_summary.avg_poor_fcp_pct: above
+    value_format_device_summary.avg_poor_fcp_pct: ''
+    show_comparison_device_summary.avg_poor_fcp_pct: false
+    show_comparison_device_summary.avg_poor_fcp_last_month: true
+    comparison_style_device_summary.avg_poor_fcp_last_month: percentage_change
+    comparison_show_label_device_summary.avg_poor_fcp_last_month: false
+    pos_is_bad_device_summary.avg_poor_fcp_last_month: true
+    comparison_label_placement_device_summary.avg_poor_fcp_last_month: below
+    comp_value_format_device_summary.avg_poor_fcp_last_month: ''
+    comparison_label_placement_device_summary.avg_p75_fcp_last_month: above
+    comp_value_format_device_summary.avg_p75_fcp_last_month: ''
+    comparison_label_placement_device_summary.avg_good_fcp_last_month: below
+    comp_value_format_device_summary.avg_good_fcp_last_month: ''
     title_placement_device_summary.avg_good_inp_pct: above
-    value_format_device_summary.avg_good_inp_pct: ''
     show_comparison_device_summary.avg_good_inp_last_month: true
     comparison_style_device_summary.avg_good_inp_last_month: percentage_change
     comparison_show_label_device_summary.avg_good_inp_last_month: false
     pos_is_bad_device_summary.avg_good_inp_last_month: false
     style_device_summary.avg_p75_inp: "#08B248"
-    show_title_device_summary.avg_p75_inp: true
-    title_override_device_summary.avg_p75_inp: P75 INP (All Devices)
     title_placement_device_summary.avg_p75_inp: above
-    value_format_device_summary.avg_p75_inp: ''
-    show_comparison_device_summary.avg_p75_inp: false
     show_comparison_device_summary.avg_p75_inp_last_month: true
     comparison_style_device_summary.avg_p75_inp_last_month: percentage_change
     comparison_show_label_device_summary.avg_p75_inp_last_month: false
     pos_is_bad_device_summary.avg_p75_inp_last_month: true
     style_device_summary.avg_poor_inp_pct: "#050505"
-    show_title_device_summary.avg_poor_inp_pct: true
-    title_override_device_summary.avg_poor_inp_pct: Poor INP
     title_placement_device_summary.avg_poor_inp_pct: above
-    value_format_device_summary.avg_poor_inp_pct: ''
-    show_comparison_device_summary.avg_poor_inp_pct: false
     show_comparison_device_summary.avg_poor_inp_last_month: true
     comparison_style_device_summary.avg_poor_inp_last_month: percentage_change
     comparison_show_label_device_summary.avg_poor_inp_last_month: false
@@ -406,6 +491,15 @@
     interpolation: linear
     defaults_version: 0
     show_comparison_device_summary.avg_good_cls_pct: false
+    style_device_summary.avg_good_ttfb_pct: "#3A4245"
+    show_title_device_summary.avg_good_ttfb_pct: true
+    value_format_device_summary.avg_good_ttfb_pct: ''
+    show_title_device_summary.avg_p75_ttfb: true
+    value_format_device_summary.avg_p75_ttfb: ''
+    show_comparison_device_summary.avg_p75_ttfb: false
+    style_device_summary.avg_poor_ttfb_pct: "#3A4245"
+    show_title_device_summary.avg_poor_ttfb_pct: true
+    show_comparison_device_summary.avg_poor_ttfb_pct: false
     title_hidden: true
     listen:
       Device Type: device_summary.device

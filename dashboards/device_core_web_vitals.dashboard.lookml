@@ -1,6 +1,6 @@
 ---
 - dashboard: device_core_web_vitals
-  title: Device Core Web Vitals
+  title: Core Web Vitals
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
@@ -13,7 +13,6 @@
     type: looker_bar
     fields: [device_summary.avg_good_lcp_pct, device_summary.avg_ni_lcp_pct, device_summary.avg_poor_lcp_pct,
       device_summary.device]
-    filters: {}
     sorts: [device_summary.device]
     limit: 500
     column_limit: 50
@@ -68,12 +67,12 @@
     defaults_version: 1
     title_hidden: true
     listen:
-      Date Date: device_summary.date_date
       Origin: device_summary.origin
       Device Type: device_summary.device
-    row: 4
-    col: 8
-    width: 16
+      Date Month: device_summary.date_month
+    row: 6
+    col: 7
+    width: 17
     height: 6
   - title: Interaction to Next Paint (INP)
     name: Interaction to Next Paint (INP)
@@ -82,7 +81,6 @@
     type: looker_bar
     fields: [device_summary.device, device_summary.avg_good_inp_pct, device_summary.avg_ni_inp_pct,
       device_summary.avg_poor_inp_pct]
-    filters: {}
     sorts: [device_summary.device]
     limit: 500
     column_limit: 50
@@ -133,12 +131,12 @@
     hidden_pivots: {}
     defaults_version: 1
     listen:
-      Date Date: device_summary.date_date
       Origin: device_summary.origin
       Device Type: device_summary.device
-    row: 10
-    col: 8
-    width: 16
+      Date Month: device_summary.date_month
+    row: 12
+    col: 7
+    width: 17
     height: 6
   - title: Cumulative Layout Shift (CLS)
     name: Cumulative Layout Shift (CLS)
@@ -147,7 +145,6 @@
     type: looker_bar
     fields: [device_summary.device, device_summary.avg_good_cls_pct, device_summary.avg_ni_cls_pct,
       device_summary.avg_poor_cls_pct]
-    filters: {}
     sorts: [device_summary.device]
     limit: 500
     column_limit: 50
@@ -201,12 +198,12 @@
     hidden_pivots: {}
     defaults_version: 1
     listen:
-      Date Date: device_summary.date_date
       Origin: device_summary.origin
       Device Type: device_summary.device
-    row: 16
-    col: 8
-    width: 16
+      Date Month: device_summary.date_month
+    row: 18
+    col: 7
+    width: 17
     height: 6
   - name: ''
     type: text
@@ -217,9 +214,9 @@
       LCP reports the render time of the largest content element that is visible within the viewport.
 
       <a href="https://web.dev/articles/lcp" target="_blank">web.dev/lcp</a>
-    row: 4
+    row: 6
     col: 0
-    width: 8
+    width: 7
     height: 6
   - name: " (2)"
     type: text
@@ -230,9 +227,9 @@
       INP reports the overall responsiveness to user interactions, as measured by the longest time from an interaction until the next frame is presented with visual feedback, ignoring outliers.
 
       <a href="https://web.dev/articles/inp" target="_blank">web.dev/inp</a>
-    row: 10
+    row: 12
     col: 0
-    width: 8
+    width: 7
     height: 6
   - name: " (3)"
     type: text
@@ -243,9 +240,9 @@
       CLS measures the sum total of all individual layout shift scores for every unexpected layout shift that occurs during the entire lifespan of the page.
 
       <a href="https://web.dev/articles/cls" target="_blank">web.dev/cls</a>
-    row: 16
+    row: 18
     col: 0
-    width: 8
+    width: 7
     height: 6
   - title: Origin
     name: Origin
@@ -253,7 +250,6 @@
     explore: device_summary
     type: single_value
     fields: [device_summary.origin, device_summary.date_month]
-    filters: {}
     sorts: [device_summary.date_month desc]
     limit: 1
     column_limit: 50
@@ -311,12 +307,12 @@
     defaults_version: 1
     title_hidden: true
     listen:
-      Date Date: device_summary.date_date
       Origin: device_summary.origin
       Device Type: device_summary.device
-    row: 0
+      Date Month: device_summary.date_month
+    row: 2
     col: 0
-    width: 12
+    width: 11
     height: 2
   - title: _______
     name: _______
@@ -324,7 +320,6 @@
     explore: device_summary
     type: single_value
     fields: [device_summary.crux_vis_tool]
-    filters: {}
     sorts: [device_summary.crux_vis_tool]
     limit: 1
     column_limit: 50
@@ -390,10 +385,10 @@
     defaults_version: 1
     title_hidden: true
     listen:
-      Date Date: device_summary.date_date
       Origin: device_summary.origin
       Device Type: device_summary.device
-    row: 2
+      Date Month: device_summary.date_month
+    row: 4
     col: 0
     width: 24
     height: 2
@@ -403,7 +398,6 @@
     explore: device_summary
     type: single_value
     fields: [device_summary.origin, device_summary.date_month]
-    filters: {}
     sorts: [device_summary.date_month desc]
     limit: 1
     column_limit: 50
@@ -461,28 +455,108 @@
     defaults_version: 1
     title_hidden: true
     listen:
-      Date Date: device_summary.date_date
+      Origin: device_summary.origin
+      Device Type: device_summary.device
+      Date Month: device_summary.date_month
+    row: 2
+    col: 11
+    width: 13
+    height: 2
+  - title: Navigation Bar
+    name: Navigation Bar
+    model: chrome-ux-block
+    explore: device_summary
+    type: marketplace_viz_multiple_value::multiple_value-marketplace
+    fields: [device_summary.core_web_vitals_nav_bar, device_summary.lcp_nav_bar, device_summary.inp_nav_bar,
+      device_summary.cls_nav_bar_2]
+    filters: {}
+    sorts: [device_summary.core_web_vitals_nav_bar]
+    limit: 1
+    column_limit: 50
+    hidden_fields: []
+    hidden_points_if_no: []
+    series_labels: {}
+    show_view_names: false
+    font_size_main: '12'
+    orientation: horizontal
+    dividers: false
+    style_device_summary.core_web_vitals_nav_bar: "#7cc771"
+    show_title_device_summary.core_web_vitals_nav_bar: false
+    title_placement_device_summary.core_web_vitals_nav_bar: above
+    value_format_device_summary.core_web_vitals_nav_bar: ''
+    style_device_summary.lcp_nav_bar: "#3A4245"
+    show_title_device_summary.lcp_nav_bar: false
+    title_placement_device_summary.lcp_nav_bar: above
+    value_format_device_summary.lcp_nav_bar: ''
+    show_comparison_device_summary.lcp_nav_bar: false
+    style_device_summary.inp_nav_bar: "#3A4245"
+    show_title_device_summary.inp_nav_bar: false
+    title_placement_device_summary.inp_nav_bar: above
+    value_format_device_summary.inp_nav_bar: ''
+    show_comparison_device_summary.inp_nav_bar: false
+    style_device_summary.cls_nav_bar_2: "#3A4245"
+    show_title_device_summary.cls_nav_bar_2: false
+    title_placement_device_summary.cls_nav_bar_2: above
+    value_format_device_summary.cls_nav_bar_2: ''
+    show_comparison_device_summary.cls_nav_bar_2: false
+    style_device_summary.cls_nav_bar: "#3A4245"
+    show_title_device_summary.cls_nav_bar: false
+    title_placement_device_summary.cls_nav_bar: above
+    value_format_device_summary.cls_nav_bar: ''
+    show_comparison_device_summary.cls_nav_bar: false
+    show_title_device_summary.inp_nav_bar_2: false
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    show_null_points: true
+    interpolation: linear
+    defaults_version: 0
+    style_device_summary.inp_nav_bar_2: "#3A4245"
+    title_placement_device_summary.inp_nav_bar_2: above
+    value_format_device_summary.inp_nav_bar_2: ''
+    show_comparison_device_summary.inp_nav_bar_2: false
+    title_hidden: true
+    listen:
+      Date Month: device_summary.date_month
       Origin: device_summary.origin
       Device Type: device_summary.device
     row: 0
-    col: 12
-    width: 12
+    col: 0
+    width: 24
     height: 2
   filters:
-  - name: Date Date
-    title: Date Date
+  - name: Date Month
+    title: Date Month
     type: field_filter
-    default_value: last month
+    default_value: 2025-04
     allow_multiple_values: true
     required: false
     ui_config:
-      type: relative_timeframes
-      display: inline
+      type: advanced
+      display: popover
       options: []
     model: chrome-ux-block
     explore: device_summary
     listens_to_filters: []
-    field: device_summary.date_date
+    field: device_summary.date_month
   - name: Origin
     title: Origin
     type: field_filter
