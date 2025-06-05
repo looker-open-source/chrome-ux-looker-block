@@ -1029,7 +1029,7 @@ view: +device_summary {
   }
 
   ###########################################
-  ########### P75 POP Measures #############
+  ########### P75 POP Measures ##############
   ###########################################
 
   measure: avg_p75_cls_last_month {
@@ -1129,6 +1129,32 @@ view: +device_summary {
     period: month
     hidden: no
     value_format_name: decimal_0
+  }
+
+  ###########################################
+  ########### P75 POP Measures ##############
+  ###########################################
+
+  measure: total_desktop_traffic_proportion_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: total_desktop_traffic_proportion
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: total_phone_traffic_proportion_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: total_phone_traffic_proportion
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
   }
 
   #######################
