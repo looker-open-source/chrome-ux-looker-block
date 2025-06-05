@@ -512,8 +512,8 @@
     listen:
       Device Type: device_summary.device
     row: 2
-    col: 4
-    width: 17
+    col: 2
+    width: 20
     height: 2
   filters:
   - name: Device Type
