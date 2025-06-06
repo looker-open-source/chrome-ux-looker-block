@@ -1,10 +1,10 @@
 ---
-- dashboard: device_core_web_vitals
+- dashboard: core_web_vitals
   title: Core Web Vitals
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: TbzcO9eykp6e2T1vRAdz2f
+  preferred_slug: FQH2G3bN9DV6hm9gj0CpSf
   elements:
   - title: Largest Contentful Paint (LCP)
     name: Largest Contentful Paint (LCP)
@@ -469,7 +469,6 @@
     type: marketplace_viz_multiple_value::multiple_value-marketplace
     fields: [device_summary.core_web_vitals_nav_bar, device_summary.lcp_nav_bar, device_summary.inp_nav_bar,
       device_summary.cls_nav_bar_2]
-    filters: {}
     sorts: [device_summary.core_web_vitals_nav_bar]
     limit: 1
     column_limit: 50

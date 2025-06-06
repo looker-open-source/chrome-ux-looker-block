@@ -4,7 +4,7 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: VDhBfzfqrRwI05nkFuty52
+  preferred_slug: YkproOMHapvULN0PY35ipX
   elements:
   - title: By Month
     name: By Month
@@ -15,11 +15,9 @@
       device_summary.dynamic_ni_pct_metric, device_summary.dynamic_poor_pct_metric,
       device_summary.date_month]
     filters:
-      device_summary.origin: https://cloud.google.com
-      device_summary.date_date: after 10 months ago
       device_summary.dynamic_metric: cls
     sorts: [device_summary.date_month desc]
-    limit: 500
+    limit: 10
     column_limit: 50
     x_axis_gridlines: false
     y_axis_gridlines: true
@@ -83,6 +81,7 @@
     title_hidden: true
     listen:
       Device Type: device_summary.device
+      Origin: device_summary.origin
     row: 9
     col: 0
     width: 24
@@ -93,8 +92,7 @@
     explore: device_summary
     type: single_value
     fields: [device_summary.origin, device_summary.date_month]
-    filters:
-      device_summary.origin: https://cloud.google.com
+    filters: {}
     sorts: [device_summary.date_month desc]
     limit: 1
     column_limit: 50
@@ -152,6 +150,7 @@
     defaults_version: 1
     listen:
       Device Type: device_summary.device
+      Origin: device_summary.origin
     row: 4
     col: 0
     width: 11
@@ -162,8 +161,7 @@
     explore: device_summary
     type: single_value
     fields: [device_summary.origin, device_summary.date_month]
-    filters:
-      device_summary.origin: https://cloud.google.com
+    filters: {}
     sorts: [device_summary.date_month desc]
     limit: 1
     column_limit: 50
@@ -221,6 +219,7 @@
     defaults_version: 1
     listen:
       Device Type: device_summary.device
+      Origin: device_summary.origin
     row: 4
     col: 11
     width: 13
@@ -234,9 +233,7 @@
       device_summary.avg_p75_cls, device_summary.avg_p75_cls_last_month, device_summary.avg_poor_cls_pct,
       device_summary.avg_poor_cls_last_month]
     fill_fields: [device_summary.date_pop_month]
-    filters:
-      device_summary.origin: https://cloud.google.com
-      device_summary.dynamic_metric: lcp
+    filters: {}
     sorts: [device_summary.date_pop_month desc]
     limit: 1
     column_limit: 50
@@ -374,6 +371,7 @@
     title_hidden: true
     listen:
       Device Type: device_summary.device
+      Origin: device_summary.origin
     row: 6
     col: 0
     width: 24
@@ -385,9 +383,7 @@
     type: marketplace_viz_multiple_value::multiple_value-marketplace
     fields: [device_summary.core_web_vitals_nav_bar, device_summary.lcp_nav_bar, device_summary.inp_nav_bar,
       device_summary.cls_nav_bar_2]
-    filters:
-      device_summary.origin: https://cloud.google.com
-      device_summary.date_month: 2025-04
+    filters: {}
     sorts: [device_summary.core_web_vitals_nav_bar]
     limit: 1
     column_limit: 50
@@ -454,6 +450,7 @@
     title_hidden: true
     listen:
       Device Type: device_summary.device
+      Origin: device_summary.origin
     row: 0
     col: 0
     width: 24
@@ -465,8 +462,7 @@
     type: marketplace_viz_multiple_value::multiple_value-marketplace
     fields: [device_summary.fcp_nav_bar, device_summary.ttfb_nav_bar, device_summary.fp_nav_bar,
       device_summary.dcl_nav_bar, device_summary.ol_nav_bar]
-    filters:
-      device_summary.origin: "-EMPTY"
+    filters: {}
     sorts: [device_summary.fcp_nav_bar]
     limit: 1
     column_limit: 50
@@ -511,6 +507,7 @@
     title_hidden: true
     listen:
       Device Type: device_summary.device
+      Origin: device_summary.origin
     row: 2
     col: 2
     width: 20
@@ -524,7 +521,7 @@
     required: true
     ui_config:
       type: dropdown_menu
-      display: popover
+      display: inline
     model: chrome-ux-block
     explore: device_summary
     listens_to_filters: []
