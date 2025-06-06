@@ -17,6 +17,197 @@ view: +device_summary {
 
   # href="/dashboards/pacing_block::campaign_manager?Ad+Source={{ _filters["ad_source"] | url_encode }}&Campaign+Name={{ _filters["campaign_name"] | url_encode }}&Date={{_filters["partition_date_date"] | url_encode}}"
 
+# /dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ _filters["date_month"] | url_encode }}&Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}
+
+# /dashboards/chrome-ux-block::core_web_vitals?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}
+
+  dimension: nav_bar_core_web_vitals {
+    type: string
+    sql: " " ;;
+    hidden: no
+    group_label: "Navigation Bar Fields"
+    html:
+      <div style="border-radius: 5px; padding: 5px 10px; background: #3a71fc; height: 60px; color: red; text-align: center;">
+        <nav style="font-size: 18px;  text-align: center;">
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px; font-weight: bold;" href="/dashboards/chrome-ux-block::core_web_vitals?Date+Month=2025-04&Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">☰ Core Web Vitals </a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::largest_contentful_paint_lcp?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Largest Contentful Paint </a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::interaction_to_next_paint_inp?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Interaction to Next Paint </a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::cumulative_layout_shift_cls?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Cumulative Layout Shift </a>
+
+      <a style="color: #efefef; padding: 5px 15px; float: right; line-height: 40px;" href="/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">More </a>
+      <a style="color: #efefef; padding: 5px 15px; float: right; line-height: 40px;" href="/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters["origin"] | url_encode }}">Distribution </a>
+
+      </nav>
+      </div>
+      ;;
+  }
+
+  dimension: nav_bar_lcp{
+    type: string
+    sql: " " ;;
+    hidden: no
+    group_label: "Navigation Bar Fields"
+    html:
+      <div style="border-radius: 5px; padding: 5px 10px; background: #3a71fc; height: 60px; color: red; text-align: center;">
+        <nav style="font-size: 18px;  text-align: center;">
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::core_web_vitals?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">☰ Core Web Vitals </a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px; font-weight: bold;" href="/dashboards/chrome-ux-block::largest_contentful_paint_lcp?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Largest Contentful Paint <a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::interaction_to_next_paint_inp?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Interaction to Next Paint </a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::cumulative_layout_shift_cls?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Cumulative Layout Shift </a>
+
+          <a style="color: #efefef; padding: 5px 15px; float: right; line-height: 40px;" href="/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">More </a>
+          <a style="color: #efefef; padding: 5px 15px; float: right; line-height: 40px;" href="/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters["origin"] | url_encode }}">Distribution </a>
+        </nav>
+      </div>
+      ;;
+  }
+
+  dimension: nav_bar_inp {
+    type: string
+    sql: " " ;;
+    hidden: no
+    group_label: "Navigation Bar Fields"
+    html:
+      <div style="border-radius: 5px; padding: 5px 10px; background: #3a71fc; height: 60px; color: red; text-align: center;">
+        <nav style="font-size: 18px;  text-align: center;">
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::core_web_vitals?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">☰ Core Web Vitals </a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::largest_contentful_paint_lcp?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Largest Contentful Paint <a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px; font-weight: bold;" href="/dashboards/chrome-ux-block::interaction_to_next_paint_inp?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Interaction to Next Paint </a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::cumulative_layout_shift_cls?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Cumulative Layout Shift </a>
+
+
+          <a style="color: #efefef; padding: 5px 15px; float: right; line-height: 40px;" href="/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">More </a>
+          <a style="color: #efefef; padding: 5px 15px; float: right; line-height: 40px;" href="/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters["origin"] | url_encode }}">Distribution </a>
+        </nav>
+      </div>
+      ;;
+  }
+
+  dimension: nav_bar_cls {
+    type: string
+    sql: " " ;;
+    hidden: no
+    group_label: "Navigation Bar Fields"
+    html:
+      <div style="border-radius: 5px; padding: 5px 10px; background: #3a71fc; height: 60px; color: red; text-align: center;">
+        <nav style="font-size: 18px;  text-align: center;">
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::core_web_vitals?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">☰ Core Web Vitals </a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::largest_contentful_paint_lcp?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Largest Contentful Paint <a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::interaction_to_next_paint_inp?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Interaction to Next Paint </a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px; font-weight: bold;" href="/dashboards/chrome-ux-block::cumulative_layout_shift_cls?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Cumulative Layout Shift </a>
+
+          <a style="color: #efefef; padding: 5px 15px; float: right; line-height: 40px;" href="/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">More </a>
+          <a style="color: #efefef; padding: 5px 15px; float: right; line-height: 40px;" href="/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters["origin"] | url_encode }}">Distribution </a>
+        </nav>
+      </div>
+      ;;
+  }
+
+  dimension: nav_bar_ttfb {
+    type: string
+    sql: " " ;;
+    hidden: no
+    group_label: "Navigation Bar Fields"
+    html:
+      <div style="border-radius: 5px; padding: 5px 10px; background: #FC9200; height: 60px; color: red; text-align: center;">
+        <nav style="font-size: 18px;  text-align: center;">
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::core_web_vitals?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">☰ Core Web Vitals </a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">First Contentful Paint<a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px; font-weight: bold;" href="/dashboards/chrome-ux-block::time_to_first_byte_ttfb?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Time to First Byte</a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::first_paint_fp?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">First Paint</a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::dom_content_loaded_dcl?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">DOM Content Loaded</a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::onload_ol?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Onload</a>
+
+      <a style="color: #efefef; padding: 5px 15px; float: right; line-height: 40px;" href="/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters["origin"] | url_encode }}">Distribution </a>
+      </nav>
+      </div>
+      ;;
+  }
+
+  dimension: nav_bar_fp {
+    type: string
+    sql: " " ;;
+    hidden: no
+    group_label: "Navigation Bar Fields"
+    html:
+      <div style="border-radius: 5px; padding: 5px 10px; background: #FC9200; height: 60px; color: red; text-align: center;">
+        <nav style="font-size: 18px;  text-align: center;">
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::core_web_vitals?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">☰ Core Web Vitals </a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">First Contentful Paint<a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::time_to_first_byte_ttfb?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Time to First Byte</a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px; font-weight: bold;" href="/dashboards/chrome-ux-block::first_paint_fp?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">First Paint</a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::dom_content_loaded_dcl?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">DOM Content Loaded</a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::onload_ol?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Onload</a>
+
+      <a style="color: #efefef; padding: 5px 15px; float: right; line-height: 40px;" href="/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters["origin"] | url_encode }}">Distribution </a>
+      </nav>
+      </div>
+      ;;
+  }
+
+  dimension: nav_bar_dcl {
+    type: string
+    sql: " " ;;
+    hidden: no
+    group_label: "Navigation Bar Fields"
+    html:
+      <div style="border-radius: 5px; padding: 5px 10px; background: #FC9200; height: 60px; color: red; text-align: center;">
+        <nav style="font-size: 18px;  text-align: center;">
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::core_web_vitals?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">☰ Core Web Vitals </a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">First Contentful Paint<a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::time_to_first_byte_ttfb?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Time to First Byte</a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::first_paint_fp?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">First Paint</a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px; font-weight: bold;" href="/dashboards/chrome-ux-block::dom_content_loaded_dcl?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">DOM Content Loaded</a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::onload_ol?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Onload</a>
+
+      <a style="color: #efefef; padding: 5px 15px; float: right; line-height: 40px;" href="/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters["origin"] | url_encode }}">Distribution </a>
+      </nav>
+      </div>
+      ;;
+  }
+
+  dimension: nav_bar_ol {
+    type: string
+    sql: " " ;;
+    hidden: no
+    group_label: "Navigation Bar Fields"
+    html:
+      <div style="border-radius: 5px; padding: 5px 10px; background: #FC9200; height: 60px; color: red; text-align: center;">
+        <nav style="font-size: 18px;  text-align: center;">
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::core_web_vitals?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">☰ Core Web Vitals </a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">First Contentful Paint<a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::time_to_first_byte_ttfb?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Time to First Byte</a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::first_paint_fp?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">First Paint</a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::dom_content_loaded_dcl?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">DOM Content Loaded</a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px; font-weight: bold;" href="/dashboards/chrome-ux-block::onload_ol?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Onload</a>
+
+      <a style="color: #efefef; padding: 5px 15px; float: right; line-height: 40px;" href="/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters["origin"] | url_encode }}">Distribution </a>
+      </nav>
+      </div>
+      ;;
+  }
+
+dimension: nav_bar_fcp {
+type: string
+sql: " " ;;
+hidden: no
+group_label: "Navigation Bar Fields"
+html:
+      <div style="border-radius: 5px; padding: 5px 10px; background: #FC9200; height: 60px; color: red; text-align: center;">
+        <nav style="font-size: 18px;  text-align: center;">
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::core_web_vitals?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">☰ Core Web Vitals </a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px; font-weight: bold;" href="/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">First Contentful Paint<a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::time_to_first_byte_ttfb?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Time to First Byte</a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::first_paint_fp?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">First Paint</a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::dom_content_loaded_dcl?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">DOM Content Loaded</a>
+          <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::onload_ol?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Onload</a>
+
+      <a style="color: #efefef; padding: 5px 15px; float: right; line-height: 40px;" href="/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters["origin"] | url_encode }}">Distribution </a>
+      </nav>
+      </div>
+      ;;
+}
+
   dimension: core_web_vitals_nav_bar {
     type: string
     group_label: "Navigation Bar Fields"

@@ -328,77 +328,33 @@
     col: 0
     width: 24
     height: 3
-  - title: Navigation Bar
-    name: Navigation Bar
+  - title: ___
+    name: ___
     model: chrome-ux-block
     explore: device_summary
-    type: marketplace_viz_multiple_value::multiple_value-marketplace
-    fields: [device_summary.core_web_vitals_nav_bar, device_summary.lcp_nav_bar, device_summary.inp_nav_bar,
-      device_summary.cls_nav_bar_2]
+    type: single_value
+    fields: [device_summary.nav_bar_lcp]
     filters: {}
-    sorts: [device_summary.core_web_vitals_nav_bar]
+    sorts: [device_summary.nav_bar_lcp]
     limit: 1
     column_limit: 50
-    hidden_fields: []
-    hidden_points_if_no: []
-    series_labels: {}
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
     show_view_names: false
-    font_size_main: '11'
-    orientation: horizontal
-    dividers: false
-    style_device_summary.core_web_vitals_nav_bar: "#7cc771"
-    show_title_device_summary.core_web_vitals_nav_bar: false
-    title_placement_device_summary.core_web_vitals_nav_bar: above
-    value_format_device_summary.core_web_vitals_nav_bar: ''
-    style_device_summary.lcp_nav_bar: "#3A4245"
-    show_title_device_summary.lcp_nav_bar: false
-    title_placement_device_summary.lcp_nav_bar: above
-    value_format_device_summary.lcp_nav_bar: ''
-    show_comparison_device_summary.lcp_nav_bar: false
-    style_device_summary.inp_nav_bar: "#3A4245"
-    show_title_device_summary.inp_nav_bar: false
-    title_placement_device_summary.inp_nav_bar: above
-    value_format_device_summary.inp_nav_bar: ''
-    show_comparison_device_summary.inp_nav_bar: false
-    style_device_summary.cls_nav_bar_2: "#3A4245"
-    show_title_device_summary.cls_nav_bar_2: false
-    title_placement_device_summary.cls_nav_bar_2: above
-    value_format_device_summary.cls_nav_bar_2: ''
-    show_comparison_device_summary.cls_nav_bar_2: false
-    style_device_summary.cls_nav_bar: "#3A4245"
-    show_title_device_summary.cls_nav_bar: false
-    title_placement_device_summary.cls_nav_bar: above
-    value_format_device_summary.cls_nav_bar: ''
-    show_comparison_device_summary.cls_nav_bar: false
-    show_title_device_summary.inp_nav_bar_2: false
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
+    show_row_numbers: true
+    truncate_column_names: false
+    hide_totals: false
+    hide_row_totals: false
+    table_theme: editable
     limit_displayed_rows: false
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    show_null_points: true
-    interpolation: linear
-    defaults_version: 0
-    style_device_summary.inp_nav_bar_2: "#3A4245"
-    title_placement_device_summary.inp_nav_bar_2: above
-    value_format_device_summary.inp_nav_bar_2: ''
-    show_comparison_device_summary.inp_nav_bar_2: false
+    defaults_version: 1
     title_hidden: true
     listen:
       Device Type: device_summary.device
