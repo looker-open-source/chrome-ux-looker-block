@@ -1,0 +1,28 @@
+{
+  "label": "Chrome UX Block",
+  "category_label": "Models",
+  "branding": {
+    "image_uri": "https://marketplace-api.looker.com/block-icons/chrome-ux-block.png",
+    "tagline": "Unlock dynamic web performance insights with CrUX data in Looker."
+  },
+  "constants": {
+    "CONNECTION_NAME": {
+      "label": "Connection Name",
+      "value_constraint": "connection"
+    },
+    "CRUX_PUBLIC_PROJECT_ID": {
+      "label": "Public Chrome UX Report Project ID",
+      "description": "Project for analysis (chrome-ux-report)"
+    },
+    "CRUX_DATASET": {
+        "label": "Public Chrome UX Report Dataset",
+        "description": "Datased for analysis (materialized)"
+    }
+  },
+  "models": [
+    {
+      "name": "chrome-ux-block",
+      "connection_constant": "CONNECTION_NAME"
+    }
+  ]
+}
