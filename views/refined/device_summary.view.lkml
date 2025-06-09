@@ -1971,7 +1971,6 @@ view: +device_summary {
   }
 
   dimension: nav_bar_device_distribution {
-    hidden: no
     type: string
     sql: " " ;;
     group_label: "Navigation Bar Fields"
@@ -1991,7 +1990,6 @@ view: +device_summary {
   }
 
   dimension: nav_bar_navigation_type_distrbution {
-    hidden: no
     type: string
     sql: " " ;;
     group_label: "Navigation Bar Fields"
@@ -2011,7 +2009,6 @@ view: +device_summary {
   }
 
   dimension: nav_bar_connection_distribution {
-    hidden: no
     type: string
     sql: " " ;;
     group_label: "Navigation Bar Fields"
@@ -2031,7 +2028,6 @@ view: +device_summary {
   }
 
   dimension: nav_bar_notification_permissions {
-    hidden: no
     type: string
     sql: " " ;;
     group_label: "Navigation Bar Fields"
