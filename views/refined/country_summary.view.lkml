@@ -6,7 +6,7 @@ view: +country_summary {
           *,
           GENERATE_UUID() as primary_key,
           PARSE_TIMESTAMP('%Y%m%d', CAST(yyyymm AS STRING) || '01') AS date
-        FROM `chrome-ux-report.materialized.country_summary` ;;
+        FROM `@{CRUX_PUBLIC_PROJECT_ID}.@{CRUX_DATASET}.country_summary` ;;
   }
 
   dimension: crux_vis_tool {

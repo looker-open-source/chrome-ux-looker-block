@@ -6,7 +6,7 @@ view: +device_summary {
           *,
           GENERATE_UUID() AS primary_key,
           --PARSE_TIMESTAMP('%Y%m%d', CAST(yyyymm AS STRING) || '01') AS date
-        FROM `chrome-ux-report.materialized.device_summary` ;;
+        FROM `@{CRUX_PUBLIC_PROJECT_ID}.@{CRUX_DATASET}.device_summary` ;;
   }
 
   ### PARAMETERS ###
