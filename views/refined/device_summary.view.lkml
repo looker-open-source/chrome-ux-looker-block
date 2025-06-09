@@ -112,16 +112,16 @@ view: +device_summary {
     {% endif %}"
 
     sql:
-      {% if dynamic_metric._parameter_value == "lcp" %} ${avg_good_lcp_last_month}
-        {% elsif dynamic_metric._parameter_value == "inp" %} ${avg_good_inp_last_month}
-        {% elsif dynamic_metric._parameter_value == "cls" %} ${avg_good_cls_last_month}
-        {% elsif dynamic_metric._parameter_value == "dcl" %} ${avg_good_dcl_last_month}
-        {% elsif dynamic_metric._parameter_value == "fcp" %} ${avg_good_fcp_last_month}
-        {% elsif dynamic_metric._parameter_value == "fid" %} ${avg_good_fid_last_month}
-        {% elsif dynamic_metric._parameter_value == "fp" %} ${avg_good_fp_last_month}
-        {% elsif dynamic_metric._parameter_value == "ol" %} ${avg_good_ol_last_month}
-        {% elsif dynamic_metric._parameter_value == "ttfb" %} ${avg_good_ttfb_last_month}
-        {% else %} ${avg_good_lcp_last_month}
+      {% if dynamic_metric._parameter_value == "lcp" %} ${good_lcp_last_month}
+        {% elsif dynamic_metric._parameter_value == "inp" %} ${good_inp_last_month}
+        {% elsif dynamic_metric._parameter_value == "cls" %} ${good_cls_last_month}
+        {% elsif dynamic_metric._parameter_value == "dcl" %} ${good_dcl_last_month}
+        {% elsif dynamic_metric._parameter_value == "fcp" %} ${good_fcp_last_month}
+        {% elsif dynamic_metric._parameter_value == "fid" %} ${good_fid_last_month}
+        {% elsif dynamic_metric._parameter_value == "fp" %} ${good_fp_last_month}
+        {% elsif dynamic_metric._parameter_value == "ol" %} ${good_ol_last_month}
+        {% elsif dynamic_metric._parameter_value == "ttfb" %} ${good_ttfb_last_month}
+        {% else %} ${good_lcp_last_month}
       {% endif %};;
   }
 
@@ -650,7 +650,7 @@ view: +device_summary {
     hidden: no
   }
 
-  measure: avg_good_cls_last_month {
+  measure: good_cls_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -661,7 +661,7 @@ view: +device_summary {
     value_format_name: percent_2
   }
 
-  measure: avg_good_dcl_last_month {
+  measure: good_dcl_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -672,7 +672,7 @@ view: +device_summary {
     value_format_name: percent_2
   }
 
-  measure: avg_good_fcp_last_month {
+  measure: good_fcp_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -683,7 +683,7 @@ view: +device_summary {
     value_format_name: percent_2
   }
 
-  measure: avg_good_fid_last_month {
+  measure: good_fid_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -694,7 +694,7 @@ view: +device_summary {
     value_format_name: percent_2
   }
 
-  measure: avg_good_fp_last_month {
+  measure: good_fp_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -705,7 +705,7 @@ view: +device_summary {
     value_format_name: percent_2
   }
 
-  measure: avg_good_inp_last_month {
+  measure: good_inp_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -716,7 +716,7 @@ view: +device_summary {
     value_format_name: percent_2
   }
 
-  measure: avg_good_lcp_last_month {
+  measure: good_lcp_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -727,7 +727,7 @@ view: +device_summary {
     value_format_name: percent_2
   }
 
-  measure: avg_good_ol_last_month {
+  measure: good_ol_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -738,7 +738,7 @@ view: +device_summary {
     value_format_name: percent_2
   }
 
-  measure: avg_good_ttfb_last_month {
+  measure: good_ttfb_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -753,7 +753,7 @@ view: +device_summary {
   ###### Needs Inprovement POP Measures #####
   ###########################################
 
-  measure: avg_ni_cls_last_month {
+  measure: ni_cls_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -764,7 +764,7 @@ view: +device_summary {
     value_format_name: percent_2
   }
 
-  measure: avg_ni_dcl_last_month {
+  measure: ni_dcl_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -775,7 +775,7 @@ view: +device_summary {
     value_format_name: percent_2
   }
 
-  measure: avg_ni_fcp_last_month {
+  measure: ni_fcp_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -786,7 +786,7 @@ view: +device_summary {
     value_format_name: percent_2
   }
 
-  measure: avg_ni_fid_last_month {
+  measure: ni_fid_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -797,7 +797,7 @@ view: +device_summary {
     value_format_name: percent_2
   }
 
-  measure: avg_ni_fp_last_month {
+  measure: ni_fp_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -808,7 +808,7 @@ view: +device_summary {
     value_format_name: percent_2
   }
 
-  measure: avg_ni_inp_last_month {
+  measure: ni_inp_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -819,7 +819,7 @@ view: +device_summary {
     value_format_name: percent_2
   }
 
-  measure: avg_ni_lcp_last_month {
+  measure: ni_lcp_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -830,7 +830,7 @@ view: +device_summary {
     value_format_name: percent_2
   }
 
-  measure: avg_ni_ol_last_month {
+  measure: ni_ol_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -841,7 +841,7 @@ view: +device_summary {
     value_format_name: percent_2
   }
 
-  measure: avg_ni_ttfb_last_month {
+  measure: ni_ttfb_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -856,7 +856,7 @@ view: +device_summary {
   ###### Poor POP Measures #####
   ###########################################
 
-  measure: avg_poor_cls_last_month {
+  measure: poor_cls_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -867,7 +867,7 @@ view: +device_summary {
     value_format_name: percent_2
   }
 
-  measure: avg_poor_dcl_last_month {
+  measure: poor_dcl_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -878,7 +878,7 @@ view: +device_summary {
     value_format_name: percent_2
   }
 
-  measure: avg_poor_fcp_last_month {
+  measure: poor_fcp_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -889,7 +889,7 @@ view: +device_summary {
     value_format_name: percent_2
   }
 
-  measure: avg_poor_fid_last_month {
+  measure: poor_fid_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -900,7 +900,7 @@ view: +device_summary {
     value_format_name: percent_2
   }
 
-  measure: avg_poor_fp_last_month {
+  measure: poor_fp_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -911,7 +911,7 @@ view: +device_summary {
     value_format_name: percent_2
   }
 
-  measure: avg_poor_inp_last_month {
+  measure: poor_inp_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -922,7 +922,7 @@ view: +device_summary {
     value_format_name: percent_2
   }
 
-  measure: avg_poor_lcp_last_month {
+  measure: poor_lcp_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -933,7 +933,7 @@ view: +device_summary {
     value_format_name: percent_2
   }
 
-  measure: avg_poor_ol_last_month {
+  measure: poor_ol_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -944,7 +944,7 @@ view: +device_summary {
     value_format_name: percent_2
   }
 
-  measure: avg_poor_ttfb_last_month {
+  measure: poor_ttfb_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -959,7 +959,7 @@ view: +device_summary {
   ########### P75 POP Measures ##############
   ###########################################
 
-  measure: avg_p75_cls_last_month {
+  measure: p75_cls_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -970,7 +970,7 @@ view: +device_summary {
     value_format_name: decimal_3
   }
 
-  measure: avg_p75_dcl_last_month {
+  measure: p75_dcl_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -981,7 +981,7 @@ view: +device_summary {
     value_format_name: decimal_0
   }
 
-  measure: avg_p75_fcp_last_month {
+  measure: p75_fcp_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -992,7 +992,7 @@ view: +device_summary {
     value_format_name: decimal_0
   }
 
-  measure: avg_p75_fid_last_month {
+  measure: p75_fid_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -1003,7 +1003,7 @@ view: +device_summary {
     value_format_name: decimal_0
   }
 
-  measure: avg_p75_fp_last_month {
+  measure: p75_fp_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -1014,7 +1014,7 @@ view: +device_summary {
     value_format_name: decimal_0
   }
 
-  measure: avg_p75_inp_last_month {
+  measure: p75_inp_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -1025,7 +1025,7 @@ view: +device_summary {
     value_format_name: decimal_0
   }
 
-  measure: avg_p75_lcp_last_month {
+  measure: p75_lcp_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -1036,7 +1036,7 @@ view: +device_summary {
     value_format_name: decimal_0
   }
 
-  measure: avg_p75_ol_last_month {
+  measure: p75_ol_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
@@ -1047,7 +1047,7 @@ view: +device_summary {
     value_format_name: decimal_0
   }
 
-  measure: avg_p75_ttfb_last_month {
+  measure: p75_ttfb_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
     kind: previous
