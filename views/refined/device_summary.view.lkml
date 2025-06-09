@@ -1062,6 +1062,8 @@ view: +device_summary {
   ########### P75 POP Measures ##############
   ###########################################
 
+  #### Distribution ####
+
   measure: total_desktop_traffic_proportion_last_month {
     group_label: "Period Over Period Measures"
     type: period_over_period
@@ -1078,6 +1080,66 @@ view: +device_summary {
     type: period_over_period
     kind: previous
     based_on: total_phone_traffic_proportion
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  ## Navigation ##
+
+  measure: cache_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: total_navigate_cache_nav_proportion
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: back_forward_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: total_back_forward_nav_proportion
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: prerender_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: total_prerender_nav_proportion
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+
+  ## Connection ##
+
+  measure: 4g_traffic_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: total_4g_density
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: 3g_traffic_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: total_3g_density
     based_on_time: date_pop_month
     period: month
     hidden: no
