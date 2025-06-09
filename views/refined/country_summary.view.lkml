@@ -716,9 +716,9 @@ view: +country_summary {
     type: sum
     sql: ${fast_lcp} ;;
     value_format_name: percent_2
-    label: "Avg Good LCP %"
+    label: "Good LCP %"
     description: "The average proportion of user experiences with a Good Largest Contentful Paint (< 2.5s) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
 
@@ -726,9 +726,9 @@ view: +country_summary {
     type: sum
     sql: ${avg_lcp} ;;
     value_format_name: percent_2
-    label: "Avg Needs Improvement LCP %"
+    label: "Needs Improvement LCP %"
     description: "The average proportion of user experiences with LCP that Needs Improvement (>= 2.5s and < 4s) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
 
@@ -736,9 +736,9 @@ view: +country_summary {
     type: sum
     sql: ${slow_lcp} ;;
     value_format_name: percent_2
-    label: "Avg Poor LCP %"
+    label: "Poor LCP %"
     description: "The average proportion of user experiences with a Poor Largest Contentful Paint (>= 4s) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
 
@@ -746,9 +746,9 @@ view: +country_summary {
     type: sum
     sql: ${fast_inp} ;;
     value_format_name: percent_2
-    label: "Avg Good INP %"
+    label: "Good INP %"
     description: "The average proportion of user experiences with a Good Interaction to Next Paint (< 200ms) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
 
@@ -756,9 +756,9 @@ view: +country_summary {
     type: sum
     sql: ${avg_inp} ;;
     value_format_name: percent_2
-    label: "Avg Needs Improvement INP %"
+    label: "Needs Improvement INP %"
     description: "The average proportion of user experiences with INP that Needs Improvement (>= 200ms and < 500ms) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
 
@@ -766,9 +766,9 @@ view: +country_summary {
     type: sum
     sql: ${slow_inp} ;;
     value_format_name: percent_2
-    label: "Avg Poor INP %"
+    label: "Poor INP %"
     description: "The average proportion of user experiences with a Poor Interaction to Next Paint (>= 500ms) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
 
@@ -776,9 +776,9 @@ view: +country_summary {
     type: sum
     sql: ${small_cls} ;;
     value_format_name: percent_2
-    label: "Avg Good CLS %"
+    label: "Good CLS %"
     description: "The average proportion of user experiences with a Good Cumulative Layout Shift (< 0.1) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
 
@@ -786,9 +786,9 @@ view: +country_summary {
     type: sum
     sql: ${medium_cls} ;;
     value_format_name: percent_2
-    label: "Avg Needs Improvement CLS %"
+    label: "Needs Improvement CLS %"
     description: "The average proportion of user experiences with CLS that Needs Improvement (>= 0.1 and < 0.25) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
 
@@ -796,9 +796,9 @@ view: +country_summary {
     type: sum
     sql: ${large_cls} ;;
     value_format_name: percent_2
-    label: "Avg Poor CLS %"
+    label: "Poor CLS %"
     description: "The average proportion of user experiences with a Poor Cumulative Layout Shift (>= 0.25) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
 
@@ -806,27 +806,27 @@ view: +country_summary {
     type: sum
     sql: ${fast_fcp} ;;
     value_format_name: percent_2
-    label: "Avg Good FCP %"
+    label: "Good FCP %"
     description: "The average proportion of user experiences with a Good First Contentful Paint (< 1.8s) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
   measure: avg_ni_fcp_pct {
     type: sum
     sql: ${avg_fcp} ;;
     value_format_name: percent_2
-    label: "Avg Needs Improvement FCP %"
+    label: "Needs Improvement FCP %"
     description: "The average proportion of user experiences with FCP that Needs Improvement (>= 1.8s and < 3.0s) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
   measure: avg_poor_fcp_pct {
     type: sum
     sql: ${slow_fcp} ;;
     value_format_name: percent_2
-    label: "Avg Poor FCP %"
+    label: "Poor FCP %"
     description: "The average proportion of user experiences with a Poor First Contentful Paint (>= 3.0s) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
 
@@ -834,27 +834,27 @@ view: +country_summary {
     type: sum
     sql: ${fast_fp} ;;
     value_format_name: percent_2
-    label: "Avg Good FP %"
+    label: "Good FP %"
     description: "The average proportion of user experiences with a Good First Paint (< 1s) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
   measure: avg_ni_fp_pct {
     type: sum
     sql: ${avg_fp} ;;
     value_format_name: percent_2
-    label: "Avg Needs Improvement FP %"
+    label: "Needs Improvement FP %"
     description: "The average proportion of user experiences with FP that Needs Improvement (>= 1s and < 3s) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
   measure: avg_poor_fp_pct {
     type: sum
     sql: ${slow_fp} ;;
     value_format_name: percent_2
-    label: "Avg Poor FP %"
+    label: "Poor FP %"
     description: "The average proportion of user experiences with a Poor First Paint (>= 3s) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
 
@@ -862,27 +862,27 @@ view: +country_summary {
     type: sum
     sql: ${fast_fid} ;;
     value_format_name: percent_2
-    label: "Avg Good FID %"
+    label: "Good FID %"
     description: "The average proportion of user experiences with a Good First Input Delay (< 100ms) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
   measure: avg_ni_fid_pct {
     type: sum
     sql: ${avg_fid} ;;
     value_format_name: percent_2
-    label: "Avg Needs Improvement FID %"
+    label: "Needs Improvement FID %"
     description: "The average proportion of user experiences with FID that Needs Improvement (>= 100ms and < 300ms) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
   measure: avg_poor_fid_pct {
     type: sum
     sql: ${slow_fid} ;;
     value_format_name: percent_2
-    label: "Avg Poor FID %"
+    label: "Poor FID %"
     description: "The average proportion of user experiences with a Poor First Input Delay (>= 300ms) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
 
@@ -890,27 +890,27 @@ view: +country_summary {
     type: sum
     sql: ${fast_dcl} ;;
     value_format_name: percent_2
-    label: "Avg Good DCL %"
+    label: "Good DCL %"
     description: "The average proportion of user experiences with a Good DOM Content Loaded (< 1.5s) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
   measure: avg_ni_dcl_pct {
     type: sum
     sql: ${avg_dcl} ;;
     value_format_name: percent_2
-    label: "Avg Needs Improvement DCL %"
+    label: "Needs Improvement DCL %"
     description: "The average proportion of user experiences with DCL that Needs Improvement (>= 1.5s and < 2.5s) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
   measure: avg_poor_dcl_pct {
     type: sum
     sql: ${slow_dcl} ;;
     value_format_name: percent_2
-    label: "Avg Poor DCL %"
+    label: "Poor DCL %"
     description: "The average proportion of user experiences with a Poor DOM Content Loaded (>= 2.5s) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
 
@@ -918,27 +918,27 @@ view: +country_summary {
     type: sum
     sql: ${fast_ol} ;;
     value_format_name: percent_2
-    label: "Avg Good Onload %"
+    label: "Good Onload %"
     description: "The average proportion of user experiences with a Good Onload (< 2.5s) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
   measure: avg_ni_ol_pct {
     type: sum
     sql: ${avg_ol} ;;
     value_format_name: percent_2
-    label: "Avg Needs Improvement Onload %"
+    label: "Needs Improvement Onload %"
     description: "The average proportion of user experiences with Onload that Needs Improvement (>= 2.5s and < 6.5s) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
   measure: avg_poor_ol_pct {
     type: sum
     sql: ${slow_ol} ;;
     value_format_name: percent_2
-    label: "Avg Poor Onload %"
+    label: "Poor Onload %"
     description: "The average proportion of user experiences with a Poor Onload (>= 6.5s) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
 
@@ -946,27 +946,27 @@ view: +country_summary {
     type: sum
     sql: ${fast_ttfb} ;;
     value_format_name: percent_2
-    label: "Avg Good TTFB %"
+    label: "Good TTFB %"
     description: "The average proportion of user experiences with a Good Time to First Byte (< 800ms) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
   measure: avg_ni_ttfb_pct {
     type: sum
     sql: (1 - ${fast_ttfb} - ${slow_ttfb}) ;;
     value_format_name: percent_2
-    label: "Avg Needs Improvement TTFB %"
+    label: "Needs Improvement TTFB %"
     description: "The average proportion of user experiences with TTFB that Needs Improvement (>= 800ms and < 1800ms) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
   measure: avg_poor_ttfb_pct {
     type: sum
     sql: ${slow_ttfb} ;;
     value_format_name: percent_2
-    label: "Avg Poor TTFB %"
+    label: "Poor TTFB %"
     description: "The average proportion of user experiences with a Poor Time to First Byte (>= 1800ms) across selected segments."
-    group_label: "Average Performance Categories"
+    group_label: "Performance Categories"
     hidden: no
   }
 
@@ -997,7 +997,7 @@ view: +country_summary {
         AVG(${small_cls})
       ) / 3
     ;;
-    label: "Avg Combined CWV Pass Rate"
+    label: "Combined CWV Pass Rate"
     description: "The average combined 'Good' percentage across LCP, INP, and CLS for selected segments. Represents the average proportion of traffic meeting good thresholds for all three Core Web Vitals."
     group_label: "Core Web Vitals Summary"
     hidden: no
