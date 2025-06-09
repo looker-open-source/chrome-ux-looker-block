@@ -1146,6 +1146,30 @@ view: +device_summary {
     value_format_name: percent_2
   }
 
+  ## Notification ##
+
+  measure: notification_accept_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: total_notification_accept_proportion
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
+  measure: notification_deny_last_month {
+    group_label: "Period Over Period Measures"
+    type: period_over_period
+    kind: previous
+    based_on: total_notification_deny_proportion
+    based_on_time: date_pop_month
+    period: month
+    hidden: no
+    value_format_name: percent_2
+  }
+
   #######################
 
   measure: count {
@@ -1958,6 +1982,7 @@ view: +device_summary {
             <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px; font-weight: bold;" href="/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters["origin"] | url_encode }}">Device Distribution<a>
             <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::navigation_type_distribution?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Navigation Type Distribution</a>
             <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::connection_distribution?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Connection Distribution</a>
+            <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::notification_permissions?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Notification Permissions</a>
 
       <a style="color: #efefef; padding: 5px 15px; float: right; line-height: 40px;" href="/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">More</a>
       </nav>
@@ -1977,6 +2002,7 @@ view: +device_summary {
             <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters["origin"] | url_encode }}">Device Distribution<a>
             <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px; font-weight: bold;" href="/dashboards/chrome-ux-block::navigation_type_distribution?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Navigation Type Distribution</a>
             <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::connection_distribution?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Connection Distribution</a>
+            <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::notification_permissions?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Notification Permissions</a>
 
       <a style="color: #efefef; padding: 5px 15px; float: right; line-height: 40px;" href="/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">More</a>
       </nav>
@@ -1996,6 +2022,27 @@ view: +device_summary {
             <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters["origin"] | url_encode }}">Device Distribution<a>
             <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::navigation_type_distribution?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Navigation Type Distribution</a>
             <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px; font-weight: bold;" href="/dashboards/chrome-ux-block::connection_distribution?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Connection Distribution</a>
+            <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::notification_permissions?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Notification Permissions</a>
+
+      <a style="color: #efefef; padding: 5px 15px; float: right; line-height: 40px;" href="/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">More</a>
+      </nav>
+      </div>
+      ;;
+  }
+
+  dimension: nav_bar_notification_permissions {
+    hidden: no
+    type: string
+    sql: " " ;;
+    group_label: "Navigation Bar Fields"
+    html:
+        <div style="border-radius: 5px; padding: 5px 10px; background: #08B248; height: 60px; color: red; text-align: center;">
+          <nav style="font-size: 18px;  text-align: center;">
+            <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::core_web_vitals?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">☰ Core Web Vitals </a>
+            <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters["origin"] | url_encode }}">Device Distribution<a>
+            <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::navigation_type_distribution?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Navigation Type Distribution</a>
+            <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/chrome-ux-block::connection_distribution?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Connection Distribution</a>
+            <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px; font-weight: bold;" href="/dashboards/chrome-ux-block::notification_permissions?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">Notification Permissions</a>
 
       <a style="color: #efefef; padding: 5px 15px; float: right; line-height: 40px;" href="/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters["origin"] | url_encode }}&Device+Type={{ _filters["device"] | url_encode }}">More</a>
       </nav>
