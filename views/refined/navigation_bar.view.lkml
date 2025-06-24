@@ -10,7 +10,7 @@ view: navigation_bar {
 
   dimension: nav_bar_core_web_vitals {
     type: string
-    sql: ${TABLE}.navigation ;;
+    sql: "";;
     hidden: no
     group_label: "Navigation Bar Fields"
     html:
@@ -31,7 +31,7 @@ view: navigation_bar {
 
   dimension: nav_bar_lcp{
     type: string
-    sql: ${TABLE}.navigation ;;
+    sql: "";;
     group_label: "Navigation Bar Fields"
     html:
       <div style="border-radius: 5px; padding: 5px 10px; background: #3a71fc; height: 60px; color: red; text-align: center;">
@@ -50,7 +50,7 @@ view: navigation_bar {
 
   dimension: nav_bar_inp {
     type: string
-    sql: ${TABLE}.navigation ;;
+    sql: "";;
     group_label: "Navigation Bar Fields"
     html:
       <div style="border-radius: 5px; padding: 5px 10px; background: #3a71fc; height: 60px; color: red; text-align: center;">
@@ -70,7 +70,7 @@ view: navigation_bar {
 
   dimension: nav_bar_cls {
     type: string
-    sql: ${TABLE}.navigation ;;
+    sql: "";;
     group_label: "Navigation Bar Fields"
     html:
       <div style="border-radius: 5px; padding: 5px 10px; background: #3a71fc; height: 60px; color: red; text-align: center;">
@@ -89,7 +89,7 @@ view: navigation_bar {
 
   dimension: nav_bar_ttfb {
     type: string
-    sql: ${TABLE}.navigation ;;
+    sql: "";;
     group_label: "Navigation Bar Fields"
     html:
       <div style="border-radius: 5px; padding: 5px 10px; background: #FC9200; height: 60px; color: red; text-align: center;">
@@ -109,7 +109,7 @@ view: navigation_bar {
 
   dimension: nav_bar_fp {
     type: string
-    sql: ${TABLE}.navigation ;;
+    sql: "";;
     group_label: "Navigation Bar Fields"
     html:
       <div style="border-radius: 5px; padding: 5px 10px; background: #FC9200; height: 60px; color: red; text-align: center;">
@@ -129,7 +129,7 @@ view: navigation_bar {
 
   dimension: nav_bar_dcl {
     type: string
-    sql: ${TABLE}.navigation ;;
+    sql: "";;
     group_label: "Navigation Bar Fields"
     html:
       <div style="border-radius: 5px; padding: 5px 10px; background: #FC9200; height: 60px; color: red; text-align: center;">
@@ -149,7 +149,7 @@ view: navigation_bar {
 
   dimension: nav_bar_ol {
     type: string
-    sql: ${TABLE}.navigation ;;
+    sql: "";;
     group_label: "Navigation Bar Fields"
     html:
       <div style="border-radius: 5px; padding: 5px 10px; background: #FC9200; height: 60px; color: red; text-align: center;">
@@ -169,7 +169,7 @@ view: navigation_bar {
 
   dimension: nav_bar_fcp {
     type: string
-    sql: ${TABLE}.navigation ;;
+    sql: "";;
     group_label: "Navigation Bar Fields"
     html:
         <div style="border-radius: 5px; padding: 5px 10px; background: #FC9200; height: 60px; color: red; text-align: center;">
@@ -189,7 +189,7 @@ view: navigation_bar {
 
   dimension: nav_bar_device_distribution {
     type: string
-    sql: ${TABLE}.navigation ;;
+    sql: "";;
     group_label: "Navigation Bar Fields"
     html:
         <div style="border-radius: 5px; padding: 5px 10px; background: #08B248; height: 60px; color: red; text-align: center;">
@@ -208,7 +208,7 @@ view: navigation_bar {
 
   dimension: nav_bar_navigation_type_distrbution {
     type: string
-    sql: ${TABLE}.navigation ;;
+    sql: "";;
     group_label: "Navigation Bar Fields"
     html:
         <div style="border-radius: 5px; padding: 5px 10px; background: #08B248; height: 60px; color: red; text-align: center;">
@@ -227,7 +227,7 @@ view: navigation_bar {
 
   dimension: nav_bar_connection_distribution {
     type: string
-    sql: ${TABLE}.navigation ;;
+    sql: "";;
     group_label: "Navigation Bar Fields"
     html:
         <div style="border-radius: 5px; padding: 5px 10px; background: #08B248; height: 60px; color: red; text-align: center;">
@@ -246,7 +246,7 @@ view: navigation_bar {
 
   dimension: nav_bar_notification_permissions {
     type: string
-    sql: ${TABLE}.navigation ;;
+    sql: "";;
     group_label: "Navigation Bar Fields"
     html:
         <div style="border-radius: 5px; padding: 5px 10px; background: #08B248; height: 60px; color: red; text-align: center;">

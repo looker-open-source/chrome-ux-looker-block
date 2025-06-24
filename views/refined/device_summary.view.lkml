@@ -6,7 +6,6 @@ view: +device_summary {
     sql:SELECT
           *,
           GENERATE_UUID() AS primary_key,
-          "" AS navigation,
           --PARSE_TIMESTAMP('%Y%m%d', CAST(yyyymm AS STRING) || '01') AS date
         FROM `@{CRUX_PUBLIC_PROJECT_ID}.@{CRUX_DATASET}.device_summary` ;;
   }
