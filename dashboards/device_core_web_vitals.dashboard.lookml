@@ -70,9 +70,9 @@
       Origin: device_summary.origin
       Device Type: device_summary.device
       Date Month: device_summary.date_month
-    row: 7
-    col: 7
-    width: 17
+    row: 2
+    col: 11
+    width: 13
     height: 6
   - title: Interaction to Next Paint (INP)
     name: Interaction to Next Paint (INP)
@@ -134,10 +134,10 @@
       Origin: device_summary.origin
       Device Type: device_summary.device
       Date Month: device_summary.date_month
-    row: 13
-    col: 7
-    width: 17
-    height: 6
+    row: 8
+    col: 11
+    width: 13
+    height: 7
   - title: Cumulative Layout Shift (CLS)
     name: Cumulative Layout Shift (CLS)
     model: chrome-ux-block
@@ -201,9 +201,9 @@
       Origin: device_summary.origin
       Device Type: device_summary.device
       Date Month: device_summary.date_month
-    row: 19
-    col: 7
-    width: 17
+    row: 15
+    col: 11
+    width: 13
     height: 6
   - name: ''
     type: text
@@ -214,9 +214,9 @@
       LCP reports the render time of the largest content element that is visible within the viewport.
 
       <a href="https://web.dev/articles/lcp" target="_blank">web.dev/lcp</a>
-    row: 7
-    col: 0
-    width: 7
+    row: 2
+    col: 5
+    width: 6
     height: 6
   - name: " (2)"
     type: text
@@ -227,10 +227,10 @@
       INP reports the overall responsiveness to user interactions, as measured by the longest time from an interaction until the next frame is presented with visual feedback, ignoring outliers.
 
       <a href="https://web.dev/articles/inp" target="_blank">web.dev/inp</a>
-    row: 13
-    col: 0
-    width: 7
-    height: 6
+    row: 8
+    col: 5
+    width: 6
+    height: 7
   - name: " (3)"
     type: text
     title_text: ''
@@ -240,9 +240,9 @@
       CLS measures the sum total of all individual layout shift scores for every unexpected layout shift that occurs during the entire lifespan of the page.
 
       <a href="https://web.dev/articles/cls" target="_blank">web.dev/cls</a>
-    row: 19
-    col: 0
-    width: 7
+    row: 15
+    col: 5
+    width: 6
     height: 6
   - title: Origin
     name: Origin
@@ -310,9 +310,9 @@
       Origin: device_summary.origin
       Device Type: device_summary.device
       Date Month: device_summary.date_month
-    row: 3
-    col: 0
-    width: 11
+    row: 0
+    col: 5
+    width: 10
     height: 2
   - title: Month
     name: Month
@@ -380,32 +380,58 @@
       Origin: device_summary.origin
       Device Type: device_summary.device
       Date Month: device_summary.date_month
-    row: 3
-    col: 11
-    width: 13
+    row: 0
+    col: 15
+    width: 9
     height: 2
-  - title: _____
-    name: _____
+  - title: NavBar
+    name: NavBar
     model: chrome-ux-block
     explore: device_summary
-    type: single_value
-    fields: [device_summary.nav_bar_core_web_vitals]
+    type: looker_grid
+    fields: [device_summary.nav_bar_active_core_web_vitals]
     filters: {}
-    sorts: [device_summary.nav_bar_core_web_vitals]
+    sorts: [device_summary.nav_bar_active_core_web_vitals]
     limit: 500
     column_limit: 50
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: false
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: false
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: left
+    header_font_size: '1'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    color_application:
+      collection_id: 5591d8d1-6b49-4f8e-bafa-b874d82f8eb7
+      palette_id: 18d0c733-1d87-42a9-934f-4ba8ef81d736
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    series_labels: {}
+    limit_displayed_rows_values:
+      show_hide: hide
+      first_last: first
+      num_rows: 0
+    header_font_color: "#FFFF"
+    header_background_color: "#FFFF"
     custom_color_enabled: true
     show_single_value_title: true
     show_comparison: false
     comparison_type: value
     comparison_reverse_colors: false
     show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
     x_axis_gridlines: false
     y_axis_gridlines: true
-    show_view_names: false
     show_y_axis_labels: true
     show_y_axis_ticks: true
     y_axis_tick_density: default
@@ -418,7 +444,6 @@
     plot_size_by_field: false
     trellis: ''
     stacking: ''
-    limit_displayed_rows: false
     legend_position: center
     point_style: none
     show_value_labels: false
@@ -431,14 +456,19 @@
     show_silhouette: false
     totals_color: "#808080"
     defaults_version: 1
+    hidden_fields: []
+    hidden_points_if_no: []
+    font_size_main: ''
+    orientation: auto
+    title_hidden: true
     listen:
       Date Month: device_summary.date_month
       Origin: device_summary.origin
       Device Type: device_summary.device
     row: 0
     col: 0
-    width: 24
-    height: 3
+    width: 5
+    height: 21
   filters:
   - name: Date Month
     title: Date Month

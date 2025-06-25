@@ -81,7 +81,7 @@
     x_axis_zoom: true
     y_axis_zoom: true
     hide_legend: false
-    font_size: '9'
+    font_size: '12'
     label_value_format: 0.00\%
     series_colors:
       device_summary.avg_good_lcp_pct: "#08B248"
@@ -94,7 +94,7 @@
       device_summary.total_phone_traffic_proportion: Phone
       device_summary.total_desktop_traffic_proportion: Desktop
       device_summary.total_tablet_traffic_proportion: Tablet
-    label_color: [black, white, green]
+    label_color: [white]
     column_group_spacing_ratio: 0.2
     hidden_pivots: {}
     defaults_version: 1
@@ -102,9 +102,10 @@
     title_hidden: true
     listen:
       Origin: device_summary.origin
-    row: 8
-    col: 0
-    width: 24
+      Device Type: device_summary.device
+    row: 5
+    col: 5
+    width: 19
     height: 10
   - title: Scorecards
     name: Scorecards
@@ -245,36 +246,10 @@
     title_hidden: true
     listen:
       Origin: device_summary.origin
-    row: 5
-    col: 2
-    width: 20
-    height: 3
-  - title: ___
-    name: ___
-    model: chrome-ux-block
-    explore: device_summary
-    type: single_value
-    fields: [device_summary.nav_bar_device_distribution]
-    filters: {}
-    sorts: [device_summary.nav_bar_device_distribution]
-    limit: 1
-    column_limit: 50
-    custom_color_enabled: true
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    defaults_version: 1
-    title_hidden: true
-    listen:
-      Origin: device_summary.origin
-    row: 0
-    col: 0
-    width: 24
+      Device Type: device_summary.device
+    row: 2
+    col: 5
+    width: 19
     height: 3
   - title: Origin
     name: Origin
@@ -282,7 +257,6 @@
     explore: device_summary
     type: single_value
     fields: [device_summary.origin, device_summary.date_month]
-    filters: {}
     sorts: [device_summary.date_month desc]
     limit: 1
     column_limit: 50
@@ -340,9 +314,10 @@
     defaults_version: 1
     listen:
       Origin: device_summary.origin
-    row: 3
-    col: 0
-    width: 12
+      Device Type: device_summary.device
+    row: 0
+    col: 5
+    width: 10
     height: 2
   - title: Month
     name: Month
@@ -350,7 +325,6 @@
     explore: device_summary
     type: single_value
     fields: [device_summary.origin, device_summary.date_month]
-    filters: {}
     sorts: [device_summary.date_month desc]
     limit: 1
     column_limit: 50
@@ -408,10 +382,95 @@
     defaults_version: 1
     listen:
       Origin: device_summary.origin
-    row: 3
-    col: 12
-    width: 12
+      Device Type: device_summary.device
+    row: 0
+    col: 15
+    width: 9
     height: 2
+  - title: NavBar
+    name: NavBar
+    model: chrome-ux-block
+    explore: device_summary
+    type: looker_grid
+    fields: [device_summary.nav_bar_active_device_distribution]
+    filters: {}
+    sorts: [device_summary.nav_bar_active_device_distribution]
+    limit: 500
+    column_limit: 50
+    show_view_names: false
+    show_row_numbers: false
+    transpose: false
+    truncate_text: false
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: false
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: left
+    header_font_size: '1'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    color_application:
+      collection_id: 5591d8d1-6b49-4f8e-bafa-b874d82f8eb7
+      palette_id: 18d0c733-1d87-42a9-934f-4ba8ef81d736
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    series_labels: {}
+    limit_displayed_rows_values:
+      show_hide: hide
+      first_last: first
+      num_rows: 0
+    header_font_color: "#FFFF"
+    header_background_color: "#FFFF"
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    hidden_fields: []
+    hidden_points_if_no: []
+    font_size_main: ''
+    orientation: auto
+    title_hidden: true
+    listen:
+      Origin: device_summary.origin
+      Device Type: device_summary.device
+    row: 0
+    col: 0
+    width: 5
+    height: 15
   filters:
   - name: Origin
     title: Origin
@@ -426,3 +485,16 @@
     explore: device_summary
     listens_to_filters: []
     field: device_summary.origin
+  - name: Device Type
+    title: Device Type
+    type: field_filter
+    default_value: desktop,phone,tablet
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: button_group
+      display: inline
+    model: chrome-ux-block
+    explore: device_summary
+    listens_to_filters: []
+    field: device_summary.device
