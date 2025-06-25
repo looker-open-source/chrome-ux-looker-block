@@ -7,7 +7,34 @@ view: +device_summary {
           *,
           GENERATE_UUID() AS primary_key,
           --PARSE_TIMESTAMP('%Y%m%d', CAST(yyyymm AS STRING) || '01') AS date
-        FROM `@{CRUX_PUBLIC_PROJECT_ID}.@{CRUX_DATASET}.device_summary` ;;
+        FROM `@{CRUX_PUBLIC_PROJECT_ID}.@{CRUX_DATASET}.device_summary`
+        WHERE
+          -- Required filters By Origin
+          {% if device_summary.origin._is_filtered %}
+            1=1
+          {% else %}
+           'ERROR NEED FILTER BY ORIGIN' = ' '
+          {% endif %}
+
+        -- Optimizing by filtering on the partitioned column
+          {% if device_summary.date_date._is_filtered %}
+            AND date BETWEEN
+              DATE({% date_start device_summary.date_date %})
+              AND COALESCE(DATE({% date_end device_summary.date %}), CURRENT_DATE())
+          {% elsif device_summary.date_week._is_filtered %}
+            AND date BETWEEN
+              DATE({% date_start device_summary.date_week %})
+              AND COALESCE(DATE({% date_end device_summary.date_week %}), CURRENT_DATE())
+          {% elsif device_summary.date_month._is_filtered %}
+            AND date BETWEEN
+              DATE({% date_start device_summary.date_month %})
+              AND COALESCE(DATE({% date_end device_summary.date_month %}), CURRENT_DATE())
+          {% elsif device_summary.date_year._is_filtered %}
+            AND date BETWEEN
+              DATE({% date_start device_summary.date_year %})
+              AND COALESCE(DATE({% date_end device_summary.date_year %}), CURRENT_DATE())
+          {% endif %}
+          ;;
   }
 
   ### PARAMETERS ###
