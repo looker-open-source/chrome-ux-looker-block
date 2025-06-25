@@ -85,7 +85,7 @@
     row: 5
     col: 5
     width: 19
-    height: 11
+    height: 12
   - title: Origin
     name: Origin
     model: chrome-ux-block
@@ -584,13 +584,14 @@
     hidden_points_if_no: []
     font_size_main: ''
     orientation: auto
+    title_hidden: true
     listen:
       Origin: device_summary.origin
       Device Type: device_summary.device
     row: 0
     col: 0
     width: 5
-    height: 16
+    height: 17
   filters:
   - name: Origin
     title: Origin

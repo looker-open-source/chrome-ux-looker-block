@@ -333,7 +333,7 @@ view: navigation_bar {
       text-decoration: none;
       font-size: 16px;
       text-align: center;"
-      href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
+      href="/embed/dashboards/chrome-ux-block::core_web_vitals?&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
       ☰ Core Web Vitals
       </a>
 
@@ -373,7 +373,7 @@ view: navigation_bar {
     html:
     <div style="border-radius: 8px; background: #3a71fc; width: 320px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 10px;">
         <a style="display: block; background-color: #efefef; color: #3a71fc; padding: 20px 20px; margin: 10px; font-weight: bold; border-radius: 6px; text-decoration: none; font-size: 16px; text-align: center;"
-           href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
+           href="/embed/dashboards/chrome-ux-block::core_web_vitals?&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
            ☰ Core Web Vitals
         </a>
 
@@ -406,7 +406,7 @@ view: navigation_bar {
   html:
     <div style="border-radius: 8px; background: #3a71fc; width: 340px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 12px;">
         <a style="display: block; border: 1px solid #efefef; color: #efefef; padding: 12px 18px; margin: 12px; font-weight: normal; border-radius: 8px; text-decoration: none; font-size: 18px; text-align: center;"
-           href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
+           href="/embed/dashboards/chrome-ux-block::core_web_vitals?&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
            ☰ Core Web Vitals
         </a>
         <div style="background-color: #08B248; padding: 8px 18px; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
@@ -435,7 +435,7 @@ dimension: nav_bar_active_inp {
   html:
     <div style="border-radius: 8px; background: #3a71fc; width: 340px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 12px;">
         <a style="display: block; border: 1px solid #efefef; color: #efefef; padding: 12px 18px; margin: 12px; font-weight: normal; border-radius: 8px; text-decoration: none; font-size: 18px; text-align: center;"
-           href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
+           href="/embed/dashboards/chrome-ux-block::core_web_vitals?&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
            ☰ Core Web Vitals
         </a>
         <div style="background-color: #08B248; padding: 8px 18px; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
@@ -464,7 +464,7 @@ dimension: nav_bar_active_cls {
   html:
     <div style="border-radius: 8px; background: #3a71fc; width: 340px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 12px;">
         <a style="display: block; border: 1px solid #efefef; color: #efefef; padding: 12px 18px; margin: 12px; font-weight: normal; border-radius: 8px; text-decoration: none; font-size: 18px; text-align: center;"
-           href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
+           href="/embed/dashboards/chrome-ux-block::core_web_vitals?&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
            ☰ Core Web Vitals
         </a>
         <div style="background-color: #08B248; padding: 8px 18px; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
@@ -493,7 +493,7 @@ dimension: nav_bar_active_fcp {
   html:
     <div style="border-radius: 8px; background: #3a71fc; width: 340px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 12px;">
         <a style="display: block; border: 1px solid #efefef; color: #efefef; padding: 12px 18px; margin: 12px; font-weight: normal; border-radius: 8px; text-decoration: none; font-size: 18px; text-align: center;"
-           href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
+           href="/embed/dashboards/chrome-ux-block::core_web_vitals?&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
            ☰ Core Web Vitals
         </a>
         <div style="background-color: #08B248; padding: 8px 18px; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
@@ -522,7 +522,7 @@ dimension: nav_bar_active_ttfb {
   html:
     <div style="border-radius: 8px; background: #3a71fc; width: 340px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 12px;">
         <a style="display: block; border: 1px solid #efefef; color: #efefef; padding: 12px 18px; margin: 12px; font-weight: normal; border-radius: 8px; text-decoration: none; font-size: 18px; text-align: center;"
-           href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
+           href="/embed/dashboards/chrome-ux-block::core_web_vitals?&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
            ☰ Core Web Vitals
         </a>
         <div style="background-color: #08B248; padding: 8px 18px; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
@@ -551,7 +551,7 @@ dimension: nav_bar_active_fp {
   html:
     <div style="border-radius: 8px; background: #3a71fc; width: 340px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 12px;">
         <a style="display: block; border: 1px solid #efefef; color: #efefef; padding: 12px 18px; margin: 12px; font-weight: normal; border-radius: 8px; text-decoration: none; font-size: 18px; text-align: center;"
-           href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
+           href="/embed/dashboards/chrome-ux-block::core_web_vitals?&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
            ☰ Core Web Vitals
         </a>
         <div style="background-color: #08B248; padding: 8px 18px; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
@@ -580,7 +580,7 @@ dimension: nav_bar_active_dcl {
   html:
     <div style="border-radius: 8px; background: #3a71fc; width: 340px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 12px;">
         <a style="display: block; border: 1px solid #efefef; color: #efefef; padding: 12px 18px; margin: 12px; font-weight: normal; border-radius: 8px; text-decoration: none; font-size: 18px; text-align: center;"
-           href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
+           href="/embed/dashboards/chrome-ux-block::core_web_vitals?&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
            ☰ Core Web Vitals
         </a>
         <div style="background-color: #08B248; padding: 8px 18px; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
@@ -609,7 +609,7 @@ dimension: nav_bar_active_ol {
   html:
     <div style="border-radius: 8px; background: #3a71fc; width: 340px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 12px;">
         <a style="display: block; border: 1px solid #efefef; color: #efefef; padding: 12px 18px; margin: 12px; font-weight: normal; border-radius: 8px; text-decoration: none; font-size: 18px; text-align: center;"
-           href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
+           href="/embed/dashboards/chrome-ux-block::core_web_vitals?&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
            ☰ Core Web Vitals
         </a>
         <div style="background-color: #08B248; padding: 8px 18px; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
@@ -638,7 +638,7 @@ dimension: nav_bar_active_device_distribution {
   html:
     <div style="border-radius: 8px; background: #3a71fc; width: 340px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 12px;">
         <a style="display: block; border: 1px solid #efefef; color: #efefef; padding: 12px 18px; margin: 12px; font-weight: normal; border-radius: 8px; text-decoration: none; font-size: 18px; text-align: center;"
-           href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
+           href="/embed/dashboards/chrome-ux-block::core_web_vitals?&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
            ☰ Core Web Vitals
         </a>
         <div style="background-color: #08B248; padding: 8px 18px; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
@@ -667,7 +667,7 @@ dimension: nav_bar_active_navigation_type_distribution {
   html:
     <div style="border-radius: 8px; background: #3a71fc; width: 340px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 12px;">
         <a style="display: block; border: 1px solid #efefef; color: #efefef; padding: 12px 18px; margin: 12px; font-weight: normal; border-radius: 8px; text-decoration: none; font-size: 18px; text-align: center;"
-           href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
+           href="/embed/dashboards/chrome-ux-block::core_web_vitals?&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
            ☰ Core Web Vitals
         </a>
         <div style="background-color: #08B248; padding: 8px 18px; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
@@ -696,7 +696,7 @@ dimension: nav_bar_active_connection_distribution {
   html:
     <div style="border-radius: 8px; background: #3a71fc; width: 340px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 12px;">
         <a style="display: block; border: 1px solid #efefef; color: #efefef; padding: 12px 18px; margin: 12px; font-weight: normal; border-radius: 8px; text-decoration: none; font-size: 18px; text-align: center;"
-           href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
+           href="/embed/dashboards/chrome-ux-block::core_web_vitals?&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
            ☰ Core Web Vitals
         </a>
         <div style="background-color: #08B248; padding: 8px 18px; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
@@ -725,7 +725,7 @@ dimension: nav_bar_active_notification_permissions {
   html:
     <div style="border-radius: 8px; background: #3a71fc; width: 340px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 12px;">
         <a style="display: block; border: 1px solid #efefef; color: #efefef; padding: 12px 18px; margin: 12px; font-weight: normal; border-radius: 8px; text-decoration: none; font-size: 18px; text-align: center;"
-           href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
+           href="/embed/dashboards/chrome-ux-block::core_web_vitals?&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
            ☰ Core Web Vitals
         </a>
         <div style="background-color: #08B248; padding: 8px 18px; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>

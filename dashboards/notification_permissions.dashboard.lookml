@@ -91,7 +91,7 @@
     row: 5
     col: 5
     width: 19
-    height: 10
+    height: 12
   - title: Scorecards
     name: Scorecards
     model: chrome-ux-block
@@ -434,7 +434,7 @@
     row: 0
     col: 0
     width: 5
-    height: 15
+    height: 17
   filters:
   - name: Origin
     title: Origin
