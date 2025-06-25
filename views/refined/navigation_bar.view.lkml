@@ -254,88 +254,466 @@ view: navigation_bar {
     hidden: no
     group_label: "Navigation Bar"
     html:
-      <style>
-        /* Main Navigation Bar Container */
-        .grouped-nav-bar {
-          padding: 15px;
-          background: #3a71fc;
-          font-family: 'Google Sans', 'Helvetica', 'Arial', sans-serif;
-          /* Flexbox used for layout */
-          display: flex;
-          justify-content: space-around; /* Distributes groups evenly */
-          align-items: flex-start; /* Aligns groups to the top */
-        }
+    <div style="border-radius: 5px; padding: 10px; background: #3a71fc; height: auto;">
+      <nav style="font-size: 16px; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start;">
 
-      /* Styling for each group of links */
-      .nav-group {
-      text-align: left;
-      }
+        <a style="background-color: #efefef; color: #3a71fc; padding: 4px 12px; margin: 5px; font-weight: bold; border-radius: 20px; text-decoration: none;" href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month=2025-04&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">☰ Core Web Vitals</a>
+        <a style="color: #efefef; padding: 4px 10px; margin: 5px; text-decoration: none;" href="/embed/dashboards/chrome-ux-block::largest_contentful_paint_lcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Largest Contentful Paint</a>
+        <a style="color: #efefef; padding: 4px 10px; margin: 5px; text-decoration: none;" href="/embed/dashboards/chrome-ux-block::interaction_to_next_paint_inp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Interaction to Next Paint</a>
+        <a style="color: #efefef; padding: 4px 10px; margin: 5px; text-decoration: none;" href="/embed/dashboards/chrome-ux-block::cumulative_layout_shift_cls?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Cumulative Layout Shift</a>
+        <a style="color: #efefef; padding: 4px 10px; margin: 5px; text-decoration: none;" href="/embed/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Contentful Paint</a>
+        <a style="color: #efefef; padding: 4px 10px; margin: 5px; text-decoration: none;" href="/embed/dashboards/chrome-ux-block::time_to_first_byte_ttfb?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Time to First Byte</a>
+        <a style="color: #efefef; padding: 4px 10px; margin: 5px; text-decoration: none;" href="/embed/dashboards/chrome-ux-block::first_paint_fp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Paint</a>
+        <a style="color: #efefef; padding: 4px 10px; margin: 5px; text-decoration: none;" href="/embed/dashboards/chrome-ux-block::dom_content_loaded_dcl?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">DOM Content Loaded</a>
+        <a style="color: #efefef; padding: 4px 10px; margin: 5px; text-decoration: none;" href="/embed/dashboards/chrome-ux-block::onload_ol?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Onload</a>
+        <a style="color: #efefef; padding: 4px 10px; margin: 5px; text-decoration: none;" href="/embed/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters['origin'] | url_encode }}">Device Distribution</a>
+        <a style="color: #efefef; padding: 4px 10px; margin: 5px; text-decoration: none;" href="/embed/dashboards/chrome-ux-block::navigation_type_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Navigation Type Distribution</a>
+        <a style="color: #efefef; padding: 4px 10px; margin: 5px; text-decoration: none;" href="/embed/dashboards/chrome-ux-block::connection_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Connection Distribution</a>
+        <a style="color: #efefef; padding: 4px 10px; margin: 5px; text-decoration: none;" href="/embed/dashboards/chrome-ux-block::notification_permissions?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Notification Permissions</a>
 
-      /* Styling for the title of each group */
-      .nav-group-title {
-      font-size: 14px;
-      color: #b9d2ff; /* A lighter blue to act as a label */
-      font-weight: bold;
-      text-transform: uppercase;
-      border-bottom: 1px solid #b9d2ff;
-      padding-bottom: 8px;
-      margin-bottom: 8px;
-      }
-
-      /* Styling for individual links within a group */
-      .nav-group a {
-      display: block; /* Makes each link take its own line */
-      color: #efefef;
-      text-decoration: none;
-      padding: 8px 12px;
-      margin: 2px 0;
-      border-radius: 20px; /* Rounded shape for the pill */
-      font-size: 16px;
-      }
-
-      /* Hover effect for non-active links */
-      .nav-group a:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-      }
-
-      /* --- Active Link Highlight (Pill Style) --- */
-      /* Apply this class to the link of the currently viewed dashboard */
-      .nav-group a.active {
-      background-color: #efefef !important;
-      color: #3a71fc;
-      font-weight: bold;
-      }
-      </style>
-
-      <div class="grouped-nav-bar">
-
-      <div class="nav-group">
-      <div class="nav-group-title">Core Vitals</div>
-      <a href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month=2025-04&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">☰ Core Web Vitals</a>
-      <a href="/embed/dashboards/chrome-ux-block::largest_contentful_paint_lcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Largest Contentful Paint</a>
-      <a href="/embed/dashboards/chrome-ux-block::interaction_to_next_paint_inp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Interaction to Next Paint</a>
-      <a href="/embed/dashboards/chrome-ux-block::cumulative_layout_shift_cls?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Cumulative Layout Shift</a>
+      </nav>
       </div>
+      ;;
+  }
 
-      <div class="nav-group">
-      <div class="nav-group-title">Other Metrics</div>
-      <a href="/embed/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Contentful Paint</a>
-      <a href="/embed/dashboards/chrome-ux-block::time_to_first_byte_ttfb?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Time to First Byte</a>
-      <a href="/embed/dashboards/chrome-ux-block::first_paint_fp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Paint</a>
-      <a href="/embed/dashboards/chrome-ux-block::dom_content_loaded_dcl?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">DOM Content Loaded</a>
-      <a href="/embed/dashboards/chrome-ux-block::onload_ol?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Onload</a>
-      </div>
+  dimension: single_navigation_bar_grouped_2 {
+    type: string
+    sql: "";;
+    hidden: no
+    group_label: "Navigation Bar"
+    html:
+    <div style="border-radius: 5px; padding: 10px; background: #3a71fc; height: auto; color: red; text-align: center; border-radius: 20px;">
 
-      <div class="nav-group">
-      <div class="nav-group-title">Audience Analysis</div>
-      <a href="/embed/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters['origin'] | url_encode }}">Device Distribution</a>
-      <a href="/embed/dashboards/chrome-ux-block::navigation_type_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Navigation Type</a>
-      <a href="/embed/dashboards/chrome-ux-block::connection_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Connection Distribution</a>
-      <a href="/embed/dashboards/chrome-ux-block::notification_permissions?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Notification Permissions</a>
-      </div>
+      <nav style="font-size: 16px; margin-bottom: 8px;">
+        <a style="background-color: #efefef; color: #3a71fc; padding: 4px 12px; font-weight: bold; border-radius: 20px; text-decoration: none; margin-right: 8px;" href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month=2025-04&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">☰ Core Web Vitals</a>
+        <a style="color: #efefef; padding: 4px 10px; line-height: 40px; text-decoration: none;" href="/embed/dashboards/chrome-ux-block::largest_contentful_paint_lcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Largest Contentful Paint</a>
+        <a style="color: #efefef; padding: 4px 10px; line-height: 40px; text-decoration: none;" href="/embed/dashboards/chrome-ux-block::interaction_to_next_paint_inp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Interaction to Next Paint</a>
+        <a style="color: #efefef; padding: 4px 10px; line-height: 40px; text-decoration: none;" href="/embed/dashboards/chrome-ux-block::cumulative_layout_shift_cls?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Cumulative Layout Shift</a>
+        <a style="color: #efefef; padding: 4px 10px; line-height: 40px; text-decoration: none;" href="/embed/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Contentful Paint</a>
+      </nav>
+
+      <nav style="font-size: 16px;">
+      <a style="color: #efefef; padding: 4px 10px; line-height: 40px; text-decoration: none;" href="/embed/dashboards/chrome-ux-block::time_to_first_byte_ttfb?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Time to First Byte</a>
+      <a style="color: #efefef; padding: 4px 10px; line-height: 40px; text-decoration: none;" href="/embed/dashboards/chrome-ux-block::first_paint_fp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Paint</a>
+      <a style="color: #efefef; padding: 4px 10px; line-height: 40px; text-decoration: none;" href="/embed/dashboards/chrome-ux-block::dom_content_loaded_dcl?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">DOM Content Loaded</a>
+      <a style="color: #efefef; padding: 4px 10px; line-height: 40px; text-decoration: none;" href="/embed/dashboards/chrome-ux-block::onload_ol?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Onload</a>
+      <a style="color: #efefef; padding: 4px 10px; line-height: 40px; text-decoration: none;" href="/embed/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters['origin'] | url_encode }}">Device Distribution</a>
+      <a style="color: #efefef; padding: 4px 10px; line-height: 40px; text-decoration: none;" href="/embed/dashboards/chrome-ux-block::navigation_type_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Navigation Type Distribution</a>
+      <a style="color: #efefef; padding: 4px 10px; line-height: 40px; text-decoration: none;" href="/embed/dashboards/chrome-ux-block::connection_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Connection Distribution</a>
+      <a style="color: #efefef; padding: 4px 10px; line-height: 40px; text-decoration: none;" href="/embed/dashboards/chrome-ux-block::notification_permissions?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Notification Permissions</a>
+      </nav>
 
       </div>
       ;;
+  }
+
+  dimension: single_navigation_bar_grouped_vertical {
+    type: string
+    sql: "";;
+    hidden: no
+    group_label: "Navigation Bar (Vertical)"
+    html:
+    <div style="
+        border-radius: 8px;
+        background: #3a71fc;
+        width: 280px;
+        color: white;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+        padding-bottom: 10px;">
+
+      <a style="
+      display: block;
+      background-color: #efefef;
+      color: #3a71fc;
+      padding: 10px 15px;
+      margin: 10px;
+      font-weight: bold;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 16px;
+      text-align: center;"
+      href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
+      ☰ Core Web Vitals
+      </a>
+
+      <div style="background-color: #08B248; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
+      <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::largest_contentful_paint_lcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Largest Contentful Paint</a>
+      <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::interaction_to_next_paint_inp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Interaction to Next Paint</a>
+      <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::cumulative_layout_shift_cls?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Cumulative Layout Shift</a>
+
+      <div style="background-color: #FC9200; margin-top: 10px; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Secondary Metrics</div>
+      <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Contentful Paint</a>
+      <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::time_to_first_byte_ttfb?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Time to First Byte</a>
+      <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::first_paint_fp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Paint</a>
+      <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::dom_content_loaded_dcl?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">DOM Content Loaded</a>
+      <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::onload_ol?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Onload</a>
+
+      <div style="background-color: #FC2E31; margin-top: 10px; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Distribution Metrics</div>
+      <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters['origin'] | url_encode }}">Device Distribution</a>
+      <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::navigation_type_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Navigation Type Distribution</a>
+      <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::connection_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Connection Distribution</a>
+      <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::notification_permissions?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Notification Permissions</a>
+
+      </div>
+      ;;
+  }
+
+
+  ############# Vertical NAvBArs #####
+
+# --- Definiciones de la Barra de Navegación ---
+# Cada dimensión representa la barra de navegación con un dashboard diferente resaltado.
+
+  dimension: nav_bar_active_core_web_vitals {
+    hidden: no
+    group_label: "vertical"
+    type: string
+    sql: "" ;;
+    html:
+    <div style="border-radius: 8px; background: #3a71fc; width: 280px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 10px;">
+        <a style="display: block; background-color: #efefef; color: #3a71fc; padding: 20px 15px; margin: 10px; font-weight: bold; border-radius: 6px; text-decoration: none; font-size: 16px; text-align: center;"
+           href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
+           ☰ Core Web Vitals
+        </a>
+
+        <div style="background-color: #08B248; padding: 10px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
+        <a style="display: block; color: #efefef; padding: 18px 15px 18px 25px; margin-bottom: 7px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::largest_contentful_paint_lcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Largest Contentful Paint</a>
+        <a style="display: block; color: #efefef; padding: 18px 15px 18px 25px; margin-bottom: 7px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::interaction_to_next_paint_inp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Interaction to Next Paint</a>
+        <a style="display: block; color: #efefef; padding: 18px 15px 18px 25px; margin-bottom: 7px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::cumulative_layout_shift_cls?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Cumulative Layout Shift</a>
+
+        <div style="background-color: #FC9200; margin-top: 10px; padding: 10px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Secondary Metrics</div>
+        <a style="display: block; color: #efefef; padding: 18px 15px 18px 25px; margin-bottom: 7px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Contentful Paint</a>
+        <a style="display: block; color: #efefef; padding: 18px 15px 18px 25px; margin-bottom: 7px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::time_to_first_byte_ttfb?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Time to First Byte</a>
+        <a style="display: block; color: #efefef; padding: 18px 15px 18px 25px; margin-bottom: 7px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::first_paint_fp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Paint</a>
+        <a style="display: block; color: #efefef; padding: 18px 15px 18px 25px; margin-bottom: 7px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::dom_content_loaded_dcl?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">DOM Content Loaded</a>
+        <a style="display: block; color: #efefef; padding: 18px 15px 18px 25px; margin-bottom: 7px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::onload_ol?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Onload</a>
+
+      <div style="background-color: #FC2E31; margin-top: 10px; padding: 10px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Distribution Metrics</div>
+      <a style="display: block; color: #efefef; padding: 18px 15px 18px 25px; margin-bottom: 7px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters['origin'] | url_encode }}">Device Distribution</a>
+      <a style="display: block; color: #efefef; padding: 18px 15px 18px 25px; margin-bottom: 7px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::navigation_type_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Navigation Type Distribution</a>
+      <a style="display: block; color: #efefef; padding: 18px 15px 18px 25px; margin-bottom: 7px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::connection_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Connection Distribution</a>
+      <a style="display: block; color: #efefef; padding: 18px 15px 18px 25px; margin-bottom: 7px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::notification_permissions?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Notification Permissions</a>
+      </div> ;;
+  }
+
+
+  dimension: nav_bar_active_lcp {
+    hidden: no
+    group_label: "vertical"
+    type: string
+    sql: "" ;;
+    html:
+    <div style="border-radius: 8px; background: #3a71fc; width: 280px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 10px;">
+        <a style="display: block; border: 1px solid #efefef; color: #efefef; padding: 10px 15px; margin: 10px; font-weight: normal; border-radius: 6px; text-decoration: none; font-size: 16px; text-align: center;"
+           href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
+           ☰ Core Web Vitals
+        </a>
+        <div style="background-color: #08B248; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
+        <a style="display: block; color: #3a71fc; background-color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; font-weight: bold; margin: 2px 10px; border-radius: 6px;" href="/embed/dashboards/chrome-ux-block::largest_contentful_paint_lcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Largest Contentful Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::interaction_to_next_paint_inp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Interaction to Next Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::cumulative_layout_shift_cls?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Cumulative Layout Shift</a>
+        <div style="background-color: #FC9200; margin-top: 10px; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Secondary Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Contentful Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::time_to_first_byte_ttfb?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Time to First Byte</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::first_paint_fp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::dom_content_loaded_dcl?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">DOM Content Loaded</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::onload_ol?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Onload</a>
+        <div style="background-color: #FC2E31; margin-top: 10px; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Distribution Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters['origin'] | url_encode }}">Device Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::navigation_type_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Navigation Type Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::connection_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Connection Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::notification_permissions?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Notification Permissions</a>
+    </div> ;;
+  }
+
+  dimension: nav_bar_active_inp {
+    hidden: no
+    group_label: "vertical"
+    type: string
+    sql: "" ;;
+    html:
+    <div style="border-radius: 8px; background: #3a71fc; width: 280px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 10px;">
+        <a style="display: block; border: 1px solid #efefef; color: #efefef; padding: 10px 15px; margin: 10px; font-weight: normal; border-radius: 6px; text-decoration: none; font-size: 16px; text-align: center;"
+           href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
+           ☰ Core Web Vitals
+        </a>
+        <div style="background-color: #08B248; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::largest_contentful_paint_lcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Largest Contentful Paint</a>
+        <a style="display: block; color: #3a71fc; background-color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; font-weight: bold; margin: 2px 10px; border-radius: 6px;" href="/embed/dashboards/chrome-ux-block::interaction_to_next_paint_inp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Interaction to Next Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::cumulative_layout_shift_cls?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Cumulative Layout Shift</a>
+        <div style="background-color: #FC9200; margin-top: 10px; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Secondary Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Contentful Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::time_to_first_byte_ttfb?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Time to First Byte</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::first_paint_fp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::dom_content_loaded_dcl?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">DOM Content Loaded</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::onload_ol?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Onload</a>
+        <div style="background-color: #FC2E31; margin-top: 10px; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Distribution Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters['origin'] | url_encode }}">Device Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::navigation_type_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Navigation Type Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::connection_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Connection Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::notification_permissions?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Notification Permissions</a>
+    </div> ;;
+  }
+
+  dimension: nav_bar_active_cls {
+    hidden: no
+    group_label: "vertical"
+    type: string
+    sql: "" ;;
+    html:
+    <div style="border-radius: 8px; background: #3a71fc; width: 280px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 10px;">
+        <a style="display: block; border: 1px solid #efefef; color: #efefef; padding: 10px 15px; margin: 10px; font-weight: normal; border-radius: 6px; text-decoration: none; font-size: 16px; text-align: center;" href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">☰ Core Web Vitals</a>
+        <div style="background-color: #08B248; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::largest_contentful_paint_lcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Largest Contentful Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::interaction_to_next_paint_inp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Interaction to Next Paint</a>
+        <a style="display: block; color: #3a71fc; background-color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; font-weight: bold; margin: 2px 10px; border-radius: 6px;" href="/embed/dashboards/chrome-ux-block::cumulative_layout_shift_cls?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Cumulative Layout Shift</a>
+        <div style="background-color: #FC9200; margin-top: 10px; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Secondary Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Contentful Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::time_to_first_byte_ttfb?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Time to First Byte</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::first_paint_fp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::dom_content_loaded_dcl?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">DOM Content Loaded</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::onload_ol?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Onload</a>
+        <div style="background-color: #FC2E31; margin-top: 10px; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Distribution Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters['origin'] | url_encode }}">Device Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::navigation_type_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Navigation Type Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::connection_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Connection Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::notification_permissions?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Notification Permissions</a>
+    </div> ;;
+  }
+
+  dimension: nav_bar_active_fcp {
+    hidden: no
+    group_label: "vertical"
+    type: string
+    sql: "" ;;
+    html:
+    <div style="border-radius: 8px; background: #3a71fc; width: 280px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 10px;">
+        <a style="display: block; border: 1px solid #efefef; color: #efefef; padding: 10px 15px; margin: 10px; font-weight: normal; border-radius: 6px; text-decoration: none; font-size: 16px; text-align: center;" href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">☰ Core Web Vitals</a>
+        <div style="background-color: #08B248; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::largest_contentful_paint_lcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Largest Contentful Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::interaction_to_next_paint_inp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Interaction to Next Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::cumulative_layout_shift_cls?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Cumulative Layout Shift</a>
+        <div style="background-color: #FC9200; margin-top: 10px; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Secondary Metrics</div>
+        <a style="display: block; color: #3a71fc; background-color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; font-weight: bold; margin: 2px 10px; border-radius: 6px;" href="/embed/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Contentful Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::time_to_first_byte_ttfb?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Time to First Byte</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::first_paint_fp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::dom_content_loaded_dcl?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">DOM Content Loaded</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::onload_ol?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Onload</a>
+        <div style="background-color: #FC2E31; margin-top: 10px; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Distribution Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters['origin'] | url_encode }}">Device Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::navigation_type_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Navigation Type Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::connection_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Connection Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::notification_permissions?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Notification Permissions</a>
+    </div> ;;
+  }
+
+  dimension: nav_bar_active_ttfb {
+    hidden: no
+    group_label: "vertical"
+    type: string
+    sql: "" ;;
+    html:
+    <div style="border-radius: 8px; background: #3a71fc; width: 280px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 10px;">
+        <a style="display: block; border: 1px solid #efefef; color: #efefef; padding: 10px 15px; margin: 10px; font-weight: normal; border-radius: 6px; text-decoration: none; font-size: 16px; text-align: center;" href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">☰ Core Web Vitals</a>
+        <div style="background-color: #08B248; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::largest_contentful_paint_lcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Largest Contentful Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::interaction_to_next_paint_inp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Interaction to Next Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::cumulative_layout_shift_cls?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Cumulative Layout Shift</a>
+        <div style="background-color: #FC9200; margin-top: 10px; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Secondary Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Contentful Paint</a>
+        <a style="display: block; color: #3a71fc; background-color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; font-weight: bold; margin: 2px 10px; border-radius: 6px;" href="/embed/dashboards/chrome-ux-block::time_to_first_byte_ttfb?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Time to First Byte</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::first_paint_fp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::dom_content_loaded_dcl?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">DOM Content Loaded</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::onload_ol?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Onload</a>
+        <div style="background-color: #FC2E31; margin-top: 10px; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Distribution Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters['origin'] | url_encode }}">Device Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::navigation_type_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Navigation Type Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::connection_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Connection Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::notification_permissions?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Notification Permissions</a>
+    </div> ;;
+  }
+
+  dimension: nav_bar_active_fp {
+    hidden: no
+    group_label: "vertical"
+    type: string
+    sql: "" ;;
+    html:
+    <div style="border-radius: 8px; background: #3a71fc; width: 280px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 10px;">
+        <a style="display: block; border: 1px solid #efefef; color: #efefef; padding: 10px 15px; margin: 10px; font-weight: normal; border-radius: 6px; text-decoration: none; font-size: 16px; text-align: center;" href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">☰ Core Web Vitals</a>
+        <div style="background-color: #08B248; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::largest_contentful_paint_lcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Largest Contentful Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::interaction_to_next_paint_inp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Interaction to Next Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::cumulative_layout_shift_cls?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Cumulative Layout Shift</a>
+        <div style="background-color: #FC9200; margin-top: 10px; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Secondary Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Contentful Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::time_to_first_byte_ttfb?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Time to First Byte</a>
+        <a style="display: block; color: #3a71fc; background-color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; font-weight: bold; margin: 2px 10px; border-radius: 6px;" href="/embed/dashboards/chrome-ux-block::first_paint_fp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::dom_content_loaded_dcl?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">DOM Content Loaded</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::onload_ol?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Onload</a>
+        <div style="background-color: #FC2E31; margin-top: 10px; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Distribution Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters['origin'] | url_encode }}">Device Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::navigation_type_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Navigation Type Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::connection_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Connection Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::notification_permissions?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Notification Permissions</a>
+    </div> ;;
+  }
+
+  dimension: nav_bar_active_dcl {
+    hidden: no
+    group_label: "vertical"
+    type: string
+    sql: "" ;;
+    html:
+    <div style="border-radius: 8px; background: #3a71fc; width: 280px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 10px;">
+        <a style="display: block; border: 1px solid #efefef; color: #efefef; padding: 10px 15px; margin: 10px; font-weight: normal; border-radius: 6px; text-decoration: none; font-size: 16px; text-align: center;" href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">☰ Core Web Vitals</a>
+        <div style="background-color: #08B248; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::largest_contentful_paint_lcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Largest Contentful Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::interaction_to_next_paint_inp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Interaction to Next Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::cumulative_layout_shift_cls?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Cumulative Layout Shift</a>
+        <div style="background-color: #FC9200; margin-top: 10px; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Secondary Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Contentful Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::time_to_first_byte_ttfb?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Time to First Byte</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::first_paint_fp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Paint</a>
+        <a style="display: block; color: #3a71fc; background-color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; font-weight: bold; margin: 2px 10px; border-radius: 6px;" href="/embed/dashboards/chrome-ux-block::dom_content_loaded_dcl?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">DOM Content Loaded</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::onload_ol?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Onload</a>
+        <div style="background-color: #FC2E31; margin-top: 10px; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Distribution Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters['origin'] | url_encode }}">Device Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::navigation_type_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Navigation Type Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::connection_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Connection Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::notification_permissions?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Notification Permissions</a>
+    </div> ;;
+  }
+
+  dimension: nav_bar_active_ol {
+    hidden: no
+    group_label: "vertical"
+    type: string
+    sql: "" ;;
+    html:
+    <div style="border-radius: 8px; background: #3a71fc; width: 280px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 10px;">
+        <a style="display: block; border: 1px solid #efefef; color: #efefef; padding: 10px 15px; margin: 10px; font-weight: normal; border-radius: 6px; text-decoration: none; font-size: 16px; text-align: center;" href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">☰ Core Web Vitals</a>
+        <div style="background-color: #08B248; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::largest_contentful_paint_lcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Largest Contentful Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::interaction_to_next_paint_inp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Interaction to Next Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::cumulative_layout_shift_cls?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Cumulative Layout Shift</a>
+        <div style="background-color: #FC9200; margin-top: 10px; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Secondary Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Contentful Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::time_to_first_byte_ttfb?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Time to First Byte</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::first_paint_fp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::dom_content_loaded_dcl?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">DOM Content Loaded</a>
+        <a style="display: block; color: #3a71fc; background-color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; font-weight: bold; margin: 2px 10px; border-radius: 6px;" href="/embed/dashboards/chrome-ux-block::onload_ol?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Onload</a>
+        <div style="background-color: #FC2E31; margin-top: 10px; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Distribution Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters['origin'] | url_encode }}">Device Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::navigation_type_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Navigation Type Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::connection_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Connection Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::notification_permissions?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Notification Permissions</a>
+    </div> ;;
+  }
+
+  dimension: nav_bar_active_device_distribution {
+    hidden: no
+    group_label: "vertical"
+    type: string
+    sql: "" ;;
+    html:
+    <div style="border-radius: 8px; background: #3a71fc; width: 280px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 10px;">
+        <a style="display: block; border: 1px solid #efefef; color: #efefef; padding: 10px 15px; margin: 10px; font-weight: normal; border-radius: 6px; text-decoration: none; font-size: 16px; text-align: center;" href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">☰ Core Web Vitals</a>
+        <div style="background-color: #08B248; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::largest_contentful_paint_lcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Largest Contentful Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::interaction_to_next_paint_inp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Interaction to Next Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::cumulative_layout_shift_cls?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Cumulative Layout Shift</a>
+        <div style="background-color: #FC9200; margin-top: 10px; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Secondary Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Contentful Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::time_to_first_byte_ttfb?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Time to First Byte</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::first_paint_fp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::dom_content_loaded_dcl?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">DOM Content Loaded</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::onload_ol?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Onload</a>
+        <div style="background-color: #FC2E31; margin-top: 10px; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Distribution Metrics</div>
+        <a style="display: block; color: #3a71fc; background-color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; font-weight: bold; margin: 2px 10px; border-radius: 6px;" href="/embed/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters['origin'] | url_encode }}">Device Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::navigation_type_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Navigation Type Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::connection_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Connection Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::notification_permissions?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Notification Permissions</a>
+    </div> ;;
+  }
+
+  dimension: nav_bar_active_navigation_type_distribution {
+    hidden: no
+    group_label: "vertical"
+    type: string
+    sql: "" ;;
+    html:
+    <div style="border-radius: 8px; background: #3a71fc; width: 280px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 10px;">
+        <a style="display: block; border: 1px solid #efefef; color: #efefef; padding: 10px 15px; margin: 10px; font-weight: normal; border-radius: 6px; text-decoration: none; font-size: 16px; text-align: center;" href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">☰ Core Web Vitals</a>
+        <div style="background-color: #08B248; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::largest_contentful_paint_lcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Largest Contentful Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::interaction_to_next_paint_inp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Interaction to Next Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::cumulative_layout_shift_cls?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Cumulative Layout Shift</a>
+        <div style="background-color: #FC9200; margin-top: 10px; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Secondary Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Contentful Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::time_to_first_byte_ttfb?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Time to First Byte</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::first_paint_fp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::dom_content_loaded_dcl?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">DOM Content Loaded</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::onload_ol?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Onload</a>
+        <div style="background-color: #FC2E31; margin-top: 10px; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Distribution Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters['origin'] | url_encode }}">Device Distribution</a>
+        <a style="display: block; color: #3a71fc; background-color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; font-weight: bold; margin: 2px 10px; border-radius: 6px;" href="/embed/dashboards/chrome-ux-block::navigation_type_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Navigation Type Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::connection_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Connection Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::notification_permissions?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Notification Permissions</a>
+    </div> ;;
+  }
+
+  dimension: nav_bar_active_connection_distribution {
+    hidden: no
+    group_label: "vertical"
+    type: string
+    sql: "" ;;
+    html:
+    <div style="border-radius: 8px; background: #3a71fc; width: 280px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 10px;">
+        <a style="display: block; border: 1px solid #efefef; color: #efefef; padding: 10px 15px; margin: 10px; font-weight: normal; border-radius: 6px; text-decoration: none; font-size: 16px; text-align: center;" href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">☰ Core Web Vitals</a>
+        <div style="background-color: #08B248; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::largest_contentful_paint_lcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Largest Contentful Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::interaction_to_next_paint_inp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Interaction to Next Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::cumulative_layout_shift_cls?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Cumulative Layout Shift</a>
+        <div style="background-color: #FC9200; margin-top: 10px; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Secondary Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Contentful Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::time_to_first_byte_ttfb?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Time to First Byte</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::first_paint_fp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::dom_content_loaded_dcl?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">DOM Content Loaded</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::onload_ol?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Onload</a>
+        <div style="background-color: #FC2E31; margin-top: 10px; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Distribution Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters['origin'] | url_encode }}">Device Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::navigation_type_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Navigation Type Distribution</a>
+        <a style="display: block; color: #3a71fc; background-color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; font-weight: bold; margin: 2px 10px; border-radius: 6px;" href="/embed/dashboards/chrome-ux-block::connection_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Connection Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::notification_permissions?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Notification Permissions</a>
+    </div> ;;
+  }
+
+  dimension: nav_bar_active_notification_permissions {
+    hidden: no
+    group_label: "vertical"
+    type: string
+    sql: "" ;;
+    html:
+    <div style="border-radius: 8px; background: #3a71fc; width: 280px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 10px;">
+        <a style="display: block; border: 1px solid #efefef; color: #efefef; padding: 10px 15px; margin: 10px; font-weight: normal; border-radius: 6px; text-decoration: none; font-size: 16px; text-align: center;" href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">☰ Core Web Vitals</a>
+        <div style="background-color: #08B248; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::largest_contentful_paint_lcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Largest Contentful Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::interaction_to_next_paint_inp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Interaction to Next Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::cumulative_layout_shift_cls?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Cumulative Layout Shift</a>
+        <div style="background-color: #FC9200; margin-top: 10px; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Secondary Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Contentful Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::time_to_first_byte_ttfb?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Time to First Byte</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::first_paint_fp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Paint</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::dom_content_loaded_dcl?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">DOM Content Loaded</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px;" href="/embed/dashboards/chrome-ux-block::onload_ol?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Onload</a>
+        <div style="background-color: #FC2E31; margin-top: 10px; padding: 6px 15px; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Distribution Metrics</div>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters['origin'] | url_encode }}">Device Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::navigation_type_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Navigation Type Distribution</a>
+        <a style="display: block; color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; border-bottom: 1px solid #4a81fc;" href="/embed/dashboards/chrome-ux-block::connection_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Connection Distribution</a>
+        <a style="display: block; color: #3a71fc; background-color: #efefef; padding: 9px 15px 9px 25px; text-decoration: none; font-size: 15px; font-weight: bold; margin: 2px 10px; border-radius: 6px;" href="/embed/dashboards/chrome-ux-block::notification_permissions?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Notification Permissions</a>
+    </div> ;;
   }
 
 }
