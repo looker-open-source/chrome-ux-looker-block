@@ -1,6 +1,7 @@
 include: "/views/refined/**/*.view.lkml"
 
 explore: country_summary {
+  hidden: yes
   always_filter: {
     filters: [country_summary.origin: "-EMPTY"]
   }

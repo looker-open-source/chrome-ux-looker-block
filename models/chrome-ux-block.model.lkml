@@ -12,6 +12,7 @@ datagroup: chrome_ux_block_default_datagroup {
 persist_with: chrome_ux_block_default_datagroup
 
 explore: navigation_bar {
+  hidden: yes
   sql_always_where:
     ${origin} IS NOT NULL  AND
     ${origin} LIKE 'https://%' AND
