@@ -387,11 +387,11 @@
   - title: NavBar
     name: NavBar
     model: chrome-ux-block
-    explore: device_summary
+    explore: navigation_bar
     type: looker_grid
-    fields: [device_summary.nav_bar_active_core_web_vitals]
+    fields: [navigation_bar.nav_bar_active_core_web_vitals]
     filters: {}
-    sorts: [device_summary.nav_bar_active_core_web_vitals]
+    sorts: [navigation_bar.nav_bar_active_core_web_vitals]
     limit: 500
     column_limit: 50
     show_view_names: false
@@ -462,9 +462,8 @@
     orientation: auto
     title_hidden: true
     listen:
-      Date Month: device_summary.date_month
-      Origin: device_summary.origin
-      Device Type: device_summary.device
+      Origin: navigation_bar.origin
+      Device Type: navigation_bar.device
     row: 0
     col: 0
     width: 5

@@ -435,11 +435,11 @@
   - title: NavBar
     name: NavBar
     model: chrome-ux-block
-    explore: device_summary
+    explore: navigation_bar
     type: looker_grid
-    fields: [device_summary.nav_bar_active_fcp]
+    fields: [navigation_bar.nav_bar_active_fcp]
     filters: {}
-    sorts: [device_summary.nav_bar_active_fcp]
+    sorts: [navigation_bar.nav_bar_active_fcp]
     limit: 500
     column_limit: 50
     show_view_names: false
@@ -510,8 +510,8 @@
     orientation: auto
     title_hidden: true
     listen:
-      Origin: device_summary.origin
-      Device Type: device_summary.device
+      Origin: navigation_bar.origin
+      Device Type: navigation_bar.device
     row: 0
     col: 0
     width: 5

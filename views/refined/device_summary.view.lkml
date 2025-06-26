@@ -1,7 +1,7 @@
 include: "../raw/**.view.lkml"
 include: "/views/refined/navigation_bar.view.lkml"
 view: +device_summary {
-  extends: [navigation_bar]
+
   derived_table: {
     sql:SELECT
           *,
