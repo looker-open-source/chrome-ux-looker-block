@@ -7,10 +7,12 @@ view: navigation_bar {
   }
 
   dimension: device {
+    hidden: no
     sql: ${TABLE}.device ;;
   }
 
   dimension: origin {
+    hidden: no
     sql: ${TABLE}.origin ;;
   }
 
@@ -19,6 +21,41 @@ view: navigation_bar {
     timeframes: [date]
     sql: ${TABLE}.date ;;
   }
+
+  ###############
+
+  dimension: vertical_navigation_bar_dynamic {
+    hidden: no
+    group_label: "Vertical Navigation"
+    type: string
+    sql: "" ;;
+    html:
+    <div style="border-radius: 8px; background: #3a71fc; width: 340px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 12px;">
+        <a style="{% if _explore._dashboard_url contains '::core_web_vitals' %}@{NAV_STYLE_ACTIVE_MAIN}{% else %}@{NAV_STYLE_INACTIVE_MAIN}{% endif %}"
+          href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ '1 months ago' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
+          ☰ Core Web Vitals
+        </a>
+
+        <div style="background-color: #08B248; padding: 7px 18px; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
+        <a style="{% if _explore._dashboard_url contains '::largest_contentful_paint_lcp' %}@{NAV_STYLE_ACTIVE_LINK}{% else %}@{NAV_STYLE_INACTIVE_LINK}{% endif %}" href="/embed/dashboards/chrome-ux-block::largest_contentful_paint_lcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Largest Contentful Paint</a>
+        <a style="{% if _explore._dashboard_url contains '::interaction_to_next_paint_inp' %}@{NAV_STYLE_ACTIVE_LINK}{% else %}@{NAV_STYLE_INACTIVE_LINK}{% endif %}" href="/embed/dashboards/chrome-ux-block::interaction_to_next_paint_inp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Interaction to Next Paint</a>
+        <a style="{% if _explore._dashboard_url contains '::cumulative_layout_shift_cls' %}@{NAV_STYLE_ACTIVE_LINK}{% else %}@{NAV_STYLE_INACTIVE_LINK_NO_BORDER}{% endif %}" href="/embed/dashboards/chrome-ux-block::cumulative_layout_shift_cls?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Cumulative Layout Shift</a>
+
+        <div style="background-color: #FC9200; margin-top: 12px; padding: 7px 18px; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Secondary Metrics</div>
+        <a style="{% if _explore._dashboard_url contains '::first_contentful_paint_fcp' %}@{NAV_STYLE_ACTIVE_LINK}{% else %}@{NAV_STYLE_INACTIVE_LINK}{% endif %}" href="/embed/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Contentful Paint</a>
+        <a style="{% if _explore._dashboard_url contains '::time_to_first_byte_ttfb' %}@{NAV_STYLE_ACTIVE_LINK}{% else %}@{NAV_STYLE_INACTIVE_LINK}{% endif %}" href="/embed/dashboards/chrome-ux-block::time_to_first_byte_ttfb?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Time to First Byte</a>
+        <a style="{% if _explore._dashboard_url contains '::first_paint_fp' %}@{NAV_STYLE_ACTIVE_LINK}{% else %}@{NAV_STYLE_INACTIVE_LINK}{% endif %}" href="/embed/dashboards/chrome-ux-block::first_paint_fp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Paint</a>
+        <a style="{% if _explore._dashboard_url contains '::dom_content_loaded_dcl' %}@{NAV_STYLE_ACTIVE_LINK}{% else %}@{NAV_STYLE_INACTIVE_LINK}{% endif %}" href="/embed/dashboards/chrome-ux-block::dom_content_loaded_dcl?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">DOM Content Loaded</a>
+        <a style="{% if _explore._dashboard_url contains '::onload_ol' %}@{NAV_STYLE_ACTIVE_LINK}{% else %}@{NAV_STYLE_INACTIVE_LINK_NO_BORDER}{% endif %}" href="/embed/dashboards/chrome-ux-block::onload_ol?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Onload</a>
+
+      <div style="background-color: #FC2E31; margin-top: 12px; padding: 7px 18px; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Distribution Metrics</div>
+      <a style="{% if _explore._dashboard_url contains '::device_distribution' %}@{NAV_STYLE_ACTIVE_LINK}{% else %}@{NAV_STYLE_INACTIVE_LINK}{% endif %}" href="/embed/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters['origin'] | url_encode }}">Device Distribution</a>
+      <a style={% if _explore._dashboard_url contains '::navigation_type_distribution' %}@{NAV_STYLE_ACTIVE_LINK}{% else %}@{NAV_STYLE_INACTIVE_LINK}{% endif %} href="/embed/dashboards/chrome-ux-block::navigation_type_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Navigation Type Distribution</a>
+      <a style="{% if _explore._dashboard_url contains '::connection_distribution' %}@{NAV_STYLE_ACTIVE_LINK}{% else %}@{NAV_STYLE_INACTIVE_LINK}{% endif %}" href="/embed/dashboards/chrome-ux-block::connection_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Connection Distribution</a>
+      <a style="{% if _explore._dashboard_url contains '::notification_permissions' %}@{NAV_STYLE_ACTIVE_LINK}{% else %}@{NAV_STYLE_INACTIVE_LINK_NO_BORDER}{% endif %}" href="/embed/dashboards/chrome-ux-block::notification_permissions?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Notification Permissions</a>
+      </div> ;;
+  }
+
   ############# Vertical NAvBArs #####
 
   dimension: nav_bar_active_core_web_vitals {
@@ -401,43 +438,58 @@ dimension: nav_bar_active_notification_permissions {
         <a style="display: block; color: #3a71fc; background-color: #efefef; padding: 11px 18px 11px 30px; text-decoration: none; font-size: 17px; font-weight: bold; margin: 2px 12px; border-radius: 8px;" href="/embed/dashboards/chrome-ux-block::notification_permissions?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Notification Permissions</a>
     </div> ;;
 }
-
-  dimension: vertical_navigation_bar_dynamic {
-    hidden: no
-    group_label: "Vertical Navigation"
+  dimension: test {
     type: string
+    hidden: no
     sql: "" ;;
     html:
-      {%- assign style_active = 'display: block; color: #3a71fc; background-color: #efefef; padding: 9px 18px 11px 30px; text-decoration: none; font-size: 17px; font-weight: bold; margin: 2px 12px; border-radius: 8px;' -%}
-      {%- assign style_inactive = 'display: block; color: #efefef; padding: 9px 18px 11px 30px; text-decoration: none; font-size: 17px; border-bottom: 1px solid #4a81fc;' -%}
-      {%- assign style_inactive_no_border = 'display: block; color: #efefef; padding: 9px 18px 11px 30px; text-decoration: none; font-size: 17px;' -%}
-      {%- assign style_inactive_main_button = 'display: block; border: 1px solid #efefef; color: #efefef; padding: 12px 18px; margin: 12px; font-weight: normal; border-radius: 8px; text-decoration: none; font-size: 18px; text-align: center;' -%}
-      {%- assign style_active_main_button = 'display: block; background-color: #efefef; color: #3a71fc; padding: 12px 18px; margin: 12px; font-weight: bold; border-radius: 8px; text-decoration: none; font-size: 18px; text-align: center;' -%}
+    <div style="background-color:#fffbef; border:2px solid #fce7a8; padding:15px; margin: 10px; font-family:monospace; color: #333; border-radius: 5px;">
+        <h4 style="margin:0 0 10px 0; padding-bottom:5px; border-bottom:1px solid #eee;"></h4>
+        <p style="margin: 5px 0;">
+            <b>_explore._dashboard_url:</b>
+            <br>
+            <span style="color:#c7254e;">{{ _explore._dashboard_url }}</span>
+        </p>
+        <p style="margin: 5px 0;">
+            <b>_explore._name:</b>
+            <br>
+            <span style="color:#c7254e;">{{ _explore._name }}</span>
+        </p>
+    </div> ;;
+  }
 
-      <div style="border-radius: 8px; background: #3a71fc; width: 340px; color: white; font-family: Arial, sans-serif; overflow: hidden; padding-bottom: 10px;">
-      <a style="{% if _explore._dashboard_url contains '::core_web_vitals' %}{{ style_active_main_button }}{% else %}{{ style_inactive_main_button }}{% endif %}"
-      href="/embed/dashboards/chrome-ux-block::core_web_vitals?Date+Month={{ 'now' | date: '%Y-%m' }}&Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">
-      ☰ Core Web Vitals
-      </a>
+  dimension: test_contains_logic {
+    type: string
+    hidden: no
+    sql: "" ;;
+    html:
+    <div style="background-color:#f0f4f8; border:2px solid #c9d7e3; padding:15px; margin: 10px; font-family:monospace; color: #333; border-radius: 5px;">
+        <h4 style="margin:0 0 10px 0; padding-bottom:5px; border-bottom:1px solid #ddd;"></h4>
 
-      <div style="background-color: #08B248; padding: 7px 18px; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Primary Metrics</div>
-      <a style="{% if _explore._dashboard_url contains '::largest_contentful_paint_lcp' %}{{ style_active }}{% else %}{{ style_inactive }}{% endif %}" href="/embed/dashboards/chrome-ux-block::largest_contentful_paint_lcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Largest Contentful Paint</a>
-      <a style="{% if _explore._dashboard_url contains '::interaction_to_next_paint_inp' %}{{ style_active }}{% else %}{{ style_inactive }}{% endif %}" href="/embed/dashboards/chrome-ux-block::interaction_to_next_paint_inp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Interaction to Next Paint</a>
-      <a style="{% if _explore._dashboard_url contains '::cumulative_layout_shift_cls' %}{{ style_active }}{% else %}{{ style_inactive_no_border }}{% endif %}" href="/embed/dashboards/chrome-ux-block::cumulative_layout_shift_cls?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Cumulative Layout Shift</a>
+        <p style="margin: 10px 0;">
+            <b>1. URL to verify:</b>
+            <br>
+            <span style="color:#555; word-wrap:break-word;">{{ _explore._dashboard_url }}</span>
+        </p>
 
-      <div style="background-color: #FC9200; margin-top: 12px; padding: 7px 18px; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Secondary Metrics</div>
-      <a style="{% if _explore._dashboard_url contains '::first_contentful_paint_fcp' %}{{ style_active }}{% else %}{{ style_inactive }}{% endif %}" href="/embed/dashboards/chrome-ux-block::first_contentful_paint_fcp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Contentful Paint</a>
-      <a style="{% if _explore._dashboard_url contains '::time_to_first_byte_ttfb' %}{{ style_active }}{% else %}{{ style_inactive }}{% endif %}" href="/embed/dashboards/chrome-ux-block::time_to_first_byte_ttfb?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Time to First Byte</a>
-      <a style="{% if _explore._dashboard_url contains '::first_paint_fp' %}{{ style_active }}{% else %}{{ style_inactive }}{% endif %}" href="/embed/dashboards/chrome-ux-block::first_paint_fp?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">First Paint</a>
-      <a style="{% if _explore._dashboard_url contains '::dom_content_loaded_dcl' %}{{ style_active }}{% else %}{{ style_inactive }}{% endif %}" href="/embed/dashboards/chrome-ux-block::dom_content_loaded_dcl?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">DOM Content Loaded</a>
-      <a style="{% if _explore._dashboard_url contains '::onload_ol' %}{{ style_active }}{% else %}{{ style_inactive_no_border }}{% endif %}" href="/embed/dashboards/chrome-ux-block::onload_ol?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Onload</a>
+      <p style="margin: 10px 0;">
+      <b>2. Condition:</b> The Avobe URL contains "::cumulative_layout_shift_cls"
+      </p>
 
-      <div style="background-color: #FC2E31; margin-top: 12px; padding: 7px 18px; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Distribution Metrics</div>
-      <a style="{% if _explore._dashboard_url contains '::device_distribution' %}{{ style_active }}{% else %}{{ style_inactive }}{% endif %}" href="/embed/dashboards/chrome-ux-block::device_distribution?Origin={{ _filters['origin'] | url_encode }}">Device Distribution</a>
-      <a style="{% if _explore._dashboard_url contains '::navigation_type_distribution' %}{{ style_active }}{% else %}{{ style_inactive }}{% endif %}" href="/embed/dashboards/chrome-ux-block::navigation_type_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Navigation Type Distribution</a>
-      <a style="{% if _explore._dashboard_url contains '::connection_distribution' %}{{ style_active }}{% else %}{{ style_inactive }}{% endif %}" href="/embed/dashboards/chrome-ux-block::connection_distribution?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Connection Distribution</a>
-      <a style="{% if _explore._dashboard_url contains '::notification_permissions' %}{{ style_active }}{% else %}{{ style_inactive_no_border }}{% endif %}" href="/embed/dashboards/chrome-ux-block::notification_permissions?Origin={{ _filters['origin'] | url_encode }}&Device+Type={{ _filters['device'] | url_encode }}">Notification Permissions</a>
+      <p style="margin: 15px 0 5px 0;">
+      <b>3. Result:</b>
+      <br>
+      <span style="font-weight:bold; font-size: 18px; color: {% if _explore._dashboard_url contains '::cumulative_layout_shift_cls' %}#08B248{% else %}#FC2E31{% endif %};">
+      {% if _explore._dashboard_url contains '::cumulative_layout_shift_cls' %}
+      TRUE
+      {% else %}
+      FALSE
+      {% endif %}
+      </span>
+      </p>
       </div> ;;
   }
+
+
 
 }

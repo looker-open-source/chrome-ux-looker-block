@@ -11,6 +11,7 @@
     model: chrome-ux-block
     explore: navigation_bar
     type: looker_grid
+    # refresh: 1 second
     fields: [navigation_bar.vertical_navigation_bar_dynamic]
     sorts: [navigation_bar.vertical_navigation_bar_dynamic]
     limit: 500

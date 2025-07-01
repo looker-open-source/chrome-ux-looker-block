@@ -1,5 +1,6 @@
 ---
 - dashboard: device_distribution
+  extends: nav_bar
   title: Device Distribution
   layout: newspaper
   preferred_viewer: dashboards-next
