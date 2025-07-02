@@ -433,30 +433,3 @@
     col: 5
     width: 19
     height: 3
-  filters:
-  - name: Origin
-    title: Origin
-    type: field_filter
-    default_value: https://cloud.google.com
-    allow_multiple_values: false
-    required: true
-    ui_config:
-      type: dropdown_menu
-      display: inline
-    model: chrome-ux-block
-    explore: device_summary
-    listens_to_filters: []
-    field: device_summary.origin
-  - name: Device Type
-    title: Device Type
-    type: field_filter
-    default_value: desktop,phone,tablet
-    allow_multiple_values: true
-    required: false
-    ui_config:
-      type: button_group
-      display: inline
-    model: chrome-ux-block
-    explore: device_summary
-    listens_to_filters: []
-    field: device_summary.device
