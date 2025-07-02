@@ -13,19 +13,20 @@ view: +device_summary {
           {% if device_summary.origin._is_filtered %}
             1=1
           {% else %}
-           'ERROR NEED FILTER BY ORIGIN' = ' '
+          ERROR('ERROR NEED FILTER BY ORIGIN')
           {% endif %}
 
+          -- Required filters By Device
+          {% if device_summary.device._is_filtered %}
+            AND 1=1
+          {% else %}
+          AND ERROR('ERROR NEED FILTER BY DEVICE')
+          {% endif %}
+
+
         -- Optimizing by filtering on the partitioned column
-          {% if device_summary.date_date._is_filtered %}
-            AND date BETWEEN
-              DATE({% date_start device_summary.date_date %})
-              AND COALESCE(DATE({% date_end device_summary.date %}), CURRENT_DATE())
-          {% elsif device_summary.date_week._is_filtered %}
-            AND date BETWEEN
-              DATE({% date_start device_summary.date_week %})
-              AND COALESCE(DATE({% date_end device_summary.date_week %}), CURRENT_DATE())
-          {% elsif device_summary.date_month._is_filtered %}
+
+          {% if device_summary.date_month._is_filtered %}
             AND date BETWEEN
               DATE({% date_start device_summary.date_month %})
               AND COALESCE(DATE({% date_end device_summary.date_month %}), CURRENT_DATE())
@@ -273,7 +274,7 @@ view: +device_summary {
 
   dimension_group: date {
     type: time
-    timeframes: [raw, date, week, month, quarter, year, month_name]
+    timeframes: [month, year, month_name]
     # convert_tz: no
     datatype: date
     sql: ${TABLE}.date ;;
