@@ -4,7 +4,7 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: upVJZ9xxQhH6qJ0Qfs9emX
+  preferred_slug: VGJ6ndVf0YlkkxTwhibmMA
   elements:
   - title: NavBar
     name: NavBar
@@ -87,12 +87,13 @@
   - name: Device Type
     title: Device Type
     type: field_filter
-    default_value: desktop,phone,tablet
+    default_value: "%desktop%,%phone%,%tablet%"
     allow_multiple_values: true
     required: false
     ui_config:
-      type: button_group
-      display: inline
+      type: advanced
+      display: popover
+      options: []
     model: chrome-ux-block
     explore: device_summary
     listens_to_filters: []

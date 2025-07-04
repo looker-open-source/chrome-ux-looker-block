@@ -16,6 +16,5 @@ explore: navigation_bar {
   persist_for: "0 seconds"
   sql_always_where:
     ${origin} IS NOT NULL  AND
-    ${origin} LIKE 'https://%' AND
-    ${date_date} >= '2023-01-01';;
+    ${origin} LIKE 'https://%' ;;
 }

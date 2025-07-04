@@ -389,7 +389,7 @@
   - name: Date Month
     title: Date Month
     type: field_filter
-    default_value: 2025-04
+    default_value: 2025-05
     allow_multiple_values: true
     required: false
     ui_config:
