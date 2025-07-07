@@ -1,7 +1,7 @@
 project_name: "chrome-ux-block"
 
 constant: CONNECTION_NAME {
-  value: "bq"
+  value: "bq-looker-marketplace"
   export: override_required
 }
 
