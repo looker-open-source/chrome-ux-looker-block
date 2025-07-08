@@ -95,9 +95,9 @@ view: normalized {
 #--- Dynamic Controls ------------------------------------------------------------------------
 
   parameter: dynamic_metric {
-    group_label: "Dynamic Metric Controls"
-    label: "Core Web Vitals Metric"
+    label: "Core Web Vitals Metric Dynamic"
     type: unquoted
+    hidden: no
     default_value: "lcp"
     allowed_value: {
       value: "lcp"
@@ -303,6 +303,7 @@ view: normalized {
       {% elsif dynamic_metric._parameter_value == "ol" %} ${p75_ol}
       {% else %} NULL {% endif %} ;;
     hidden: no
+    value_format_name: decimal_2
   }
 
   measure: dynamic_p75_past_month {
@@ -323,6 +324,7 @@ view: normalized {
     period: month
     kind: previous
     hidden: no
+    value_format_name: decimal_2
   }
 
 
