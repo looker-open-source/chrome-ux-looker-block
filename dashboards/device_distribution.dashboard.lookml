@@ -1,11 +1,11 @@
 ---
 - dashboard: device_distribution
-  extends: nav_bar
   title: Device Distribution
+  extends: nav_bar
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: 3UCDCyIIO58mowC70AoyHJ
+  preferred_slug: UsIVV2Q96pKv96hsE3AWNv
   elements:
   - title: By Month
     name: By Month
@@ -15,7 +15,6 @@
     fields: [device_summary.date_month, device_summary.date_month_name, device_summary.date_year,
       device_summary.total_phone_traffic_proportion, device_summary.total_desktop_traffic_proportion,
       device_summary.total_tablet_traffic_proportion]
-    filters: {}
     sorts: [device_summary.date_month desc]
     limit: 10
     column_limit: 50
@@ -108,150 +107,6 @@
     col: 5
     width: 19
     height: 12
-  - title: Scorecards
-    name: Scorecards
-    model: chrome-ux-block
-    explore: device_summary
-    type: marketplace_viz_multiple_value::multiple_value-marketplace
-    fields: [device_summary.date_pop_month, device_summary.total_phone_traffic_proportion,
-      device_summary.total_phone_traffic_proportion_last_month, device_summary.total_desktop_traffic_proportion,
-      device_summary.total_desktop_traffic_proportion_last_month]
-    fill_fields: [device_summary.date_pop_month]
-    sorts: [device_summary.date_pop_month desc]
-    limit: 1
-    column_limit: 50
-    dynamic_fields:
-    - _kind_hint: measure
-      _type_hint: number
-      based_on: device_summary.desktop_density
-      expression: ''
-      label: Sum of Desktop Density
-      measure: sum_of_desktop_density
-      type: sum
-    - _kind_hint: measure
-      _type_hint: number
-      based_on: device_summary.phone_density
-      expression: ''
-      label: Sum of Phone Density
-      measure: sum_of_phone_density
-      type: sum
-    - _kind_hint: measure
-      _type_hint: number
-      based_on: device_summary.tablet_density
-      expression: ''
-      label: Sum of Tablet Density
-      measure: sum_of_tablet_density
-      type: sum
-    hidden_fields: [device_summary.date_pop_month]
-    hidden_points_if_no: []
-    series_labels:
-      device_summary.total_phone_traffic_proportion: Phone
-      device_summary.total_desktop_traffic_proportion: Desktop
-      device_summary.total_tablet_traffic_proportion: Tablet
-    show_view_names: false
-    font_size_main: '12'
-    orientation: horizontal
-    style_device_summary.total_phone_traffic_proportion: "#3A4245"
-    show_title_device_summary.total_phone_traffic_proportion: true
-    title_override_device_summary.total_phone_traffic_proportion: Phone
-    title_placement_device_summary.total_phone_traffic_proportion: above
-    value_format_device_summary.total_phone_traffic_proportion: ''
-    show_comparison_device_summary.total_phone_traffic_proportion_last_month: true
-    comparison_style_device_summary.total_phone_traffic_proportion_last_month: percentage_change
-    comparison_show_label_device_summary.total_phone_traffic_proportion_last_month: false
-    pos_is_bad_device_summary.total_phone_traffic_proportion_last_month: false
-    style_device_summary.total_desktop_traffic_proportion: "#3A4245"
-    show_title_device_summary.total_desktop_traffic_proportion: true
-    title_override_device_summary.total_desktop_traffic_proportion: Desktop
-    title_placement_device_summary.total_desktop_traffic_proportion: above
-    value_format_device_summary.total_desktop_traffic_proportion: ''
-    show_comparison_device_summary.total_desktop_traffic_proportion: false
-    show_comparison_device_summary.total_desktop_traffic_proportion_last_month: true
-    comparison_style_device_summary.total_desktop_traffic_proportion_last_month: percentage_change
-    comparison_show_label_device_summary.total_desktop_traffic_proportion_last_month: false
-    pos_is_bad_device_summary.total_desktop_traffic_proportion_last_month: false
-    comparison_label_placement_device_summary.total_phone_traffic_proportion_last_month: below
-    comp_value_format_device_summary.total_phone_traffic_proportion_last_month: ''
-    comparison_label_placement_device_summary.total_desktop_traffic_proportion_last_month: below
-    comp_value_format_device_summary.total_desktop_traffic_proportion_last_month: ''
-    style_device_summary.total_desktop_traffic_proportion_last_month: "#3A4245"
-    show_title_device_summary.total_desktop_traffic_proportion_last_month: true
-    title_placement_device_summary.total_desktop_traffic_proportion_last_month: above
-    value_format_device_summary.total_desktop_traffic_proportion_last_month: ''
-    show_row_numbers: true
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: true
-    table_theme: white
-    limit_displayed_rows: false
-    enable_conditional_formatting: false
-    header_text_alignment: left
-    header_font_size: 12
-    rows_font_size: 12
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: percent
-    legend_position: center
-    point_style: none
-    show_value_labels: true
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    color_application:
-      collection_id: 5591d8d1-6b49-4f8e-bafa-b874d82f8eb7
-      palette_id: 18d0c733-1d87-42a9-934f-4ba8ef81d736
-      options:
-        steps: 5
-    y_axes: [{label: '', orientation: bottom, series: [{axisId: device_summary.avg_good_lcp_pct,
-            id: device_summary.avg_good_lcp_pct, name: Avg Good LCP %}, {axisId: device_summary.avg_ni_lcp_pct,
-            id: device_summary.avg_ni_lcp_pct, name: Avg Needs Improvement LCP %},
-          {axisId: device_summary.avg_poor_lcp_pct, id: device_summary.avg_poor_lcp_pct,
-            name: Avg Poor LCP %}], showLabels: false, showValues: true, unpinAxis: false,
-        tickDensity: default, tickDensityCustom: 5, type: linear}]
-    x_axis_zoom: true
-    y_axis_zoom: true
-    hide_legend: false
-    font_size: '9'
-    label_value_format: 0.00\%
-    series_colors:
-      device_summary.avg_good_lcp_pct: "#08B248"
-      device_summary.avg_ni_lcp_pct: "#FC9200"
-      device_summary.avg_poor_lcp_pct: "#FC2E31"
-      device_summary.total_phone_traffic_proportion: "#FC9200"
-      device_summary.total_desktop_traffic_proportion: "#2B99F7"
-      device_summary.total_tablet_traffic_proportion: "#08B248"
-    label_color: [black, white, green]
-    column_group_spacing_ratio: 0.2
-    hidden_pivots: {}
-    defaults_version: 0
-    title_hidden: true
-    listen:
-      Origin: device_summary.origin
-      Device Type: device_summary.device
-    row: 2
-    col: 5
-    width: 19
-    height: 3
   - title: Origin
     name: Origin
     model: chrome-ux-block
@@ -388,3 +243,103 @@
     col: 15
     width: 9
     height: 2
+  - title: New SC
+    name: New SC
+    model: chrome-ux-block
+    explore: normalized
+    type: marketplace_viz_multiple_value::multiple_value-marketplace
+    fields: [normalized.date_month, normalized.phone_density, normalized.phone_density_past_month,
+      normalized.desktop_density, normalized.desktop_density_past_month]
+    fill_fields: [normalized.date_month]
+    filters: {}
+    sorts: [normalized.date_month desc]
+    limit: 1
+    column_limit: 50
+    hidden_fields: [normalized.date_month]
+    hidden_points_if_no: []
+    series_labels: {}
+    show_view_names: false
+    font_size_main: '12'
+    orientation: auto
+    title_placement_normalized.phone_density: above
+    show_comparison_normalized.phone_density_past_month: true
+    comparison_style_normalized.phone_density_past_month: percentage_change
+    comparison_show_label_normalized.phone_density_past_month: false
+    pos_is_bad_normalized.phone_density_past_month: false
+    title_placement_normalized.desktop_density: above
+    show_comparison_normalized.desktop_density_past_month: true
+    comparison_style_normalized.desktop_density_past_month: percentage_change
+    comparison_show_label_normalized.desktop_density_past_month: false
+    pos_is_bad_normalized.desktop_density_past_month: false
+    comparison_label_placement_normalized.phone_density_past_month: below
+    comparison_label_placement_normalized.desktop_density_past_month: below
+    comp_value_format_normalized.desktop_density_past_month: ''
+    comp_value_format_normalized.phone_density_past_month: ''
+    style_normalized._4g_density: "#3A4245"
+    show_title_normalized._4g_density: true
+    title_placement_normalized._4g_density: above
+    value_format_normalized._4g_density: ''
+    show_comparison_normalized._4g_density_past_month: true
+    comparison_style_normalized._4g_density_past_month: percentage_change
+    comparison_show_label_normalized._4g_density_past_month: false
+    pos_is_bad_normalized._4g_density_past_month: false
+    style_normalized._3g_density: "#3A4245"
+    show_title_normalized._3g_density: true
+    title_placement_normalized._3g_density: above
+    value_format_normalized._3g_density: ''
+    show_comparison_normalized._3g_density: false
+    show_comparison_normalized._3g_density_past_month: true
+    comparison_style_normalized._3g_density_past_month: percentage_change
+    comparison_show_label_normalized._3g_density_past_month: false
+    pos_is_bad_normalized._3g_density_past_month: false
+    comparison_label_placement_normalized._3g_density_past_month: below
+    comp_value_format_normalized._3g_density_past_month: ''
+    style_normalized._3g_density_past_month: "#3A4245"
+    show_title_normalized._3g_density_past_month: true
+    title_placement_normalized._3g_density_past_month: above
+    value_format_normalized._3g_density_past_month: ''
+    comparison_style_normalized._3g_density: value
+    comparison_show_label_normalized._3g_density: true
+    comparison_label_placement_normalized._4g_density_past_month: below
+    comp_value_format_normalized._4g_density_past_month: ''
+    style_normalized._4g_density_past_month: "#3A4245"
+    show_title_normalized._4g_density_past_month: true
+    title_placement_normalized._4g_density_past_month: above
+    value_format_normalized._4g_density_past_month: ''
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    show_null_points: true
+    interpolation: linear
+    defaults_version: 0
+    style_normalized.date_month: "#3A4245"
+    show_title_normalized.date_month: true
+    title_placement_normalized.date_month: above
+    value_format_normalized.date_month: ''
+    hidden_pivots: {}
+    title_hidden: true
+    listen:
+      Origin: normalized.origin_filter
+      Device Type: normalized.device_filter
+    row: 2
+    col: 5
+    width: 19
+    height: 3

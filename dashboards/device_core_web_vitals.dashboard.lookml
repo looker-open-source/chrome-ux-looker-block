@@ -1,11 +1,11 @@
 ---
 - dashboard: core_web_vitals
-  extends: nav_bar
   title: Core Web Vitals
+  extends: nav_bar
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: FQH2G3bN9DV6hm9gj0CpSf
+  preferred_slug: cuY0A1zibZFnORdEGYNfzC
   elements:
   - title: Largest Contentful Paint (LCP)
     name: Largest Contentful Paint (LCP)
@@ -389,7 +389,7 @@
   - name: Date Month
     title: Date Month
     type: field_filter
-    default_value: 2025-05
+    default_value: 2025-06
     allow_multiple_values: true
     required: false
     ui_config:

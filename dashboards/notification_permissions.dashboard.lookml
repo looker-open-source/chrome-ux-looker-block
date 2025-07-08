@@ -1,11 +1,11 @@
 ---
 - dashboard: notification_permissions
-  extends: nav_bar
   title: Notification Permissions
+  extends: nav_bar
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: HgV1XSBJU8Vd00oi7RJy6C
+  preferred_slug: zZtUNbY36SkedbeabhK36S
   elements:
   - title: By Month
     name: By Month
@@ -93,129 +93,6 @@
     col: 5
     width: 19
     height: 12
-  - title: Scorecards
-    name: Scorecards
-    model: chrome-ux-block
-    explore: device_summary
-    type: marketplace_viz_multiple_value::multiple_value-marketplace
-    fields: [device_summary.total_notification_accept_proportion, device_summary.notification_accept_last_month,
-      device_summary.total_notification_deny_proportion, device_summary.notification_deny_last_month,
-      device_summary.date_pop_month]
-    fill_fields: [device_summary.date_pop_month]
-    sorts: [device_summary.date_pop_month desc]
-    limit: 1
-    column_limit: 50
-    hidden_fields: [device_summary.date_pop_month]
-    hidden_points_if_no: []
-    series_labels:
-      device_summary.total_notification_accept_proportion: Accept
-      device_summary.total_notification_dismiss_proportion: Dismiss
-      device_summary.total_notification_deny_proportion: Deny
-      device_summary.total_notification_ignore_proportion: Ignore
-    show_view_names: false
-    font_size_main: '12'
-    orientation: auto
-    style_device_summary.total_notification_accept_proportion: "#3A4245"
-    show_title_device_summary.total_notification_accept_proportion: true
-    title_override_device_summary.total_notification_accept_proportion: Accept
-    title_placement_device_summary.total_notification_accept_proportion: above
-    value_format_device_summary.total_notification_accept_proportion: ''
-    show_comparison_device_summary.notification_accept_last_month: true
-    comparison_style_device_summary.notification_accept_last_month: percentage_change
-    comparison_show_label_device_summary.notification_accept_last_month: false
-    pos_is_bad_device_summary.notification_accept_last_month: false
-    style_device_summary.total_notification_deny_proportion: "#3A4245"
-    show_title_device_summary.total_notification_deny_proportion: true
-    title_override_device_summary.total_notification_deny_proportion: Deny
-    title_placement_device_summary.total_notification_deny_proportion: above
-    value_format_device_summary.total_notification_deny_proportion: ''
-    show_comparison_device_summary.total_notification_deny_proportion: false
-    show_comparison_device_summary.notification_deny_last_month: true
-    comparison_style_device_summary.notification_deny_last_month: percentage_change
-    comparison_show_label_device_summary.notification_deny_last_month: false
-    pos_is_bad_device_summary.notification_deny_last_month: false
-    comparison_label_placement_device_summary.notification_deny_last_month: below
-    comp_value_format_device_summary.notification_deny_last_month: ''
-    comparison_label_placement_device_summary.notification_accept_last_month: below
-    comp_value_format_device_summary.notification_accept_last_month: ''
-    color_application:
-      collection_id: 5591d8d1-6b49-4f8e-bafa-b874d82f8eb7
-      palette_id: 18d0c733-1d87-42a9-934f-4ba8ef81d736
-      options:
-        steps: 5
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    x_axis_zoom: true
-    y_axis_zoom: true
-    trellis: ''
-    stacking: percent
-    limit_displayed_rows: false
-    legend_position: center
-    label_value_format: 0.00\%
-    point_style: none
-    series_colors:
-      device_summary.avg_good_lcp_pct: "#08B248"
-      device_summary.avg_ni_lcp_pct: "#FC9200"
-      device_summary.avg_poor_lcp_pct: "#FC2E31"
-      device_summary.dynamic_good_pct_metric: "#08B248"
-      device_summary.dynamic_ni_pct_metric: "#FC9200"
-      device_summary.dynamic_poor_pct_metric: "#FC2E31"
-      device_summary.total_notification_accept_proportion: "#08B248"
-      device_summary.total_notification_dismiss_proportion: "#FC9200"
-      device_summary.total_notification_deny_proportion: "#2B99F7"
-    show_value_labels: true
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    column_group_spacing_ratio: 0.2
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 0
-    show_row_numbers: true
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: true
-    table_theme: white
-    enable_conditional_formatting: false
-    header_text_alignment: left
-    header_font_size: 12
-    rows_font_size: 12
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    hidden_pivots: {}
-    style_device_summary.date_year: "#3A4245"
-    show_title_device_summary.date_year: true
-    title_placement_device_summary.date_year: above
-    value_format_device_summary.date_year: ''
-    show_comparison_device_summary.total_notification_accept_proportion: false
-    style_device_summary.date_month_name: "#3A4245"
-    show_title_device_summary.date_month_name: true
-    title_placement_device_summary.date_month_name: above
-    value_format_device_summary.date_month_name: ''
-    show_comparison_device_summary.date_year: false
-    title_hidden: true
-    listen:
-      Origin: device_summary.origin
-      Device Type: device_summary.device
-    row: 2
-    col: 5
-    width: 19
-    height: 3
   - title: Month
     name: Month
     model: chrome-ux-block
@@ -352,3 +229,158 @@
     col: 5
     width: 11
     height: 2
+  - title: New SC
+    name: New SC
+    model: chrome-ux-block
+    explore: normalized
+    type: marketplace_viz_multiple_value::multiple_value-marketplace
+    fields: [normalized.date_month, normalized.notification_accept, normalized.notification_accept_past_month,
+      normalized.notification_deny, normalized.notification_deny_past_month]
+    fill_fields: [normalized.date_month]
+    filters: {}
+    sorts: [normalized.date_month desc]
+    limit: 1
+    column_limit: 50
+    hidden_fields: [normalized.date_month]
+    hidden_points_if_no: []
+    series_labels: {}
+    show_view_names: false
+    font_size_main: '12'
+    orientation: auto
+    show_comparison_normalized.notification_accept_past_month: true
+    comparison_style_normalized.notification_accept_past_month: percentage_change
+    comparison_show_label_normalized.notification_accept_past_month: false
+    pos_is_bad_normalized.notification_accept_past_month: false
+    show_comparison_normalized.notification_deny_past_month: true
+    comparison_style_normalized.notification_deny_past_month: percentage_change
+    comparison_show_label_normalized.notification_deny_past_month: false
+    pos_is_bad_normalized.notification_deny_past_month: false
+    comparison_label_placement_normalized.notification_deny_past_month: below
+    comp_value_format_normalized.notification_deny_past_month: ''
+    comparison_label_placement_normalized.notification_accept_past_month: below
+    comp_value_format_normalized.notification_accept_past_month: ''
+    style_normalized.navigate_proportion: "#3A4245"
+    show_title_normalized.navigate_proportion: true
+    title_placement_normalized.navigate_proportion: above
+    value_format_normalized.navigate_proportion: ''
+    show_comparison_normalized.navigate_proportion_past_month: true
+    comparison_style_normalized.navigate_proportion_past_month: percentage_change
+    comparison_show_label_normalized.navigate_proportion_past_month: false
+    pos_is_bad_normalized.navigate_proportion_past_month: false
+    style_normalized.back_forward_cache_proportion: "#3A4245"
+    show_title_normalized.back_forward_cache_proportion: true
+    title_placement_normalized.back_forward_cache_proportion: above
+    value_format_normalized.back_forward_cache_proportion: ''
+    show_comparison_normalized.back_forward_cache_proportion: false
+    show_comparison_normalized.back_forward_cache_proportion_past_month: true
+    comparison_style_normalized.back_forward_cache_proportion_past_month: percentage_change
+    comparison_show_label_normalized.back_forward_cache_proportion_past_month: false
+    pos_is_bad_normalized.back_forward_cache_proportion_past_month: false
+    title_placement_normalized.prerender_proportion: above
+    show_comparison_normalized.prerender_proportion_past_month: true
+    comparison_style_normalized.prerender_proportion_past_month: percentage_change
+    comparison_show_label_normalized.prerender_proportion_past_month: false
+    pos_is_bad_normalized.prerender_proportion_past_month: false
+    comparison_label_placement_normalized.prerender_proportion_past_month: below
+    comp_value_format_normalized.prerender_proportion_past_month: ''
+    comparison_label_placement_normalized.back_forward_cache_proportion_past_month: below
+    comp_value_format_normalized.back_forward_cache_proportion_past_month: ''
+    style_normalized.back_forward_cache_proportion_past_month: "#3A4245"
+    show_title_normalized.back_forward_cache_proportion_past_month: true
+    title_placement_normalized.back_forward_cache_proportion_past_month: above
+    value_format_normalized.back_forward_cache_proportion_past_month: ''
+    comparison_label_placement_normalized.navigate_proportion_past_month: below
+    comp_value_format_normalized.navigate_proportion_past_month: ''
+    style_normalized.navigate_proportion_past_month: "#3A4245"
+    show_title_normalized.navigate_proportion_past_month: true
+    title_placement_normalized.navigate_proportion_past_month: above
+    value_format_normalized.navigate_proportion_past_month: ''
+    title_placement_normalized.phone_density: above
+    show_comparison_normalized.phone_density_past_month: true
+    comparison_style_normalized.phone_density_past_month: percentage_change
+    comparison_show_label_normalized.phone_density_past_month: false
+    pos_is_bad_normalized.phone_density_past_month: false
+    title_placement_normalized.desktop_density: above
+    show_comparison_normalized.desktop_density_past_month: true
+    comparison_style_normalized.desktop_density_past_month: percentage_change
+    comparison_show_label_normalized.desktop_density_past_month: false
+    pos_is_bad_normalized.desktop_density_past_month: false
+    comparison_label_placement_normalized.phone_density_past_month: below
+    comparison_label_placement_normalized.desktop_density_past_month: below
+    comp_value_format_normalized.desktop_density_past_month: ''
+    comp_value_format_normalized.phone_density_past_month: ''
+    style_normalized._4g_density: "#3A4245"
+    show_title_normalized._4g_density: true
+    title_placement_normalized._4g_density: above
+    value_format_normalized._4g_density: ''
+    show_comparison_normalized._4g_density_past_month: true
+    comparison_style_normalized._4g_density_past_month: percentage_change
+    comparison_show_label_normalized._4g_density_past_month: false
+    pos_is_bad_normalized._4g_density_past_month: false
+    style_normalized._3g_density: "#3A4245"
+    show_title_normalized._3g_density: true
+    title_placement_normalized._3g_density: above
+    value_format_normalized._3g_density: ''
+    show_comparison_normalized._3g_density: false
+    show_comparison_normalized._3g_density_past_month: true
+    comparison_style_normalized._3g_density_past_month: percentage_change
+    comparison_show_label_normalized._3g_density_past_month: false
+    pos_is_bad_normalized._3g_density_past_month: false
+    comparison_label_placement_normalized._3g_density_past_month: below
+    comp_value_format_normalized._3g_density_past_month: ''
+    style_normalized._3g_density_past_month: "#3A4245"
+    show_title_normalized._3g_density_past_month: true
+    title_placement_normalized._3g_density_past_month: above
+    value_format_normalized._3g_density_past_month: ''
+    comparison_style_normalized._3g_density: value
+    comparison_show_label_normalized._3g_density: true
+    comparison_label_placement_normalized._4g_density_past_month: below
+    comp_value_format_normalized._4g_density_past_month: ''
+    style_normalized._4g_density_past_month: "#3A4245"
+    show_title_normalized._4g_density_past_month: true
+    title_placement_normalized._4g_density_past_month: above
+    value_format_normalized._4g_density_past_month: ''
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    show_null_points: true
+    interpolation: linear
+    defaults_version: 0
+    style_normalized.date_month: "#3A4245"
+    show_title_normalized.date_month: true
+    title_placement_normalized.date_month: above
+    value_format_normalized.date_month: ''
+    hidden_pivots: {}
+    style_normalized.phone_density: "#3A4245"
+    show_title_normalized.phone_density: true
+    value_format_normalized.phone_density: ''
+    style_normalized.desktop_density: "#3A4245"
+    show_title_normalized.desktop_density: true
+    value_format_normalized.desktop_density: ''
+    show_comparison_normalized.desktop_density: false
+    title_hidden: true
+    listen:
+      Origin: normalized.origin_filter
+      Device Type: normalized.device_filter
+    row: 2
+    col: 5
+    width: 19
+    height: 3

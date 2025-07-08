@@ -78,7 +78,7 @@
     allow_multiple_values: false
     required: true
     ui_config:
-      type: dropdown_menu
+      type: advanced
       display: inline
     model: chrome-ux-block
     explore: device_summary

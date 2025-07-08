@@ -1,7 +1,7 @@
 ---
 - dashboard: largest_contentful_paint_lcp
-  extends: nav_bar
   title: Largest Contentful Paint (LCP)
+  extends: nav_bar
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
@@ -81,8 +81,8 @@
     hidden_pivots: {}
     title_hidden: true
     listen:
-      Device Type: device_summary.device
       Origin: device_summary.origin
+      Device Type: device_summary.device
     row: 5
     col: 5
     width: 19
@@ -149,8 +149,8 @@
     totals_color: "#808080"
     defaults_version: 1
     listen:
-      Device Type: device_summary.device
       Origin: device_summary.origin
+      Device Type: device_summary.device
     row: 0
     col: 5
     width: 10
@@ -217,83 +217,76 @@
     totals_color: "#808080"
     defaults_version: 1
     listen:
-      Device Type: device_summary.device
       Origin: device_summary.origin
+      Device Type: device_summary.device
     row: 0
     col: 15
     width: 9
     height: 2
-  - title: Scorecardss
-    name: Scorecardss
+  - title: New SC
+    name: New SC
     model: chrome-ux-block
-    explore: device_summary
+    explore: normalized
     type: marketplace_viz_multiple_value::multiple_value-marketplace
-    fields: [device_summary.avg_good_lcp_pct, device_summary.good_lcp_last_month,
-      device_summary.date_pop_month, device_summary.avg_p75_lcp, device_summary.p75_lcp_last_month,
-      device_summary.avg_poor_lcp_pct, device_summary.poor_lcp_last_month]
-    fill_fields: [device_summary.date_pop_month]
+    fields: [normalized.date_month, normalized.dynamic_good_pct, normalized.dynamic_good_pct_past_month,
+      normalized.dynamic_p75, normalized.dynamic_p75_past_month, normalized.dynamic_poor_pct,
+      normalized.dynamic_poor_pct_past_month]
+    fill_fields: [normalized.date_month]
     filters:
-      device_summary.dynamic_metric: lcp
-    sorts: [device_summary.date_pop_month desc]
-    limit: 1
+      normalized.dynamic_metric: lcp
+    sorts: [normalized.date_month desc]
+    limit: 5
     column_limit: 50
-    hidden_fields: [device_summary.date_pop_month]
+    hidden_fields: [normalized.date_month]
     hidden_points_if_no: []
     series_labels: {}
     show_view_names: false
     font_size_main: '12'
     orientation: auto
-    style_device_summary.avg_good_lcp_pct: "#3A4245"
-    show_title_device_summary.avg_good_lcp_pct: true
-    title_override_device_summary.avg_good_lcp_pct: Good LCP
-    title_placement_device_summary.avg_good_lcp_pct: above
-    value_format_device_summary.avg_good_lcp_pct: ''
-    show_comparison_device_summary.good_lcp_last_month: true
-    comparison_style_device_summary.good_lcp_last_month: percentage_change
-    comparison_show_label_device_summary.good_lcp_last_month: false
-    pos_is_bad_device_summary.good_lcp_last_month: false
-    style_device_summary.avg_p75_lcp: "#3A4245"
-    show_title_device_summary.avg_p75_lcp: true
-    title_override_device_summary.avg_p75_lcp: P75 LCP (All Devices)
-    title_placement_device_summary.avg_p75_lcp: above
-    value_format_device_summary.avg_p75_lcp: ''
-    show_comparison_device_summary.avg_p75_lcp: false
-    show_comparison_device_summary.p75_lcp_last_month: true
-    comparison_style_device_summary.p75_lcp_last_month: percentage_change
-    comparison_show_label_device_summary.p75_lcp_last_month: false
-    pos_is_bad_device_summary.p75_lcp_last_month: true
-    style_device_summary.avg_poor_lcp_pct: "#3A4245"
-    show_title_device_summary.avg_poor_lcp_pct: true
-    title_override_device_summary.avg_poor_lcp_pct: Poor LCP
-    title_placement_device_summary.avg_poor_lcp_pct: above
-    value_format_device_summary.avg_poor_lcp_pct: ''
-    show_comparison_device_summary.avg_poor_lcp_pct: false
-    show_comparison_device_summary.poor_lcp_last_month: true
-    comparison_style_device_summary.poor_lcp_last_month: percentage_change
-    comparison_show_label_device_summary.poor_lcp_last_month: false
-    pos_is_bad_device_summary.poor_lcp_last_month: true
-    comparison_label_placement_device_summary.poor_lcp_last_month: below
-    comp_value_format_device_summary.poor_lcp_last_month: ''
-    style_device_summary.poor_lcp_last_month: "#3A4245"
-    show_title_device_summary.poor_lcp_last_month: true
-    title_placement_device_summary.poor_lcp_last_month: above
-    value_format_device_summary.poor_lcp_last_month: ''
-    comparison_label_placement_device_summary.p75_lcp_last_month: below
-    comp_value_format_device_summary.p75_lcp_last_month: ''
-    style_device_summary.p75_lcp_last_month: "#3A4245"
-    show_title_device_summary.p75_lcp_last_month: true
-    title_placement_device_summary.p75_lcp_last_month: above
-    value_format_device_summary.p75_lcp_last_month: ''
-    comparison_label_placement_device_summary.good_lcp_last_month: below
-    comp_value_format_device_summary.good_lcp_last_month: ''
-    style_device_summary.good_lcp_last_month: "#3A4245"
-    show_title_device_summary.good_lcp_last_month: true
-    title_placement_device_summary.good_lcp_last_month: above
-    value_format_device_summary.good_lcp_last_month: ''
-    comparison_style_device_summary.avg_p75_lcp: value
-    comparison_show_label_device_summary.avg_p75_lcp: true
-    comparison_label_placement_device_summary.avg_p75_lcp: below
-    comp_value_format_device_summary.avg_p75_lcp: ''
+    style_normalized.dynamic_good_pct: "#3A4245"
+    show_title_normalized.dynamic_good_pct: true
+    title_placement_normalized.dynamic_good_pct: above
+    value_format_normalized.dynamic_good_pct: ''
+    show_comparison_normalized.dynamic_good_pct_past_month: true
+    comparison_style_normalized.dynamic_good_pct_past_month: percentage_change
+    comparison_show_label_normalized.dynamic_good_pct_past_month: false
+    pos_is_bad_normalized.dynamic_good_pct_past_month: false
+    style_normalized.dynamic_p75: "#3A4245"
+    show_title_normalized.dynamic_p75: true
+    title_placement_normalized.dynamic_p75: above
+    value_format_normalized.dynamic_p75: ''
+    show_comparison_normalized.dynamic_p75: false
+    show_comparison_normalized.dynamic_p75_past_month: true
+    comparison_style_normalized.dynamic_p75_past_month: percentage_change
+    comparison_show_label_normalized.dynamic_p75_past_month: false
+    pos_is_bad_normalized.dynamic_p75_past_month: false
+    style_normalized.dynamic_poor_pct: "#3A4245"
+    show_title_normalized.dynamic_poor_pct: true
+    title_placement_normalized.dynamic_poor_pct: above
+    value_format_normalized.dynamic_poor_pct: ''
+    show_comparison_normalized.dynamic_poor_pct: false
+    show_comparison_normalized.dynamic_poor_pct_past_month: true
+    comparison_style_normalized.dynamic_poor_pct_past_month: percentage_change
+    comparison_show_label_normalized.dynamic_poor_pct_past_month: false
+    pos_is_bad_normalized.dynamic_poor_pct_past_month: true
+    comparison_label_placement_normalized.dynamic_poor_pct_past_month: below
+    comp_value_format_normalized.dynamic_poor_pct_past_month: ''
+    style_normalized.dynamic_poor_pct_past_month: "#3A4245"
+    show_title_normalized.dynamic_poor_pct_past_month: true
+    title_placement_normalized.dynamic_poor_pct_past_month: above
+    value_format_normalized.dynamic_poor_pct_past_month: ''
+    comparison_label_placement_normalized.dynamic_p75_past_month: below
+    comp_value_format_normalized.dynamic_p75_past_month: ''
+    style_normalized.dynamic_p75_past_month: "#3A4245"
+    show_title_normalized.dynamic_p75_past_month: true
+    title_placement_normalized.dynamic_p75_past_month: above
+    value_format_normalized.dynamic_p75_past_month: ''
+    comparison_label_placement_normalized.dynamic_good_pct_past_month: below
+    comp_value_format_normalized.dynamic_good_pct_past_month: ''
+    style_normalized.dynamic_good_pct_past_month: "#3A4245"
+    show_title_normalized.dynamic_good_pct_past_month: true
+    title_placement_normalized.dynamic_good_pct_past_month: above
+    value_format_normalized.dynamic_good_pct_past_month: ''
     hidden_pivots: {}
     x_axis_gridlines: false
     y_axis_gridlines: true
@@ -319,10 +312,55 @@
     show_null_points: true
     interpolation: linear
     defaults_version: 0
+    style_normalized.date_month: "#3A4245"
+    show_title_normalized.date_month: true
+    title_placement_normalized.date_month: above
+    value_format_normalized.date_month: ''
+    style_normalized.normalized_good_cls: "#3A4245"
+    show_title_normalized.normalized_good_cls: true
+    title_placement_normalized.normalized_good_cls: above
+    value_format_normalized.normalized_good_cls: ''
+    show_comparison_normalized.normalized_good_cls: false
+    style_normalized.normalized_good_cls_past_month: "#3A4245"
+    show_title_normalized.normalized_good_cls_past_month: true
+    title_placement_normalized.normalized_good_cls_past_month: above
+    value_format_normalized.normalized_good_cls_past_month: ''
+    show_comparison_normalized.normalized_good_cls_past_month: false
+    style_normalized.normalized_ni_cls: "#3A4245"
+    show_title_normalized.normalized_ni_cls: true
+    title_placement_normalized.normalized_ni_cls: above
+    value_format_normalized.normalized_ni_cls: ''
+    show_comparison_normalized.normalized_ni_cls: false
+    style_normalized.normalized_ni_cls_past_month: "#3A4245"
+    show_title_normalized.normalized_ni_cls_past_month: true
+    title_placement_normalized.normalized_ni_cls_past_month: above
+    value_format_normalized.normalized_ni_cls_past_month: ''
+    show_comparison_normalized.normalized_ni_cls_past_month: false
+    style_normalized.normalized_poor_cls: "#3A4245"
+    show_title_normalized.normalized_poor_cls: true
+    title_placement_normalized.normalized_poor_cls: above
+    value_format_normalized.normalized_poor_cls: ''
+    show_comparison_normalized.normalized_poor_cls: false
+    style_normalized.normalized_poor_cls_past_month: "#3A4245"
+    show_title_normalized.normalized_poor_cls_past_month: true
+    title_placement_normalized.normalized_poor_cls_past_month: above
+    value_format_normalized.normalized_poor_cls_past_month: ''
+    show_comparison_normalized.normalized_poor_cls_past_month: false
+    show_comparison_normalized.dynamic_good_pct: false
+    style_normalized.normalized_good_lcp: "#3A4245"
+    show_title_normalized.normalized_good_lcp: true
+    title_placement_normalized.normalized_good_lcp: above
+    value_format_normalized.normalized_good_lcp: ''
+    show_comparison_normalized.normalized_good_lcp: false
+    style_normalized.normalized_good_lcp_past_month: "#3A4245"
+    show_title_normalized.normalized_good_lcp_past_month: true
+    title_placement_normalized.normalized_good_lcp_past_month: above
+    value_format_normalized.normalized_good_lcp_past_month: ''
+    show_comparison_normalized.normalized_good_lcp_past_month: false
     title_hidden: true
     listen:
-      Device Type: device_summary.device
-      Origin: device_summary.origin
+      Origin: normalized.origin_filter
+      Device Type: normalized.device_filter
     row: 2
     col: 5
     width: 19
