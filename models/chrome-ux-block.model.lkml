@@ -18,3 +18,5 @@ explore: navigation_bar {
     ${origin} IS NOT NULL  AND
     ${origin} LIKE 'https://%' ;;
 }
+
+explore: normalized {}
