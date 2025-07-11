@@ -19,7 +19,7 @@ new_lookml_runtime: yes
 
 
 constant: NAV_STYLE_ACTIVE_MAIN {
-  value: "display: block; background-color: #efefef; color: #3a71fc; padding: 10px 18px; margin: 12px; font-weight: bold; border-radius: 8px; text-decoration: none; font-size: 18px; text-align: center;"
+  value: "display: block; background-color: #efefef; color: #3a71fc; padding: 10px 18px; margin: 12px; font-weight: bold; border-radius: 8px; text-decoration: none; font-size: 18px; text-align: center; pointer-events: none; cursor: default;"
   export: override_optional
 }
 
@@ -29,7 +29,7 @@ constant: NAV_STYLE_INACTIVE_MAIN {
 }
 
 constant: NAV_STYLE_ACTIVE_LINK {
-  value: "display: block; color: #3a71fc; background-color: #efefef; padding: 9px 18px 9px 30px; text-decoration: none; font-size: 17px; font-weight: bold; margin: 2px 12px; border-radius: 8px;"
+  value: "display: block; color: #3a71fc; background-color: #efefef; padding: 9px 18px 9px 30px; text-decoration: none; font-size: 17px; font-weight: bold; margin: 2px 12px; border-radius: 8px; pointer-events: none; cursor: default;"
   export: override_optional
 }
 
