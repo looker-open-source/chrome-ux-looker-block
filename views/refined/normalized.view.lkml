@@ -92,6 +92,12 @@ view: normalized {
     timeframes: [month, date]
   }
 
+  dimension: device {
+    type: string
+    hidden: no
+    sql: {{ normalized.device_filter | split:"," | sql_quote | join:"," }} ;;
+  }
+
 #--- Dynamic Controls ------------------------------------------------------------------------
 
   parameter: dynamic_metric {

@@ -119,7 +119,7 @@ view: +device_summary {
     drill_fields: [device_summary.country_code, device_summary.device, device_summary.dynamic_good_pct_metric]
     link: {
       label: "Explore by Device"
-      url: "{{ link }}?fields=device_summary.device,device_summary.dynamic_good_pct_metric"
+      url: "/explore/chrome-ux-block/device_summary?fields=device_summary.device,device_summary.dynamic_good_pct_metric&f[device_summary.date_month]={{ device_summary.date_month._value | url_encode }}&f[device_summary.origin]={{ _filters['origin'] | url_encode }}&f[device_summary.device]={{ _filters['device'] | url_encode }}&sorts=device_summary.dynamic_good_pct_metric+desc"
     }
     link: {
       label: "Explore by Country"
@@ -127,6 +127,7 @@ view: +device_summary {
     }
     hidden: no
   }
+  # /explore/chrome-ux-block/device_summary?fields=device_summary.device,device_summary.dynamic_good_pct_metric&f[device_summary.origin]={{ _filters['origin'] }}&f[device_summary.device]={{ _filters['device'] }}&sorts=device_summary.dynamic_good_pct_metric+desc
 
   # https://looker-marketplace-dev.cloud-bi-opm.com/explore/chrome-ux-block/device_summary?fields=device_summary.device,device_summary.dynamic_good_pct_metric&f[device_summary.date_month_name]=June&f[device_summary.date_year]=2025&f[device_summary.date_month]=2025-06&f[device_summary.dynamic_metric]=lcp&f[device_summary.origin]=https%3A%2F%2Fcloud.google.com&f[device_summary.device]=%25desktop%25%2C%25phone%25%2C%25tablet%25&sorts=device_summary.dynamic_good_pct_metric+desc+0&limit=500&column_limit=50&vis=%7B%7D&filter_config=%7B%22device_summary.date_month_name%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22June%22%7D%2C%7B%7D%5D%2C%22id%22%3A0%2C%22error%22%3Afalse%7D%5D%2C%22device_summary.date_year%22%3A%5B%7B%22type%22%3A%22year%22%2C%22values%22%3A%5B%7B%22constant%22%3A%222025%22%7D%2C%7B%7D%5D%2C%22id%22%3A1%2C%22error%22%3Afalse%7D%5D%2C%22device_summary.date_month%22%3A%5B%7B%22type%22%3A%22advanced%22%2C%22values%22%3A%5B%7B%22constant%22%3A%222025-06%22%7D%2C%7B%7D%5D%2C%22id%22%3A2%2C%22error%22%3Afalse%7D%5D%2C%22device_summary.dynamic_metric%22%3A%5B%7B%22type%22%3A%22is%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22lcp%22%7D%2C%7B%7D%5D%2C%22id%22%3A3%2C%22error%22%3Afalse%7D%5D%2C%22device_summary.origin%22%3A%5B%7B%22type%22%3A%22%3D%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22https%3A%2F%2Fcloud.google.com%22%7D%2C%7B%7D%5D%2C%22id%22%3A4%2C%22error%22%3Afalse%7D%5D%2C%22device_summary.device%22%3A%5B%7B%22type%22%3A%22contains%22%2C%22values%22%3A%5B%7B%22constant%22%3A%22desktop%2Cphone%2Ctablet%22%7D%2C%7B%7D%5D%2C%22id%22%3A5%2C%22error%22%3Afalse%7D%5D%7D&origin=share-expanded
 
