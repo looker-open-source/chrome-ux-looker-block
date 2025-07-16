@@ -18,27 +18,22 @@ constant: CRUX_DATASET {
 new_lookml_runtime: yes
 
 
-constant: NAV_STYLE_ACTIVE_MAIN {
-  value: "display: block; background-color: #efefef; color: #3a71fc; padding: 10px 18px; margin: 12px; font-weight: bold; border-radius: 8px; text-decoration: none; font-size: 18px; text-align: center; pointer-events: none; cursor: default;"
+constant: NAV_H2_MAIN_INACTIVE {
+  value: "display: inline-block; background-color: #f5f5f5; color: #555; padding: 8px 16px; font-weight: normal; border-radius: 20px; text-decoration: none; font-size: 16px;"
   export: override_optional
 }
 
-constant: NAV_STYLE_INACTIVE_MAIN {
-  value: "display: block; border: 1px solid #efefef; color: #efefef; padding: 10px 18px; margin: 12px; font-weight: normal; border-radius: 8px; text-decoration: none; font-size: 18px; text-align: center;"
+constant: NAV_H2_GREEN_ACTIVE {
+  value: "display: inline-block; background-color: #e8f5e9; color: #0d652d; padding: 8px 16px; font-weight: bold; border-radius: 20px; text-decoration: none; font-size: 16px; pointer-events: none; cursor: default;"
   export: override_optional
 }
 
-constant: NAV_STYLE_ACTIVE_LINK {
-  value: "display: block; color: #3a71fc; background-color: #efefef; padding: 9px 18px 9px 30px; text-decoration: none; font-size: 17px; font-weight: bold; margin: 2px 12px; border-radius: 8px; pointer-events: none; cursor: default;"
+constant: NAV_H2_YELLOW_ACTIVE {
+  value: "display: inline-block; background-color: #fff4e5; color: #b96a00; padding: 8px 16px; font-weight: bold; border-radius: 20px; text-decoration: none; font-size: 16px; pointer-events: none; cursor: default;"
   export: override_optional
 }
 
-constant: NAV_STYLE_INACTIVE_LINK {
-  value: "display: block; color: #efefef; padding: 9px 18px 9px 30px; text-decoration: none; font-size: 17px; border-bottom: 1px solid #4a81fc;"
-  export: override_optional
-}
-
-constant: NAV_STYLE_INACTIVE_LINK_NO_BORDER {
-  value: "display: block; color: #efefef; padding: 9px 18px 9px 30px; text-decoration: none; font-size: 17px;"
+constant: NAV_H2_LINK_INACTIVE {
+  value: "display: inline-block; color: #555; padding: 8px 16px; text-decoration: none; font-size: 16px; border-radius: 20px;"
   export: override_optional
 }
