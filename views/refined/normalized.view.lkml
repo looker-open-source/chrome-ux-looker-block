@@ -89,7 +89,7 @@ view: normalized {
     hidden: no
     type: time
     sql: TIMESTAMP(${TABLE}.date) ;;
-    timeframes: [month, date]
+    timeframes: [month, date, month_name, year]
   }
 
   dimension: device {
@@ -137,6 +137,30 @@ view: normalized {
       value: "ol"
       label: "Onload (OL)"
       }
+  }
+
+  parameter: distribution_metric_selector {
+    group_label: "Dynamic Metric Controls"
+    label: "Distribution Metric Group"
+    type: unquoted
+    hidden: no
+    default_value: "device"
+    allowed_value: {
+      value: "device"
+      label: "Device Distribution"
+    }
+    allowed_value: {
+      value: "navigation"
+      label: "Navigation Type Distribution"
+    }
+    allowed_value: {
+      value: "connection"
+      label: "Connection Distribution"
+    }
+    allowed_value: {
+      value: "notification"
+      label: "Notification Permission Distribution"
+    }
   }
 
 #--- Dynamic Performance Metrics -------------------------------------------------------------
@@ -331,6 +355,146 @@ view: normalized {
     kind: previous
     hidden: no
     value_format_name: decimal_2
+  }
+
+
+#--- Dynamic Distribution Metrics ----------------------------------------------------------
+
+  measure: dynamic_metric_1 {
+    group_label: "Dynamic Distribution Metrics"
+    description: "Displays the primary metric for the selected distribution group."
+    label: "{% if distribution_metric_selector._parameter_value == 'device' %}Phone
+    {% elsif distribution_metric_selector._parameter_value == 'navigation' %}Navigate
+    {% elsif distribution_metric_selector._parameter_value == 'connection' %}4G
+    {% elsif distribution_metric_selector._parameter_value == 'notification' %}Accepted
+    {% else %}Metric 1{% endif %}"
+    type: average
+    value_format_name: percent_2
+    sql:
+      {% if distribution_metric_selector._parameter_value == 'device' %} ${normal_phone_density}
+      {% elsif distribution_metric_selector._parameter_value == 'navigation' %} ${normal_navigate_nav}
+      {% elsif distribution_metric_selector._parameter_value == 'connection' %} ${normal_4g_density}
+      {% elsif distribution_metric_selector._parameter_value == 'notification' %} ${normal_notification_accept}
+      {% else %} ${normal_phone_density} {% endif %} ;;
+    hidden: no
+  }
+
+  measure: dynamic_metric_1_past_month {
+    group_label: "Dynamic Distribution Metrics"
+    description: "Compares the primary metric for the selected distribution group to the previous month."
+    label: "{% if distribution_metric_selector._parameter_value == 'device' %}Phone (Past Month)
+    {% elsif distribution_metric_selector._parameter_value == 'navigation' %}Navigate (Past Month)
+    {% elsif distribution_metric_selector._parameter_value == 'connection' %}4G (Past Month)
+    {% elsif distribution_metric_selector._parameter_value == 'notification' %}Accepted (Past Month)
+    {% else %}Metric 1 (Past Month){% endif %}"
+    type: period_over_period
+    based_on: dynamic_metric_1
+    based_on_time: date_month
+    period: month
+    kind: previous
+    value_format_name: percent_2
+    hidden: no
+  }
+
+  measure: dynamic_metric_2 {
+    group_label: "Dynamic Distribution Metrics"
+    description: "Displays the secondary metric for the selected distribution group."
+    label: "{% if distribution_metric_selector._parameter_value == 'device' %}Desktop
+    {% elsif distribution_metric_selector._parameter_value == 'navigation' %}Back/Forward Cache
+    {% elsif distribution_metric_selector._parameter_value == 'connection' %}3G
+    {% elsif distribution_metric_selector._parameter_value == 'notification' %}Denied
+    {% else %}Metric 2{% endif %}"
+    type: average
+    value_format_name: percent_2
+    sql:
+      {% if distribution_metric_selector._parameter_value == 'device' %} ${normal_desktop_density}
+      {% elsif distribution_metric_selector._parameter_value == 'navigation' %} ${normal_back_forward_nav}
+      {% elsif distribution_metric_selector._parameter_value == 'connection' %} ${normal_3g_density}
+      {% elsif distribution_metric_selector._parameter_value == 'notification' %} ${normal_notification_deny}
+      {% else %} ${normal_desktop_density} {% endif %} ;;
+    hidden: no
+  }
+
+  measure: dynamic_metric_2_past_month {
+    group_label: "Dynamic Distribution Metrics"
+    description: "Compares the secondary metric for the selected distribution group to the previous month."
+    label: "{% if distribution_metric_selector._parameter_value == 'device' %}Desktop (Past Month)
+    {% elsif distribution_metric_selector._parameter_value == 'navigation' %}Back/Forward Cache (Past Month)
+    {% elsif distribution_metric_selector._parameter_value == 'connection' %}3G (Past Month)
+    {% elsif distribution_metric_selector._parameter_value == 'notification' %}Denied (Past Month)
+    {% else %}Metric 2 (Past Month){% endif %}"
+    type: period_over_period
+    based_on: dynamic_metric_2
+    based_on_time: date_month
+    period: month
+    kind: previous
+    value_format_name: percent_2
+    hidden: no
+  }
+
+  measure: dynamic_metric_3 {
+    group_label: "Dynamic Distribution Metrics"
+    description: "Displays the tertiary metric for the selected distribution group."
+    label: "{% if distribution_metric_selector._parameter_value == 'device' %}Tablet
+    {% elsif distribution_metric_selector._parameter_value == 'navigation' %}Prerender
+    {% elsif distribution_metric_selector._parameter_value == 'connection' %}2G
+    {% elsif distribution_metric_selector._parameter_value == 'notification' %}Dismissed
+    {% else %}Metric 3{% endif %}"
+    type: average
+    value_format_name: percent_2
+    sql:
+      {% if distribution_metric_selector._parameter_value == 'device' %} ${normal_tablet_density}
+      {% elsif distribution_metric_selector._parameter_value == 'navigation' %} ${normal_reload_nav}
+      {% elsif distribution_metric_selector._parameter_value == 'connection' %} ${normal_2g_density}
+      {% elsif distribution_metric_selector._parameter_value == 'notification' %} ${normal_notification_dismiss}
+      {% else %} ${normal_tablet_density} {% endif %} ;;
+    hidden: no
+  }
+
+  measure: dynamic_metric_3_past_month {
+    group_label: "Dynamic Distribution Metrics"
+    description: "Compares the tertiary metric for the selected distribution group to the previous month."
+    label: "{% if distribution_metric_selector._parameter_value == 'device' %}Tablet (Past Month)
+    {% elsif distribution_metric_selector._parameter_value == 'navigation' %}Prerender (Past Month)
+    {% elsif distribution_metric_selector._parameter_value == 'connection' %}2G (Past Month)
+    {% elsif distribution_metric_selector._parameter_value == 'notification' %}Dismissed (Past Month)
+    {% else %}Metric 3 (Past Month){% endif %}"
+    type: period_over_period
+    based_on: dynamic_metric_3
+    based_on_time: date_month
+    period: month
+    kind: previous
+    value_format_name: percent_2
+    hidden: no
+  }
+
+  # measure: dynamic_metric_4 {
+  #   group_label: "Dynamic Distribution Metrics"
+
+  #   description: "Displays the tertiary metric for the selected distribution group."
+  #   label: "{% if distribution_metric_selector._parameter_value == 'device' %}Others
+  #   {% elsif distribution_metric_selector._parameter_value == 'navigation' %}Back/Forward
+  #   {% elsif distribution_metric_selector._parameter_value == 'connection' %}Others
+  #   {% elsif distribution_metric_selector._parameter_value == 'notification' %}Others
+  #   {% else %}Others{% endif %}"
+  #   type: number
+  #   value_format_name: percent_2
+  #   sql:
+  #     {% if distribution_metric_selector._parameter_value == 'device' %} ${dynamic_metric_others}
+  #     {% elsif distribution_metric_selector._parameter_value == 'navigation' %} ${back_forward_proportion}
+  #     {% elsif distribution_metric_selector._parameter_value == 'connection' %} ${dynamic_metric_others}
+  #     {% elsif distribution_metric_selector._parameter_value == 'notification' %} ${dynamic_metric_others}
+  #     {% else %} ${dynamic_metric_others} {% endif %} ;;
+  #   hidden: no
+  # }
+
+  measure: dynamic_metric_others {
+    group_label: "Dynamic Distribution Metrics"
+    label: "Others"
+    hidden: no
+    sql: 1 - ${dynamic_metric_1} - ${dynamic_metric_2} - ${dynamic_metric_3} ;;
+    type: number
+    value_format_name: percent_2
   }
 
 
@@ -705,6 +869,11 @@ view: normalized {
     type: number
     sql: SAFE_DIVIDE(${total_back_forward_cache_nav_proportion}, (${total_navigate_nav_proportion} + ${total_back_forward_cache_nav_proportion} + ${total_reload_nav_proportion} + ${total_back_forward_nav_proportion} + ${total_navigate_cache_nav_proportion} + ${total_prerender_nav_proportion} + ${total_restore_nav_proportion})) ;;
   }
+  dimension: normal_back_forward_nav {
+    type: number
+    sql: SAFE_DIVIDE(${total_back_forward_nav_proportion}, (${total_navigate_nav_proportion} + ${total_back_forward_cache_nav_proportion} + ${total_reload_nav_proportion} + ${total_back_forward_nav_proportion} + ${total_navigate_cache_nav_proportion} + ${total_prerender_nav_proportion} + ${total_restore_nav_proportion})) ;;
+  }
+
   dimension: normal_reload_nav {
     type: number
     sql: SAFE_DIVIDE(${total_reload_nav_proportion}, (${total_navigate_nav_proportion} + ${total_back_forward_cache_nav_proportion} + ${total_reload_nav_proportion} + ${total_back_forward_nav_proportion} + ${total_navigate_cache_nav_proportion} + ${total_prerender_nav_proportion} + ${total_restore_nav_proportion})) ;;
@@ -1696,6 +1865,27 @@ view: normalized {
     description: "Compares the 'Back/Forward Cache' type percentage to the previous month."
     type: period_over_period
     based_on: back_forward_cache_proportion
+    based_on_time: date_month
+    period: month
+    kind: previous
+    hidden: no
+    value_format_name: percent_2
+  }
+  measure: back_forward_proportion {
+    group_label: "Navigation Distribution"
+    label: "Back/Forward"
+    description: "The percentage of navigations served instantly from the back/forward cache."
+    type: average
+    sql: ${normal_back_forward_nav} ;;
+    value_format_name: percent_2
+    hidden: no
+  }
+  measure: back_forward_proportion_past_month {
+    group_label: "Navigation Distribution"
+    label: "Back/Forward (Past Month)"
+    description: "Compares the 'Back/Forward Cache' type percentage to the previous month."
+    type: period_over_period
+    based_on: back_forward_proportion
     based_on_time: date_month
     period: month
     kind: previous
