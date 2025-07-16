@@ -1,11 +1,11 @@
 ---
 - dashboard: core_web_vitals
   title: Core Web Vitals
-  extends: nav_bar
   layout: newspaper
+  extends: nav_bar
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: cuY0A1zibZFnORdEGYNfzC
+  preferred_slug: XvVSPOsFZGtERQzhVVKVke
   elements:
   - title: Largest Contentful Paint (LCP)
     name: Largest Contentful Paint (LCP)
@@ -69,11 +69,11 @@
     title_hidden: true
     listen:
       Origin: device_summary.origin
-      Device Type: device_summary.device
       Date Month: device_summary.date_month
-    row: 2
-    col: 11
-    width: 13
+      Device: device_summary.device
+    row: 4
+    col: 9
+    width: 14
     height: 6
   - title: Interaction to Next Paint (INP)
     name: Interaction to Next Paint (INP)
@@ -133,11 +133,11 @@
     defaults_version: 1
     listen:
       Origin: device_summary.origin
-      Device Type: device_summary.device
       Date Month: device_summary.date_month
-    row: 8
-    col: 11
-    width: 13
+      Device: device_summary.device
+    row: 10
+    col: 9
+    width: 14
     height: 7
   - title: Cumulative Layout Shift (CLS)
     name: Cumulative Layout Shift (CLS)
@@ -200,11 +200,11 @@
     defaults_version: 1
     listen:
       Origin: device_summary.origin
-      Device Type: device_summary.device
       Date Month: device_summary.date_month
-    row: 15
-    col: 11
-    width: 13
+      Device: device_summary.device
+    row: 17
+    col: 9
+    width: 14
     height: 6
   - name: ''
     type: text
@@ -215,9 +215,9 @@
       LCP reports the render time of the largest content element that is visible within the viewport.
 
       <a href="https://web.dev/articles/lcp" target="_blank">web.dev/lcp</a>
-    row: 2
-    col: 5
-    width: 6
+    row: 4
+    col: 1
+    width: 7
     height: 6
   - name: " (2)"
     type: text
@@ -228,9 +228,9 @@
       INP reports the overall responsiveness to user interactions, as measured by the longest time from an interaction until the next frame is presented with visual feedback, ignoring outliers.
 
       <a href="https://web.dev/articles/inp" target="_blank">web.dev/inp</a>
-    row: 8
-    col: 5
-    width: 6
+    row: 10
+    col: 1
+    width: 7
     height: 7
   - name: " (3)"
     type: text
@@ -241,9 +241,9 @@
       CLS measures the sum total of all individual layout shift scores for every unexpected layout shift that occurs during the entire lifespan of the page.
 
       <a href="https://web.dev/articles/cls" target="_blank">web.dev/cls</a>
-    row: 15
-    col: 5
-    width: 6
+    row: 17
+    col: 1
+    width: 7
     height: 6
   - title: Origin
     name: Origin
@@ -309,11 +309,11 @@
     title_hidden: true
     listen:
       Origin: device_summary.origin
-      Device Type: device_summary.device
       Date Month: device_summary.date_month
-    row: 0
-    col: 5
-    width: 10
+      Device: device_summary.device
+    row: 2
+    col: 1
+    width: 13
     height: 2
   - title: Month
     name: Month
@@ -379,11 +379,11 @@
     title_hidden: true
     listen:
       Origin: device_summary.origin
-      Device Type: device_summary.device
       Date Month: device_summary.date_month
-    row: 0
+      Device: device_summary.device
+    row: 2
     col: 15
-    width: 9
+    width: 8
     height: 2
   filters:
   - name: Date Month

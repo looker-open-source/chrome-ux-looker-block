@@ -4,17 +4,26 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: VGJ6ndVf0YlkkxTwhibmMA
+  preferred_slug: XxiqQAaCBoIKOF0IYqbx6w
   elements:
-  - title: NavBar
-    name: NavBar
+  - title: _
+    name: _
     model: chrome-ux-block
     explore: navigation_bar
-    type: looker_grid
-    fields: [navigation_bar.vertical_navigation_bar_dynamic]
-    sorts: [navigation_bar.vertical_navigation_bar_dynamic]
+    type: single_value
+    fields: [navigation_bar.horizontal_navigation_bar_dynamic]
+    sorts: [navigation_bar.horizontal_navigation_bar_dynamic]
     limit: 500
     column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
     show_view_names: false
     show_row_numbers: false
     transpose: false
@@ -24,12 +33,9 @@
     size_to_fit: false
     table_theme: transparent
     limit_displayed_rows: false
-    enable_conditional_formatting: false
     header_text_alignment: left
     header_font_size: '12'
     rows_font_size: '12'
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
     show_sql_query_menu_options: false
     show_totals: true
     show_row_totals: true
@@ -64,12 +70,12 @@
     defaults_version: 1
     title_hidden: true
     listen:
-      Origin: navigation_bar.origin
-      Device Type: navigation_bar.device
+      Origin: navigation_bar.origin_filter
+      Device: navigation_bar.device_filter
     row: 0
-    col: 0
-    width: 5
-    height: 17
+    col: 1
+    width: 22
+    height: 2
   filters:
   - name: Origin
     title: Origin
@@ -79,13 +85,14 @@
     required: true
     ui_config:
       type: advanced
-      display: inline
+      display: popover
+      options: []
     model: chrome-ux-block
-    explore: device_summary
+    explore: normalized
     listens_to_filters: []
-    field: device_summary.origin
-  - name: Device Type
-    title: Device Type
+    field: normalized.origin_filter
+  - name: Device
+    title: Device
     type: field_filter
     default_value: "%desktop%,%phone%,%tablet%"
     allow_multiple_values: true
@@ -93,8 +100,7 @@
     ui_config:
       type: advanced
       display: popover
-      options: []
     model: chrome-ux-block
-    explore: device_summary
+    explore: normalized
     listens_to_filters: []
-    field: device_summary.device
+    field: normalized.device_filter

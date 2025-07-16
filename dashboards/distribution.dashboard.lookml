@@ -1,0 +1,240 @@
+---
+- dashboard: distribution
+  title: Distribution
+  layout: newspaper
+  extends: nav_bar
+  preferred_viewer: dashboards-next
+  description: ''
+  preferred_slug: fJqsjAFpzDp8flvHbs1Pas
+  elements:
+  - title: Scorecards
+    name: Scorecards
+    model: chrome-ux-block
+    explore: normalized
+    type: marketplace_viz_multiple_value::multiple_value-marketplace
+    fields: [normalized.date_month, normalized.dynamic_metric_1, normalized.dynamic_metric_1_past_month,
+      normalized.dynamic_metric_2, normalized.dynamic_metric_2_past_month, normalized.dynamic_metric_3,
+      normalized.dynamic_metric_3_past_month]
+    fill_fields: [normalized.date_month]
+    filters: {}
+    sorts: [normalized.date_month desc]
+    limit: 500
+    column_limit: 50
+    hidden_fields: [normalized.date_month]
+    hidden_points_if_no: []
+    series_labels: {}
+    show_view_names: true
+    font_size_main: '12'
+    orientation: auto
+    style_normalized.dynamic_metric_2: "#3A4245"
+    show_title_normalized.dynamic_metric_2: true
+    title_placement_normalized.dynamic_metric_2: above
+    value_format_normalized.dynamic_metric_2: ''
+    show_comparison_normalized.dynamic_metric_2_past_month: true
+    comparison_style_normalized.dynamic_metric_2_past_month: percentage_change
+    comparison_show_label_normalized.dynamic_metric_2_past_month: false
+    pos_is_bad_normalized.dynamic_metric_2_past_month: false
+    style_normalized.dynamic_metric_1: "#3A4245"
+    show_title_normalized.dynamic_metric_1: true
+    title_placement_normalized.dynamic_metric_1: above
+    value_format_normalized.dynamic_metric_1: ''
+    show_comparison_normalized.dynamic_metric_1: false
+    show_comparison_normalized.dynamic_metric_1_past_month: true
+    comparison_style_normalized.dynamic_metric_1_past_month: percentage_change
+    comparison_show_label_normalized.dynamic_metric_1_past_month: false
+    pos_is_bad_normalized.dynamic_metric_1_past_month: false
+    comparison_label_placement_normalized.dynamic_metric_1_past_month: below
+    style_normalized.dynamic_metric_3: "#3A4245"
+    show_title_normalized.dynamic_metric_3: true
+    title_placement_normalized.dynamic_metric_3: above
+    value_format_normalized.dynamic_metric_3: ''
+    show_comparison_normalized.dynamic_metric_3: false
+    show_comparison_normalized.dynamic_metric_3_past_month: true
+    comparison_style_normalized.dynamic_metric_3_past_month: percentage_change
+    comparison_show_label_normalized.dynamic_metric_3_past_month: false
+    pos_is_bad_normalized.dynamic_metric_3_past_month: false
+    comp_value_format_normalized.dynamic_metric_1_past_month: ''
+    style_normalized.dynamic_metric_1_past_month: "#3A4245"
+    show_title_normalized.dynamic_metric_1_past_month: true
+    title_placement_normalized.dynamic_metric_1_past_month: above
+    value_format_normalized.dynamic_metric_1_past_month: ''
+    comparison_style_normalized.dynamic_metric_1: percentage_change
+    comparison_show_label_normalized.dynamic_metric_1: false
+    pos_is_bad_normalized.dynamic_metric_1: false
+    comparison_label_placement_normalized.dynamic_metric_3_past_month: below
+    comp_value_format_normalized.dynamic_metric_3_past_month: ''
+    style_normalized.dynamic_metric_3_past_month: "#3A4245"
+    show_title_normalized.dynamic_metric_3_past_month: true
+    title_placement_normalized.dynamic_metric_3_past_month: above
+    value_format_normalized.dynamic_metric_3_past_month: ''
+    comparison_label_placement_normalized.dynamic_metric_1: below
+    comp_value_format_normalized.dynamic_metric_1: ''
+    style_normalized.dynamic_metric_2_past_month: "#3A4245"
+    show_title_normalized.dynamic_metric_2_past_month: true
+    title_placement_normalized.dynamic_metric_2_past_month: above
+    value_format_normalized.dynamic_metric_2_past_month: ''
+    comparison_label_placement_normalized.dynamic_metric_2_past_month: below
+    comp_value_format_normalized.dynamic_metric_2_past_month: ''
+    hidden_pivots: {}
+    defaults_version: 0
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_comparison_normalized.dynamic_metric_2: false
+    title_hidden: true
+    listen:
+      Distribution Metric Group: normalized.distribution_metric_selector
+      Device: normalized.device_filter
+      Origin: normalized.origin_filter
+    row: 4
+    col: 1
+    width: 22
+    height: 3
+  - title: By Month
+    name: By Month
+    model: chrome-ux-block
+    explore: normalized
+    type: looker_bar
+    fields: [normalized.date_month, normalized.date_month_name, normalized.date_year,
+      normalized.dynamic_metric_1, normalized.dynamic_metric_2, normalized.dynamic_metric_3,
+      normalized.dynamic_metric_others]
+    filters: {}
+    sorts: [normalized.date_month desc]
+    limit: 10
+    column_limit: 50
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: percent
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: true
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    color_application:
+      collection_id: 5591d8d1-6b49-4f8e-bafa-b874d82f8eb7
+      palette_id: 18d0c733-1d87-42a9-934f-4ba8ef81d736
+      options:
+        steps: 5
+    x_axis_zoom: true
+    y_axis_zoom: true
+    font_size: '12'
+    label_value_format: 0.00\%
+    series_colors:
+      normalized.dynamic_metric_1: "#FC9200"
+      normalized.dynamic_metric_2: "#2B99F7"
+      normalized.dynamic_metric_3: "#08B248"
+    series_labels: {}
+    column_group_spacing_ratio: 0.2
+    font_size_main: '12'
+    orientation: auto
+    style_normalized.dynamic_metric_2: "#3A4245"
+    show_title_normalized.dynamic_metric_2: true
+    title_placement_normalized.dynamic_metric_2: above
+    value_format_normalized.dynamic_metric_2: ''
+    show_comparison_normalized.dynamic_metric_2_past_month: true
+    comparison_style_normalized.dynamic_metric_2_past_month: percentage_change
+    comparison_show_label_normalized.dynamic_metric_2_past_month: false
+    pos_is_bad_normalized.dynamic_metric_2_past_month: false
+    style_normalized.dynamic_metric_1: "#3A4245"
+    show_title_normalized.dynamic_metric_1: true
+    title_placement_normalized.dynamic_metric_1: above
+    value_format_normalized.dynamic_metric_1: ''
+    show_comparison_normalized.dynamic_metric_1: false
+    show_comparison_normalized.dynamic_metric_1_past_month: true
+    comparison_style_normalized.dynamic_metric_1_past_month: percentage_change
+    comparison_show_label_normalized.dynamic_metric_1_past_month: false
+    pos_is_bad_normalized.dynamic_metric_1_past_month: false
+    comparison_label_placement_normalized.dynamic_metric_1_past_month: below
+    style_normalized.dynamic_metric_3: "#3A4245"
+    show_title_normalized.dynamic_metric_3: true
+    title_placement_normalized.dynamic_metric_3: above
+    value_format_normalized.dynamic_metric_3: ''
+    show_comparison_normalized.dynamic_metric_3: false
+    show_comparison_normalized.dynamic_metric_3_past_month: true
+    comparison_style_normalized.dynamic_metric_3_past_month: percentage_change
+    comparison_show_label_normalized.dynamic_metric_3_past_month: false
+    pos_is_bad_normalized.dynamic_metric_3_past_month: false
+    comp_value_format_normalized.dynamic_metric_1_past_month: ''
+    style_normalized.dynamic_metric_1_past_month: "#3A4245"
+    show_title_normalized.dynamic_metric_1_past_month: true
+    title_placement_normalized.dynamic_metric_1_past_month: above
+    value_format_normalized.dynamic_metric_1_past_month: ''
+    comparison_style_normalized.dynamic_metric_1: percentage_change
+    comparison_show_label_normalized.dynamic_metric_1: false
+    pos_is_bad_normalized.dynamic_metric_1: false
+    comparison_label_placement_normalized.dynamic_metric_3_past_month: below
+    comp_value_format_normalized.dynamic_metric_3_past_month: ''
+    style_normalized.dynamic_metric_3_past_month: "#3A4245"
+    show_title_normalized.dynamic_metric_3_past_month: true
+    title_placement_normalized.dynamic_metric_3_past_month: above
+    value_format_normalized.dynamic_metric_3_past_month: ''
+    comparison_label_placement_normalized.dynamic_metric_1: below
+    comp_value_format_normalized.dynamic_metric_1: ''
+    style_normalized.dynamic_metric_2_past_month: "#3A4245"
+    show_title_normalized.dynamic_metric_2_past_month: true
+    title_placement_normalized.dynamic_metric_2_past_month: above
+    value_format_normalized.dynamic_metric_2_past_month: ''
+    comparison_label_placement_normalized.dynamic_metric_2_past_month: below
+    comp_value_format_normalized.dynamic_metric_2_past_month: ''
+    hidden_pivots: {}
+    hidden_fields: [normalized.date_month]
+    hidden_points_if_no: []
+    defaults_version: 1
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    hidden_series: []
+    title_hidden: true
+    listen:
+      Distribution Metric Group: normalized.distribution_metric_selector
+      Device: normalized.device_filter
+      Origin: normalized.origin_filter
+    row: 7
+    col: 1
+    width: 22
+    height: 9
+  filters:
+  - name: Distribution Metric Group
+    title: Distribution Metric Group
+    type: field_filter
+    default_value: device
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: dropdown_menu
+      display: inline
+    model: chrome-ux-block
+    explore: normalized
+    listens_to_filters: []
+    field: normalized.distribution_metric_selector
