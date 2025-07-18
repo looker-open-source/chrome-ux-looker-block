@@ -293,7 +293,7 @@
     explore: normalized
     type: looker_bar
     fields: [normalized.date_month, normalized.date_month_name, normalized.date_year,
-      normalized.dynamic_good_pct, normalized.dynamic_poor_pct, normalized.dynamic_ni_pct]
+      normalized.dynamic_good_pct, normalized.dynamic_ni_pct, normalized.dynamic_poor_pct]
     filters: {}
     sorts: [normalized.date_month desc]
     limit: 10
@@ -340,8 +340,8 @@
       normalized.dynamic_metric_2: "#2B99F7"
       normalized.dynamic_metric_3: "#08B248"
       normalized.dynamic_good_pct: "#08B248"
-      normalized.dynamic_poor_pct: "#FC9200"
-      normalized.dynamic_ni_pct: "#FC2E31"
+      normalized.dynamic_poor_pct: "#FC2E31"
+      normalized.dynamic_ni_pct: "#FC9200"
     series_labels: {}
     column_group_spacing_ratio: 0.2
     font_size_main: '12'
