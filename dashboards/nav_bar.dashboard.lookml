@@ -72,18 +72,9 @@
     listen:
       Origin: navigation_bar.origin_filter
       Device: navigation_bar.device_filter
-    row: 2
-    col: 1
-    width: 22
-    height: 2
-  - name: ''
-    type: text
-    title_text: ''
-    body_text: 'Explore Further: Modify Dashboard Filter to Display Diverse Metrics
-      📊 ⬆️'
     row: 0
-    col: 2
-    width: 13
+    col: 1
+    width: 15
     height: 2
   filters:
   - name: Origin

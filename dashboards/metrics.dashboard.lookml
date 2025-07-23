@@ -5,7 +5,7 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: yUbtcS0OrEI5oIzwuv1Qag
+  preferred_slug: JiZPrTRrEI5JZRwlHEYWe0
   elements:
   - title: Scorecards
     name: Scorecards
@@ -144,146 +144,10 @@
       Core Web Vitals Metric Dynamic: normalized.dynamic_metric
       Device: normalized.device_filter
       Origin: normalized.origin_filter
-    row: 6
+    row: 4
     col: 1
     width: 22
     height: 3
-  - title: Month
-    name: Month
-    model: chrome-ux-block
-    explore: device_summary
-    type: single_value
-    fields: [device_summary.origin, device_summary.date_month]
-    sorts: [device_summary.date_month desc]
-    limit: 1
-    column_limit: 50
-    custom_color_enabled: true
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    hidden_fields: [device_summary.origin]
-    hidden_points_if_no: []
-    series_labels: {}
-    show_view_names: false
-    font_size_main: '9'
-    orientation: auto
-    style_device_summary.origin: "#1A73E8"
-    show_title_device_summary.origin: true
-    title_placement_device_summary.origin: above
-    value_format_device_summary.origin: ''
-    style_device_summary.date_month: "#12B5CB"
-    show_title_device_summary.date_month: true
-    title_placement_device_summary.date_month: above
-    value_format_device_summary.date_month: ''
-    show_comparison_device_summary.date_month: false
-    custom_color: "#1A73E8"
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    limit_displayed_rows: false
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    listen:
-      Device: device_summary.device
-      Origin: device_summary.origin
-    row: 4
-    col: 15
-    width: 8
-    height: 2
-  - title: Origin
-    name: Origin
-    model: chrome-ux-block
-    explore: device_summary
-    type: single_value
-    fields: [device_summary.origin, device_summary.date_month]
-    sorts: [device_summary.date_month desc]
-    limit: 1
-    column_limit: 50
-    custom_color_enabled: true
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    hidden_fields: [device_summary.date_month]
-    hidden_points_if_no: []
-    series_labels: {}
-    show_view_names: false
-    font_size_main: '9'
-    orientation: auto
-    style_device_summary.origin: "#1A73E8"
-    show_title_device_summary.origin: true
-    title_placement_device_summary.origin: above
-    value_format_device_summary.origin: ''
-    style_device_summary.date_month: "#12B5CB"
-    show_title_device_summary.date_month: true
-    title_placement_device_summary.date_month: above
-    value_format_device_summary.date_month: ''
-    show_comparison_device_summary.date_month: false
-    custom_color: "#1A73E8"
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    limit_displayed_rows: false
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    listen:
-      Device: device_summary.device
-      Origin: device_summary.origin
-    row: 4
-    col: 1
-    width: 13
-    height: 2
   - title: By Month
     name: By Month
     model: chrome-ux-block
@@ -409,7 +273,7 @@
       Device: normalized.device_filter
       Core Web Vitals Metric Dynamic: normalized.dynamic_metric
       Origin: normalized.origin_filter
-    row: 9
+    row: 7
     col: 1
     width: 22
     height: 10
@@ -417,12 +281,21 @@
     name: dynamic metric
     model: chrome-ux-block
     explore: normalized
-    type: marketplace_viz_multiple_value::multiple_value-marketplace
+    type: single_value
     fields: [normalized.dynamic_metric_title]
-    filters: {}
     sorts: [normalized.dynamic_metric_title]
     limit: 500
     column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: false
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    custom_color: "#079c98"
     hidden_fields: []
     hidden_points_if_no: []
     series_labels: {}
@@ -433,16 +306,6 @@
     show_title_normalized.dynamic_metric_title: false
     title_placement_normalized.dynamic_metric_title: above
     value_format_normalized.dynamic_metric_title: ''
-    custom_color_enabled: true
-    custom_color: "#079c98"
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_y_axis_labels: true
@@ -469,7 +332,7 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
-    defaults_version: 0
+    defaults_version: 1
     show_row_numbers: true
     transpose: false
     truncate_text: true
@@ -480,14 +343,146 @@
     header_text_alignment: left
     header_font_size: 12
     rows_font_size: 12
+    note_state: collapsed
+    note_display: hover
+    note_text: 'Explore Further: Modify Dashboard Filter to Display Diverse Metrics
+      📊 ⬆️'
     title_hidden: true
     listen:
       Origin: normalized.origin_filter
       Device: normalized.device_filter
       Core Web Vitals Metric Dynamic: normalized.dynamic_metric
     row: 0
-    col: 15
-    width: 9
+    col: 16
+    width: 7
+    height: 2
+  - title: Month
+    name: Month
+    model: chrome-ux-block
+    explore: normalized
+    type: single_value
+    fields: [normalized.date_month, normalized.origin]
+    filters: {}
+    sorts: [normalized.date_month desc]
+    limit: 1
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    custom_color: "#079c98"
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    show_null_points: true
+    interpolation: linear
+    defaults_version: 1
+    show_row_numbers: true
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    header_text_alignment: left
+    header_font_size: 12
+    rows_font_size: 12
+    hidden_fields: [normalized.origin]
+    listen:
+      Origin: normalized.origin_filter
+      Device: normalized.device_filter
+      Core Web Vitals Metric Dynamic: normalized.dynamic_metric
+    row: 2
+    col: 16
+    width: 7
+    height: 2
+  - title: Origin
+    name: Origin
+    model: chrome-ux-block
+    explore: normalized
+    type: single_value
+    fields: [normalized.date_month, normalized.origin]
+    filters: {}
+    sorts: [normalized.date_month desc]
+    limit: 1
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    custom_color: "#079c98"
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    show_null_points: true
+    interpolation: linear
+    defaults_version: 1
+    show_row_numbers: true
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    header_text_alignment: left
+    header_font_size: 12
+    rows_font_size: 12
+    hidden_fields: [normalized.date_month]
+    listen:
+      Origin: normalized.origin_filter
+      Device: normalized.device_filter
+      Core Web Vitals Metric Dynamic: normalized.dynamic_metric
+    row: 2
+    col: 1
+    width: 15
     height: 2
   filters:
   - name: Core Web Vitals Metric Dynamic

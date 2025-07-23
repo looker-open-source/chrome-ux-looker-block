@@ -46,10 +46,10 @@ view: navigation_bar {
       {% endif %}
 
 
-      {% if _explore._dashboard_url contains '::distribution' %}
+      {% if _explore._dashboard_url contains '::distributions' %}
       <span style="{{ style_active_yellow }}">Distributions</span>
       {% else %}
-      <a style="{{ style_inactive }}" href="/embed/dashboards/chrome-ux-block::distribution?Origin={{ _filters['origin_filter'] | url_encode }}&Device={{ _filters['device_filter'] | url_encode }}">Distributions</a>
+      <a style="{{ style_inactive }}" href="/embed/dashboards/chrome-ux-block::distributions?Origin={{ _filters['origin_filter'] | url_encode }}&Device={{ _filters['device_filter'] | url_encode }}">Distributions</a>
       {% endif %}
 
       </div> ;;

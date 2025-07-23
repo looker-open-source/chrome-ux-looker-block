@@ -1,11 +1,11 @@
 ---
-- dashboard: distribution
-  title: Distribution
+- dashboard: distributions
+  title: Distributions
   extends: nav_bar
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: hY7KCRieD6Ch5rh4ix4Z2C
+  preferred_slug: SvVkUQ68ykHR08wq8aZfbm
   elements:
   - title: Scorecards
     name: Scorecards
@@ -226,12 +226,21 @@
     name: distribution metric
     model: chrome-ux-block
     explore: normalized
-    type: marketplace_viz_multiple_value::multiple_value-marketplace
+    type: single_value
     fields: [normalized.distribution_metric_title]
-    filters: {}
     sorts: [normalized.distribution_metric_title]
     limit: 500
     column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: false
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    custom_color: "#7CB342"
     hidden_fields: []
     hidden_points_if_no: []
     series_labels: {}
@@ -242,16 +251,6 @@
     show_title_normalized.distribution_metric_title: false
     style_normalized.dynamic_metric_title: "#079c98"
     show_title_normalized.dynamic_metric_title: false
-    custom_color_enabled: true
-    custom_color: "#079c98"
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_y_axis_labels: true
@@ -278,15 +277,147 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
-    defaults_version: 0
+    defaults_version: 1
+    note_state: collapsed
+    note_display: hover
+    note_text: 'Explore Further: Modify Dashboard Filter to Display Diverse Metrics
+      📊 ⬆️'
     title_hidden: true
     listen:
       Origin: normalized.origin_filter
       Device: normalized.device_filter
       Distribution Metric Group: normalized.distribution_metric_selector
     row: 0
-    col: 15
-    width: 9
+    col: 16
+    width: 7
+    height: 2
+  - title: Month
+    name: Month
+    model: chrome-ux-block
+    explore: normalized
+    type: single_value
+    fields: [normalized.date_month, normalized.origin]
+    filters: {}
+    sorts: [normalized.date_month desc]
+    limit: 1
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    custom_color: "#079c98"
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    show_null_points: true
+    interpolation: linear
+    defaults_version: 1
+    show_row_numbers: true
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    header_text_alignment: left
+    header_font_size: 12
+    rows_font_size: 12
+    hidden_fields: [normalized.origin]
+    listen:
+      Origin: normalized.origin_filter
+      Device: normalized.device_filter
+      Distribution Metric Group: normalized.distribution_metric_selector
+    row: 2
+    col: 16
+    width: 7
+    height: 2
+  - title: Origin
+    name: Origin
+    model: chrome-ux-block
+    explore: normalized
+    type: single_value
+    fields: [normalized.date_month, normalized.origin]
+    filters: {}
+    sorts: [normalized.date_month desc]
+    limit: 1
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    custom_color: "#079c98"
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    show_null_points: true
+    interpolation: linear
+    defaults_version: 1
+    show_row_numbers: true
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    header_text_alignment: left
+    header_font_size: 12
+    rows_font_size: 12
+    hidden_fields: [normalized.date_month]
+    listen:
+      Origin: normalized.origin_filter
+      Device: normalized.device_filter
+      Distribution Metric Group: normalized.distribution_metric_selector
+    row: 2
+    col: 1
+    width: 15
     height: 2
   filters:
   - name: Distribution Metric Group

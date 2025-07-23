@@ -71,7 +71,7 @@ view: normalized {
   }
   fields_hidden_by_default: yes
 
-  filter: origin_filter {
+  parameter: origin_filter {
     group_label: "General Filters"
     hidden: no
     type: string
@@ -90,12 +90,6 @@ view: normalized {
     type: time
     sql: TIMESTAMP(${TABLE}.date) ;;
     timeframes: [month, date, month_name, year]
-  }
-
-  dimension: device {
-    type: string
-    hidden: no
-    sql: {{ normalized.device_filter | split:"," | sql_quote | join:"," }} ;;
   }
 
 #--- Dynamic Controls ------------------------------------------------------------------------
@@ -182,6 +176,14 @@ view: normalized {
       {% elsif dynamic_metric._parameter_value == 'ol' %} 'Onload (OL)'
       {% else %} 'Select a Metric'
       {% endif %} ;;
+    html: <div style="font-size: 15px; font-weight: bold;">{{ value }}</div> ;;
+    # hidden: no
+  }
+
+  dimension: origin {
+    type: string
+    sql: {{ origin_filter._parameter_value }} ;;
+    html: <p style="font-size: 16px;"><a href="{{ value }}" target="_blank" style="text-decoration: none;">{{ value }}</a></p>;;
     hidden: no
   }
 
@@ -197,7 +199,8 @@ view: normalized {
       {% elsif distribution_metric_selector._parameter_value == 'notification' %} 'Notification Permission Distribution'
       {% else %} 'Select a Distribution Group'
       {% endif %} ;;
-    hidden: no
+    html: <div style="font-size: 15px; font-weight: bold;">{{ value }}</div> ;;
+    # hidden: no
   }
 
   measure: dynamic_good_pct {
