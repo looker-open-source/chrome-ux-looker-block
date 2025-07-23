@@ -1,11 +1,11 @@
 ---
-- dashboard: core_web_metrics
-  title: Web Vitals
-  layout: newspaper
+- dashboard: metrics
+  title: Metrics
   extends: nav_bar
+  layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: 7GpEYRhv8faijIoiF2eXQM
+  preferred_slug: yUbtcS0OrEI5oIzwuv1Qag
   elements:
   - title: Scorecards
     name: Scorecards
@@ -16,7 +16,6 @@
       normalized.dynamic_p75, normalized.dynamic_p75_past_month, normalized.dynamic_poor_pct,
       normalized.dynamic_poor_pct_past_month]
     fill_fields: [normalized.date_month]
-    filters: {}
     sorts: [normalized.date_month desc]
     limit: 5
     column_limit: 50
@@ -145,7 +144,7 @@
       Core Web Vitals Metric Dynamic: normalized.dynamic_metric
       Device: normalized.device_filter
       Origin: normalized.origin_filter
-    row: 5
+    row: 6
     col: 1
     width: 22
     height: 3
@@ -155,7 +154,6 @@
     explore: device_summary
     type: single_value
     fields: [device_summary.origin, device_summary.date_month]
-    filters: {}
     sorts: [device_summary.date_month desc]
     limit: 1
     column_limit: 50
@@ -214,7 +212,7 @@
     listen:
       Device: device_summary.device
       Origin: device_summary.origin
-    row: 3
+    row: 4
     col: 15
     width: 8
     height: 2
@@ -224,7 +222,6 @@
     explore: device_summary
     type: single_value
     fields: [device_summary.origin, device_summary.date_month]
-    filters: {}
     sorts: [device_summary.date_month desc]
     limit: 1
     column_limit: 50
@@ -283,7 +280,7 @@
     listen:
       Device: device_summary.device
       Origin: device_summary.origin
-    row: 3
+    row: 4
     col: 1
     width: 13
     height: 2
@@ -294,7 +291,6 @@
     type: looker_bar
     fields: [normalized.date_month, normalized.date_month_name, normalized.date_year,
       normalized.dynamic_good_pct, normalized.dynamic_ni_pct, normalized.dynamic_poor_pct]
-    filters: {}
     sorts: [normalized.date_month desc]
     limit: 10
     column_limit: 50
@@ -413,10 +409,86 @@
       Device: normalized.device_filter
       Core Web Vitals Metric Dynamic: normalized.dynamic_metric
       Origin: normalized.origin_filter
-    row: 8
+    row: 9
     col: 1
     width: 22
     height: 10
+  - title: dynamic metric
+    name: dynamic metric
+    model: chrome-ux-block
+    explore: normalized
+    type: marketplace_viz_multiple_value::multiple_value-marketplace
+    fields: [normalized.dynamic_metric_title]
+    filters: {}
+    sorts: [normalized.dynamic_metric_title]
+    limit: 500
+    column_limit: 50
+    hidden_fields: []
+    hidden_points_if_no: []
+    series_labels: {}
+    show_view_names: false
+    font_size_main: '5'
+    orientation: auto
+    style_normalized.dynamic_metric_title: "#079c98"
+    show_title_normalized.dynamic_metric_title: false
+    title_placement_normalized.dynamic_metric_title: above
+    value_format_normalized.dynamic_metric_title: ''
+    custom_color_enabled: true
+    custom_color: "#079c98"
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 0
+    show_row_numbers: true
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    header_text_alignment: left
+    header_font_size: 12
+    rows_font_size: 12
+    title_hidden: true
+    listen:
+      Origin: normalized.origin_filter
+      Device: normalized.device_filter
+      Core Web Vitals Metric Dynamic: normalized.dynamic_metric
+    row: 0
+    col: 15
+    width: 9
+    height: 2
   filters:
   - name: Core Web Vitals Metric Dynamic
     title: Core Web Vitals Metric Dynamic

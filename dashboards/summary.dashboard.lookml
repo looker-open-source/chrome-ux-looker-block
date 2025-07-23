@@ -1,12 +1,25 @@
 ---
-- dashboard: core_web_vitals
-  title: Core Web Vitals
-  layout: newspaper
+- dashboard: summary
+  title: Summary
   extends: nav_bar
+  layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: XvVSPOsFZGtERQzhVVKVke
+  preferred_slug: jeutxaminGlXUL5lFVIx2q
   elements:
+  - name: ''
+    type: text
+    title_text: ''
+    body_text: |-
+      ## **Largest Contentful Paint (LCP)**
+
+      LCP reports the render time of the largest content element that is visible within the viewport.
+
+      <a href="https://web.dev/articles/lcp" target="_blank">web.dev/lcp</a>
+    row: 4
+    col: 1
+    width: 7
+    height: 6
   - title: Largest Contentful Paint (LCP)
     name: Largest Contentful Paint (LCP)
     model: chrome-ux-block
@@ -205,19 +218,6 @@
     row: 17
     col: 9
     width: 14
-    height: 6
-  - name: ''
-    type: text
-    title_text: ''
-    body_text: |-
-      ## **Largest Contentful Paint (LCP)**
-
-      LCP reports the render time of the largest content element that is visible within the viewport.
-
-      <a href="https://web.dev/articles/lcp" target="_blank">web.dev/lcp</a>
-    row: 4
-    col: 1
-    width: 7
     height: 6
   - name: " (2)"
     type: text

@@ -4,7 +4,7 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: XxiqQAaCBoIKOF0IYqbx6w
+  preferred_slug: XBb6eOh1oZuGRaMBusUQhB
   elements:
   - title: _
     name: _
@@ -72,9 +72,18 @@
     listen:
       Origin: navigation_bar.origin_filter
       Device: navigation_bar.device_filter
-    row: 0
+    row: 2
     col: 1
     width: 22
+    height: 2
+  - name: ''
+    type: text
+    title_text: ''
+    body_text: 'Explore Further: Modify Dashboard Filter to Display Diverse Metrics
+      📊 ⬆️'
+    row: 0
+    col: 2
+    width: 13
     height: 2
   filters:
   - name: Origin

@@ -101,7 +101,8 @@ view: normalized {
 #--- Dynamic Controls ------------------------------------------------------------------------
 
   parameter: dynamic_metric {
-    label: "Core Web Vitals Metric Dynamic"
+    group_label: "Dynamic Metric Controls"
+    label: "Core Web Metric Dynamic"
     type: unquoted
     hidden: no
     default_value: "lcp"
@@ -164,6 +165,40 @@ view: normalized {
   }
 
 #--- Dynamic Performance Metrics -------------------------------------------------------------
+
+  dimension: dynamic_metric_title {
+    group_label: "Dynamic Metric Controls"
+    label: "Selected Core Vital"
+    description: "Displays the full name of the Core Web Vital metric selected in the dynamic filter. Use this in single value visualizations for dashboard titles."
+    type: string
+    sql:
+      {% if dynamic_metric._parameter_value == 'lcp' %} 'Largest Contentful Paint (LCP)'
+      {% elsif dynamic_metric._parameter_value == 'inp' %} 'Interaction to Next Paint (INP)'
+      {% elsif dynamic_metric._parameter_value == 'cls' %} 'Cumulative Layout Shift (CLS)'
+      {% elsif dynamic_metric._parameter_value == 'fcp' %} 'First Contentful Paint (FCP)'
+      {% elsif dynamic_metric._parameter_value == 'ttfb' %} 'Time to First Byte (TTFB)'
+      {% elsif dynamic_metric._parameter_value == 'dcl' %} 'DOM Content Loaded (DCL)'
+      {% elsif dynamic_metric._parameter_value == 'fp' %} 'First Paint (FP)'
+      {% elsif dynamic_metric._parameter_value == 'ol' %} 'Onload (OL)'
+      {% else %} 'Select a Metric'
+      {% endif %} ;;
+    hidden: no
+  }
+
+  dimension: distribution_metric_title {
+    group_label: "Dynamic Metric Controls"
+    label: "Selected Distribution Group"
+    description: "Displays the full name of the Distribution Group selected in the dynamic filter. Use this in single value visualizations for dashboard titles."
+    type: string
+    sql:
+      {% if distribution_metric_selector._parameter_value == 'device' %} 'Device Distribution'
+      {% elsif distribution_metric_selector._parameter_value == 'navigation' %} 'Navigation Type Distribution'
+      {% elsif distribution_metric_selector._parameter_value == 'connection' %} 'Connection Distribution'
+      {% elsif distribution_metric_selector._parameter_value == 'notification' %} 'Notification Permission Distribution'
+      {% else %} 'Select a Distribution Group'
+      {% endif %} ;;
+    hidden: no
+  }
 
   measure: dynamic_good_pct {
     group_label: "Dynamic Performance Metrics"

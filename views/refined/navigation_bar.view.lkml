@@ -32,24 +32,24 @@ view: navigation_bar {
             {%- assign style_active_yellow = "display: inline-block; background-color: #fff4e5; color: #b96a00; padding: 8px 16px; font-weight: bold; border-radius: 20px; text-decoration: none; font-size: 16px; pointer-events: none; cursor: default;" -%}
 
 
-      {% if _explore._dashboard_url contains '::core_web_vitals' %}
-      <span style="{{ style_active_green }}">☰ Core Web Vitals</span>
+      {% if _explore._dashboard_url contains '::summary' %}
+      <span style="{{ style_active_green }}">☰ Summary </span>
       {% else %}
-      <a style="{{ style_inactive }}" href="/embed/dashboards/chrome-ux-block::core_web_vitals?Origin={{ _filters['origin_filter'] | url_encode }}&Device={{ _filters['device_filter'] | url_encode }}">☰ Core Web Vitals</a>
+      <a style="{{ style_inactive }}" href="/embed/dashboards/chrome-ux-block::summary?Origin={{ _filters['origin_filter'] | url_encode }}&Device={{ _filters['device_filter'] | url_encode }}">☰ Summary</a>
       {% endif %}
 
 
-      {% if _explore._dashboard_url contains '::core_web_metrics' %}
-      <span style="{{ style_active_green }}">Core Web Metrics</span>
+      {% if _explore._dashboard_url contains '::metrics' %}
+      <span style="{{ style_active_green }}">Metrics</span>
       {% else %}
-      <a style="{{ style_inactive }}" href="/embed/dashboards/chrome-ux-block::core_web_metrics?Origin={{ _filters['origin_filter'] | url_encode }}&Device={{ _filters['device_filter'] | url_encode }}">Core Web Metrics</a>
+      <a style="{{ style_inactive }}" href="/embed/dashboards/chrome-ux-block::metrics?Origin={{ _filters['origin_filter'] | url_encode }}&Device={{ _filters['device_filter'] | url_encode }}">Metrics</a>
       {% endif %}
 
 
       {% if _explore._dashboard_url contains '::distribution' %}
-      <span style="{{ style_active_yellow }}">Distribution</span>
+      <span style="{{ style_active_yellow }}">Distributions</span>
       {% else %}
-      <a style="{{ style_inactive }}" href="/embed/dashboards/chrome-ux-block::distribution?Origin={{ _filters['origin_filter'] | url_encode }}&Device={{ _filters['device_filter'] | url_encode }}">Distribution</a>
+      <a style="{{ style_inactive }}" href="/embed/dashboards/chrome-ux-block::distribution?Origin={{ _filters['origin_filter'] | url_encode }}&Device={{ _filters['device_filter'] | url_encode }}">Distributions</a>
       {% endif %}
 
       </div> ;;
