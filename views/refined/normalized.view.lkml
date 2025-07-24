@@ -65,6 +65,16 @@ view: normalized {
       WHERE
       {% condition origin_filter %} device_summary.origin {% endcondition %} AND
       {% condition device_filter %} device_summary.device {% endcondition %}
+
+      {% if normalized.date_month._is_filtered %}
+            AND date BETWEEN
+              DATE({% date_start normalized.date_month %})
+              AND COALESCE(DATE({% date_end normalized.date_month %}), CURRENT_DATE())
+          {% elsif normalized.date_year._is_filtered %}
+            AND date BETWEEN
+              DATE({% date_start normalized.date_year %})
+              AND COALESCE(DATE({% date_end normalized.date_year %}), CURRENT_DATE())
+          {% endif %}
       GROUP BY
       1
       ;;
