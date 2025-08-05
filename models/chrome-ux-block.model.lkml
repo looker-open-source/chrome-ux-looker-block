@@ -19,3 +19,5 @@ explore: navigation_bar {
 explore: normalized {
   hidden: yes
 }
+
+explore: country_normalized {}
