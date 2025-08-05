@@ -148,7 +148,7 @@
     col: 1
     width: 22
     height: 3
-  - title: By Month
+  - title: ''
     name: By Month
     model: chrome-ux-block
     explore: normalized

@@ -102,6 +102,17 @@ view: normalized {
     timeframes: [month, date, month_name, year]
   }
 
+  dimension: month {
+    hidden: no
+    type: date_month
+    sql: TIMESTAMP(${TABLE}.date) ;;
+    drill_fields: [dynamic_good_pct]
+    link: {
+      label: "By Country"
+      url: "/explore/chrome-ux-block/country_normalized?fields=country_normalized.country_code,country_normalized.dynamic_good_pct,country_normalized.dynamic_ni_pct,country_normalized.dynamic_poor_pct&f[country_normalized.date_month]={{ value | url_encode }}&f[country_normalized.device_filter]={{ _filters['normalized.device_filter'] | url_encode }}&f[country_normalized.origin_filter]={{ _filters['normalized.origin_filter'] | url_encode }}&f[country_normalized.dynamic_good_pct]=NOT+NULL&f[country_normalized.dynamic_metric]={{ _filters['normalized.dynamic_metric'] | url_encode }}&sorts=country_normalized.dynamic_good_pct+desc&limit=10&column_limit=50"
+    }
+  }
+
 #--- Dynamic Controls ------------------------------------------------------------------------
 
   parameter: dynamic_metric {
@@ -238,6 +249,12 @@ view: normalized {
       {% elsif dynamic_metric._parameter_value == "ol" %} ${normal_good_ol}
       {% else %} NULL {% endif %} ;;
     hidden: no
+
+    drill_fields: [dynamic_good_pct]
+    link: {
+      label: "By Country"
+      url: "/explore/chrome-ux-block/country_normalized?fields=country_normalized.country_code,country_normalized.dynamic_good_pct,country_normalized.dynamic_ni_pct,country_normalized.dynamic_poor_pct&f[country_normalized.date_month]={{ normalized.date_month._value | url_encode }}&f[country_normalized.device_filter]={{ _filters['normalized.device_filter'] | url_encode }}&f[country_normalized.origin_filter]={{ _filters['normalized.origin_filter'] | url_encode }}&f[country_normalized.dynamic_good_pct]=NOT+NULL&f[country_normalized.dynamic_metric]={{ _filters['normalized.dynamic_metric'] | url_encode }}&sorts=country_normalized.dynamic_good_pct+desc&limit=10&column_limit=50"
+    }
   }
 
   measure: dynamic_good_pct_past_month {
@@ -285,6 +302,13 @@ view: normalized {
       {% elsif dynamic_metric._parameter_value == "fp" %} ${normal_ni_fp}
       {% elsif dynamic_metric._parameter_value == "ol" %} ${normal_ni_ol}
       {% else %} NULL {% endif %} ;;
+
+    drill_fields: [dynamic_good_pct]
+    link: {
+      label: "By Country"
+      url: "/explore/chrome-ux-block/country_normalized?fields=country_normalized.country_code,country_normalized.dynamic_good_pct,country_normalized.dynamic_ni_pct,country_normalized.dynamic_poor_pct&f[country_normalized.date_month]={{ normalized.date_month._value | url_encode }}&f[country_normalized.device_filter]={{ _filters['normalized.device_filter'] | url_encode }}&f[country_normalized.origin_filter]={{ _filters['normalized.origin_filter'] | url_encode }}&f[country_normalized.dynamic_good_pct]=NOT+NULL&f[country_normalized.dynamic_metric]={{ _filters['normalized.dynamic_metric'] | url_encode }}&sorts=country_normalized.dynamic_good_pct+desc&limit=10&column_limit=50"
+    }
+
     hidden: no
   }
 
@@ -333,6 +357,12 @@ view: normalized {
       {% elsif dynamic_metric._parameter_value == "fp" %} ${normal_poor_fp}
       {% elsif dynamic_metric._parameter_value == "ol" %} ${normal_poor_ol}
       {% else %} NULL {% endif %} ;;
+
+    drill_fields: [dynamic_good_pct]
+    link: {
+      label: "By Country"
+      url: "/explore/chrome-ux-block/country_normalized?fields=country_normalized.country_code,country_normalized.dynamic_good_pct,country_normalized.dynamic_ni_pct,country_normalized.dynamic_poor_pct&f[country_normalized.date_month]={{ normalized.date_month._value | url_encode }}&f[country_normalized.device_filter]={{ _filters['normalized.device_filter'] | url_encode }}&f[country_normalized.origin_filter]={{ _filters['normalized.origin_filter'] | url_encode }}&f[country_normalized.dynamic_good_pct]=NOT+NULL&f[country_normalized.dynamic_metric]={{ _filters['normalized.dynamic_metric'] | url_encode }}&sorts=country_normalized.dynamic_good_pct+desc&limit=10&column_limit=50"
+    }
     hidden: no
   }
 
