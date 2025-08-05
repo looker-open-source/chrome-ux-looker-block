@@ -102,17 +102,6 @@ view: normalized {
     timeframes: [month, date, month_name, year]
   }
 
-  dimension: month {
-    hidden: no
-    type: date_month
-    sql: TIMESTAMP(${TABLE}.date) ;;
-    drill_fields: [dynamic_good_pct]
-    link: {
-      label: "By Country"
-      url: "/explore/chrome-ux-block/country_normalized?fields=country_normalized.country_code,country_normalized.dynamic_good_pct,country_normalized.dynamic_ni_pct,country_normalized.dynamic_poor_pct&f[country_normalized.date_month]={{ value | url_encode }}&f[country_normalized.device_filter]={{ _filters['normalized.device_filter'] | url_encode }}&f[country_normalized.origin_filter]={{ _filters['normalized.origin_filter'] | url_encode }}&f[country_normalized.dynamic_good_pct]=NOT+NULL&f[country_normalized.dynamic_metric]={{ _filters['normalized.dynamic_metric'] | url_encode }}&sorts=country_normalized.dynamic_good_pct+desc&limit=10&column_limit=50"
-    }
-  }
-
 #--- Dynamic Controls ------------------------------------------------------------------------
 
   parameter: dynamic_metric {
@@ -454,6 +443,12 @@ view: normalized {
       {% elsif distribution_metric_selector._parameter_value == 'connection' %} ${normal_4g_density}
       {% elsif distribution_metric_selector._parameter_value == 'notification' %} ${normal_notification_accept}
       {% else %} ${normal_phone_density} {% endif %} ;;
+
+    drill_fields: [dynamic_metric_1]
+    link: {
+      label: "By Country"
+      url: "/explore/chrome-ux-block/country_normalized?fields=country_normalized.country_code,country_normalized.dynamic_metric_1,country_normalized.dynamic_metric_2,country_normalized.dynamic_metric_3&f[country_normalized.date_month]={{ normalized.date_month._value | url_encode }}&f[country_normalized.device_filter]={{ _filters['normalized.device_filter'] | url_encode }}&f[country_normalized.origin_filter]={{ _filters['normalized.origin_filter'] | url_encode }}&f[country_normalized.dynamic_metric_1]=NOT+NULL&f[country_normalized.distribution_metric_selector]={{ _filters['normalized.distribution_metric_selector'] | url_encode }}&sorts=country_normalized.dynamic_metric_1+desc&limit=10&column_limit=50"
+    }
     hidden: no
   }
 
@@ -490,6 +485,12 @@ view: normalized {
       {% elsif distribution_metric_selector._parameter_value == 'connection' %} ${normal_3g_density}
       {% elsif distribution_metric_selector._parameter_value == 'notification' %} ${normal_notification_deny}
       {% else %} ${normal_desktop_density} {% endif %} ;;
+
+    drill_fields: [dynamic_metric_1]
+    link: {
+      label: "By Country"
+      url: "/explore/chrome-ux-block/country_normalized?fields=country_normalized.country_code,country_normalized.dynamic_metric_1,country_normalized.dynamic_metric_2,country_normalized.dynamic_metric_3&f[country_normalized.date_month]={{ normalized.date_month._value | url_encode }}&f[country_normalized.device_filter]={{ _filters['normalized.device_filter'] | url_encode }}&f[country_normalized.origin_filter]={{ _filters['normalized.origin_filter'] | url_encode }}&f[country_normalized.dynamic_metric_1]=NOT+NULL&f[country_normalized.distribution_metric_selector]={{ _filters['normalized.distribution_metric_selector'] | url_encode }}&sorts=country_normalized.dynamic_metric_1+desc&limit=10&column_limit=50"
+    }
     hidden: no
   }
 
@@ -526,6 +527,12 @@ view: normalized {
       {% elsif distribution_metric_selector._parameter_value == 'connection' %} ${normal_2g_density}
       {% elsif distribution_metric_selector._parameter_value == 'notification' %} ${normal_notification_dismiss}
       {% else %} ${normal_tablet_density} {% endif %} ;;
+
+    drill_fields: [dynamic_metric_1]
+    link: {
+      label: "By Country"
+      url: "/explore/chrome-ux-block/country_normalized?fields=country_normalized.country_code,country_normalized.dynamic_metric_1,country_normalized.dynamic_metric_2,country_normalized.dynamic_metric_3&f[country_normalized.date_month]={{ normalized.date_month._value | url_encode }}&f[country_normalized.device_filter]={{ _filters['normalized.device_filter'] | url_encode }}&f[country_normalized.origin_filter]={{ _filters['normalized.origin_filter'] | url_encode }}&f[country_normalized.dynamic_metric_1]=NOT+NULL&f[country_normalized.distribution_metric_selector]={{ _filters['normalized.distribution_metric_selector'] | url_encode }}&sorts=country_normalized.dynamic_metric_1+desc&limit=10&column_limit=50"
+    }
     hidden: no
   }
 
