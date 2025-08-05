@@ -87,3 +87,17 @@ The LookML for this project has been designed to provide a flexible and powerful
 The file structure of this block is organized to facilitate navigation and extensibility.
 
 * `device_summary.view`: This is the primary base view where most CrUX dimensions and measures are defined. The `parameter: dynamic_metric` and the `period_over_period` measure definitions are also located here.
+
+### Dashboards
+
+* Summary Dashboard
+  Provides a high-level summary of the main Core Web Vitals (LCP, INP, CLS), segmented by device type. It's ideal for a quick check of your site's overall health.
+
+* Metrics Dashboard
+  Allows for a deep-dive analysis of any web performance metric. Use its dynamic filter to view month-over-month comparisons and historical trends.
+
+* Distributions Dashboard
+  Analyzes the composition of your user base. Use its dynamic filter to explore user context, such as their device, connection type, or navigation method.
+
+* Navbar (Common Elements)
+  A foundational element that contains the global filters (Origin and Device) and the navigation bar, which are shared across all other dashboards for a consistent experience.
