@@ -35,6 +35,30 @@ The main categories of metrics you will find are:
   * Onload (OL): Measures the time until the page is fully loaded.
   * Time to First Byte (TTFB): Measures the time it takes for the network to respond to a navigation request.
 
+* Distribution Metrics: A set of metrics that provide context about the user's environment and how they interact with the site.
+
+  * Device Distribution: Breaks down user traffic by the type of device.
+    * Desktop: Experiences on a desktop or laptop computer.
+    * Phone: Experiences on a mobile phone.
+    * Tablet: Experiences on a tablet device.
+  * Effective Connection Type: Categorizes user experiences based on the effective network connection speed during their visit.
+    * 4G: Represents fast connections, equivalent to 4G speeds or better.
+    * 3G: Represents connections with average speed.
+    * 2G: Represents slow connections.
+    * Slow 2G: Represents very slow connections, often resulting in poor performance.
+    * Offline: Represents experiences where the user had no network connection.
+  * Navigation Type: Details how users arrived at a page, which can significantly impact performance metrics.
+    * Navigate: A standard navigation, such as clicking a link, using a bookmark, or typing a URL in the address bar.
+    * Back/Forward: Navigation using the browser's back or forward buttons. Many of these are served instantly from the browser's back/forward cache (bfcache), resulting in extremely fast load times.
+    * Reload: The user reloaded the page.
+    * Prerender: The page was loaded in the background before the user navigated to it, providing a near-instant experience.
+    * Restore: The page was restored from a previous session, for example, when reopening the browser.
+  * Notification Permissions: Tracks how users interact with web push notification permission prompts.
+    * Accepted: The user clicked "Allow" on the permission prompt.
+    * Denied: The user explicitly clicked "Block."
+    * Dismissed: The user closed the prompt without making a choice (e.g., clicked the 'X').
+    * Ignored: The user did not interact with the prompt, and it was automatically dismissed due to another action or timeout.
+
 For each of these metrics, CrUX data provides density histograms which are translated into three main categories:
 
 * Good (%): The percentage of user experiences that fall within the "Good" range.
